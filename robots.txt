@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /blog*.html
+Allow: /*.html
+Allow: /sitemap.xml
+Disallow: /admin/
+Disallow: /private/
+Disallow: /?*
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+Sitemap: https://www.hephzibahmedia.com/sitemap.xml
