@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Subscribe – Hephzibah Media Newsletter</title>
+  <meta name="description" content="Get weekly digital marketing tips, industry insights, and exclusive offers delivered to your inbox.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0A0F2C; --navy-mid:#111A45; --gold:#C9A84C; --gold-lt:#E2C07A; --cream:#FAF6ED; --white:#FFFFFF; --grey:#8A8FA8; --success:#22C55E; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'DM Sans',sans-serif; }
+    body { background:var(--navy); color:var(--cream); font-family:var(--font-body); min-height:100vh; display:flex; align-items:center; justify-content:center; }
+    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; opacity:0.6; }
+    .subscribe-container { width:100%; max-width:600px; padding:2rem; position:relative; z-index:1; }
+    .subscribe-box { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.2); border-radius:16px; padding:3rem; text-align:center; }
+    .badge { display:inline-block; background:rgba(201,168,76,0.15); color:var(--gold); padding:0.4rem 1rem; border-radius:20px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1.5rem; }
+    h1 { font-family:var(--font-display); font-size:2.5rem; color:var(--white); margin-bottom:1rem; }
+    h1 em { color:var(--gold-lt); font-style:italic; }
+    .subscribe-box > p { color:var(--grey); margin-bottom:2rem; line-height:1.8; }
+    .benefits { display:flex; justify-content:center; gap:2rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .benefit { display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; color:var(--cream); }
+    .benefit span { color:var(--success); font-size:1.2rem; }
+    .form-group { display:flex; gap:0.8rem; margin-bottom:1rem; }
+    .form-group input { flex:1; padding:1rem; background:var(--navy); border:1px solid rgba(201,168,76,0.2); border-radius:8px; color:var(--cream); font-size:1rem; }
+    .form-group input:focus { outline:none; border-color:var(--gold); }
+    .subscribe-btn { flex:1; padding:1rem; background:var(--gold); color:var(--navy); font-weight:700; font-size:1rem; text-transform:uppercase; letter-spacing:0.08em; border:none; border-radius:8px; cursor:pointer; transition:all 0.3s; }
+    .subscribe-btn:hover { background:var(--gold-lt); }
+    .privacy { font-size:0.75rem; color:var(--grey); margin-top:1rem; }
+    .privacy a { color:var(--gold); }
+    .success-msg { display:none; background:rgba(34,197,94,0.15); border:1px solid rgba(34,197,94,0.3); color:var(--success); padding:1rem; border-radius:8px; margin-top:1rem; }
+    .back-link { display:inline-block; margin-top:2rem; font-size:0.85rem; color:var(--grey); text-decoration:none; }
+    .back-link:hover { color:var(--gold-lt); }
+    @media(max-width:600px) { .form-group{flex-direction:column;} .benefits{gap:1rem;} }
+  </style>
+</head>
+<body>
+  <div class="subscribe-container">
+    <div class="subscribe-box">
+      <span class="badge">📧 Weekly Newsletter</span>
+      <h1>Get <em>Insider</em> Tips</h1>
+      <p>Join 2,500+ Nigerian business owners who receive our weekly digest on digital marketing, SEO secrets, and growth strategies that actually work.</p>
+      
+      <div class="benefits">
+        <div class="benefit"><span>✓</span> No spam, ever</div>
+        <div class="benefit"><span>✓</span> Unsubscribe anytime</div>
+        <div class="benefit"><span>✓</span> Free exclusive guides</div>
+      </div>
+
+      <div class="success-msg" id="successMsg">🎉 You're in! Check your inbox to confirm your subscription.</div>
+
+      <form id="subscribeForm">
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Your First Name" required>
+          <input type="email" id="email" placeholder="Your Email Address" required>
+        </div>
+        <button type="submit" class="subscribe-btn">Subscribe Now</button>
+      </form>
+
+      <p class="privacy">We respect your privacy. Read our <a href="#">Privacy Policy</a>.</p>
+      <a href="index.html" class="back-link">← Back to Website</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      
+      let subscribers = JSON.parse(localStorage.getItem('newsletter_subs') || '[]');
+      subscribers.push({ name: name, email: email, date: new Date().toISOString() });
+      localStorage.setItem('newsletter_subs', JSON.stringify(subscribers));
+      
+      document.getElementById('subscribeForm').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

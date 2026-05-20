@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Social Media Content Calendar – Plan Your Posts</title>
+  <meta name="description" content="Generate a 30-day content calendar for your Nigerian business. Perfect for Instagram, Facebook, and WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0A0F2C; --navy-mid:#111A45; --gold:#C9A84C; --gold-lt:#E2C07A; --cream:#FAF6ED; --white:#FFFFFF; --grey:#8A8FA8; --success:#22C55E; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'DM Sans',sans-serif; }
+    body { background:var(--navy); color:var(--cream); font-family:var(--font-body); font-size:16px; line-height:1.7; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; opacity:0.6; }
+    .container { max-width:1000px; margin:0 auto; padding:8rem 5% 4rem; position:relative; z-index:1; }
+    h1 { font-family:var(--font-display); font-size:2.5rem; color:var(--white); text-align:center; margin-bottom:0.5rem; }
+    h1 em { color:var(--gold-lt); font-style:italic; }
+    .subtitle { text-align:center; color:var(--grey); margin-bottom:2rem; }
+    .tool-box { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.2); border-radius:16px; padding:2rem; margin-bottom:2rem; }
+    .input-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .input-group { margin-bottom:1rem; }
+    .input-group label { display:block; font-size:0.75rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.4rem; }
+    .input-group input, .input-group select { width:100%; padding:0.9rem; background:var(--navy); border:1px solid rgba(201,168,76,0.2); border-radius:8px; color:var(--cream); }
+    .generate-btn { width:100%; padding:1rem; background:var(--gold); color:var(--navy); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; border:none; border-radius:8px; cursor:pointer; }
+    .calendar-display { display:none; }
+    .calendar-display.show { display:block; }
+    .week-row { display:grid; grid-template-columns:repeat(7,1fr); gap:0.5rem; margin-bottom:1rem; }
+    .day-card { background:var(--navy); border:1px solid rgba(201,168,76,0.1); border-radius:8px; padding:0.8rem; min-height:120px; }
+    .day-header { font-size:0.7rem; color:var(--gold); text-transform:uppercase; margin-bottom:0.5rem; }
+    .day-type { font-size:0.65rem; padding:0.2rem 0.5rem; border-radius:4px; margin-bottom:0.5rem; display:inline-block; }
+    .day-type.educational { background:rgba(59,130,246,0.2); color:#60A5FA; }
+    .day-type.promotional { background:rgba(239,68,68,0.2); color:#F87171; }
+    .day-type.engagement { background:rgba(34,197,94,0.2); color:var(--success); }
+    .day-type.content { background:rgba(201,168,76,0.2); color:var(--gold-lt); }
+    .day-content { font-size:0.75rem; color:var(--cream); line-height:1.4; }
+    .download-btn { display:block; text-align:center; background:var(--gold); color:var(--navy); padding:1rem; border-radius:8px; text-decoration:none; font-weight:600; margin-top:2rem; cursor:pointer; }
+    .tips { background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.2); padding:1rem; border-radius:8px; margin-top:1.5rem; font-size:0.85rem; color:var(--success); }
+    footer { text-align:center; padding:2rem; font-size:0.8rem; color:var(--grey); }
+    @media(max-width:768px) { .input-row{grid-template-columns:1fr;} .week-row{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Content <em>Calendar</em></h1>
+    <p class="subtitle">Generate a 30-day content plan for your business</p>
+
+    <div class="tool-box">
+      <form id="calendarForm">
+        <div class="input-row">
+          <div class="input-group">
+            <label>Platform</label>
+            <select id="platform">
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="whatsapp">WhatsApp Status</option>
+              <option value="linkedin">LinkedIn</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Industry</label>
+            <select id="industry">
+              <option value="ecommerce">E-commerce/Retail</option>
+              <option value="service">Services</option>
+              <option value="education">Education</option>
+              <option value="health">Health & Fitness</option>
+              <option value="food">Food & Restaurant</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Posts Per Week</label>
+            <select id="frequency">
+              <option value="3">3 Posts</option>
+              <option value="5" selected>5 Posts</option>
+              <option value="7">Daily</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="generate-btn">Generate Calendar</button>
+      </form>
+
+      <div class="calendar-display" id="calendarDisplay">
+        <h3 style="color:var(--white);margin-bottom:1.5rem;">📅 Week 1 Content Plan</h3>
+        <div id="calendarGrid"></div>
+        <div class="tips">💡 Pro Tip: Post at 8am for Lagos, 9am for Abuja. Use WhatsApp for real-time engagement.</div>
+        <a class="download-btn" onclick="downloadCalendar()">Download Calendar as Text</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Hephzibah Media. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const contentTypes = {
+      educational: { label: 'Educational', class: 'educational', ideas: ['Share tips', 'How-to guide', 'Answer FAQs', 'Myth busting'] },
+      promotional: { label: 'Promotional', class: 'promotional', ideas: ['Product feature', 'Limited offer', 'New arrival', 'Discount alert'] },
+      engagement: { label: 'Engagement', class: 'engagement', ideas: ['Poll/Quiz', 'Question of day', 'Comment prompt', 'Story interaction'] },
+      content: { label: 'Content', class: 'content', ideas: ['Behind scenes', 'Customer story', 'Team highlight', 'Day in life'] }
+    };
+
+    const industryContent = {
+      ecommerce: { educational: ['Shopping tips', 'Product care'], promotional: ['Flash sale', 'New arrivals'], engagement: ['Poll: Blue or Red?', 'Tag a friend'], content: ['Warehouse tour', 'Unboxing video'] },
+      service: { educational: ['Industry tips', 'How we work'], promotional: ['Service highlight', 'Special offer'], engagement: ['Q&A session', 'Case study poll'], content: ['Team intro', 'Client testimonial'] },
+      education: { educational: ['Study tips', 'Course preview'], promotional: ['Enrollment open', 'Discount'], engagement: ['Quiz', 'Study challenge'], content: ['Student success', 'Behind class'] },
+      health: { educational: ['Health tips', 'Exercise guide'], promotional: ['Promo packages', 'New service'], engagement: ['Fitness poll', 'Challenge'], content: ['Transformation', 'Workout video'] },
+      food: { educational: ['Recipe sharing', 'Food facts'], promotional: ['Daily special', 'Combo deal'], engagement: ['Vote: Jollof or Fried', 'Comment order'], content: ['Chef special', 'Kitchen tour'] }
+    };
+
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+    let generatedCalendar = [];
+
+    document.getElementById('calendarForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const platform = document.getElementById('platform').value;
+      const industry = document.getElementById('industry').value;
+      const frequency = parseInt(document.getElementById('frequency').value);
+      
+      const types = ['educational', 'promotional', 'engagement', 'content'];
+      generatedCalendar = [];
+      
+      let typeIndex = 0;
+      for (let day = 0; day < 7; day++) {
+        if (day < frequency) {
+          const type = types[typeIndex % types.length];
+          const typeData = contentTypes[type];
+          const industryData = industryContent[industry][type];
+          const content = industryData[Math.floor(Math.random() * industryData.length)];
+          
+          generatedCalendar.push({
+            day: days[day],
+            type: type,
+            typeLabel: typeData.label,
+            typeClass: typeData.class,
+            content: content
+          });
+          typeIndex++;
+        } else {
+          generatedCalendar.push({ day: days[day], type: 'rest', typeLabel: 'Rest', typeClass: '', content: 'Take a break or post Stories only' });
+        }
+      }
+      
+      const grid = document.getElementById('calendarGrid');
+      grid.innerHTML = '<div class="week-row">' + generatedCalendar.map(function(d) {
+        return '<div class="day-card"><div class="day-header">' + d.day + '</div><span class="day-type ' + d.typeClass + '">' + d.typeLabel + '</span><p class="day-content">' + d.content + '</p></div>';
+      }).join('') + '</div>';
+      
+      document.getElementById('calendarDisplay').classList.add('show');
+    });
+
+    function downloadCalendar() {
+      let text = '📅 CONTENT CALENDAR - WEEK 1\n\n';
+      generatedCalendar.forEach(function(d) {
+        text += d.day + ': ' + d.typeLabel + ' - ' + d.content + '\n';
+      });
+      text += '\n💡 Tip: Post at 8am Lagos / 9am Abuja';
+      
+      const blob = new Blob([text], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'content-calendar.txt';
+      a.click();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Client Dashboard – Hephzibah Media</title>
+  <meta name="description" content="Track your project progress, view deliverables, and communicate with our team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0A0F2C; --navy-mid:#111A45; --navy-lt:#1C2A5E; --gold:#C9A84C; --gold-lt:#E2C07A; --cream:#FAF6ED; --white:#FFFFFF; --grey:#8A8FA8; --success:#22C55E; --warning:#F59E0B; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'DM Sans',sans-serif; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--navy); color:var(--cream); font-family:var(--font-body); }
+    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; opacity:0.6; }
+    
+    .dashboard-header { background:var(--navy-mid); border-bottom:1px solid rgba(201,168,76,0.15); padding:1.2rem 3%; display:flex; justify-content:space-between; align-items:center; position:relative; z-index:1; }
+    .logo { font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--white); }
+    .logo span { color:var(--gold); }
+    .header-right { display:flex; align-items:center; gap:1.5rem; }
+    .client-info { text-align:right; }
+    .client-name { font-size:0.95rem; color:var(--white); font-weight:600; }
+    .client-project { font-size:0.75rem; color:var(--grey); }
+    .logout-btn { background:transparent; border:1px solid var(--gold); color:var(--gold); padding:0.5rem 1.2rem; border-radius:4px; font-size:0.8rem; cursor:pointer; transition:all 0.3s; }
+    .logout-btn:hover { background:var(--gold); color:var(--navy); }
+
+    .dashboard-container { max-width:1200px; margin:0 auto; padding:2rem 3%; position:relative; z-index:1; }
+    .welcome-banner { background:linear-gradient(135deg,var(--navy-mid),var(--navy-lt)); border:1px solid rgba(201,168,76,0.2); border-radius:12px; padding:2rem; margin-bottom:2rem; }
+    .welcome-banner h1 { font-family:var(--font-display); font-size:1.8rem; color:var(--white); margin-bottom:0.5rem; }
+    .welcome-banner p { color:var(--grey); font-size:0.95rem; }
+
+    .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; margin-bottom:2rem; }
+    .stat-card { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.15); border-radius:10px; padding:1.5rem; text-align:center; }
+    .stat-value { font-family:var(--font-display); font-size:2.2rem; font-weight:700; color:var(--gold); }
+    .stat-label { font-size:0.75rem; color:var(--grey); text-transform:uppercase; letter-spacing:0.1em; margin-top:0.3rem; }
+
+    .dashboard-grid { display:grid; grid-template-columns:2fr 1fr; gap:2rem; }
+    .card { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.15); border-radius:12px; padding:1.5rem; }
+    .card h3 { font-family:var(--font-display); font-size:1.2rem; color:var(--white); margin-bottom:1rem; padding-bottom:0.8rem; border-bottom:1px solid rgba(201,168,76,0.1); }
+
+    .task-item { display:flex; align-items:center; gap:1rem; padding:1rem 0; border-bottom:1px solid rgba(201,168,76,0.08); }
+    .task-item:last-child { border-bottom:none; }
+    .task-status { width:12px; height:12px; border-radius:50%; flex-shrink:0; }
+    .task-status.completed { background:var(--success); }
+    .task-status.in-progress { background:var(--warning); }
+    .task-status.pending { background:var(--grey); }
+    .task-info { flex:1; }
+    .task-title { font-size:0.9rem; color:var(--white); margin-bottom:0.2rem; }
+    .task-date { font-size:0.75rem; color:var(--grey); }
+    .task-badge { font-size:0.65rem; padding:0.3rem 0.6rem; border-radius:4px; text-transform:uppercase; letter-spacing:0.05em; }
+    .task-badge.done { background:rgba(34,197,94,0.2); color:var(--success); }
+    .task-badge.active { background:rgba(245,158,11,0.2); color:var(--warning); }
+    .task-badge.wait { background:rgba(138,143,168,0.2); color:var(--grey); }
+
+    .file-item { display:flex; align-items:center; gap:1rem; padding:0.8rem 0; border-bottom:1px solid rgba(201,168,76,0.08); }
+    .file-item:last-child { border-bottom:none; }
+    .file-icon { width:40px; height:40px; background:rgba(201,168,76,0.15); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+    .file-info { flex:1; }
+    .file-name { font-size:0.85rem; color:var(--white); }
+    .file-meta { font-size:0.7rem; color:var(--grey); }
+    .file-download { color:var(--gold); font-size:0.8rem; text-decoration:none; }
+
+    .message-box { background:var(--navy); border-radius:8px; padding:1rem; }
+    .message-box textarea { width:100%; background:transparent; border:none; color:var(--cream); font-family:var(--font-body); font-size:0.9rem; resize:none; height:80px; }
+    .message-box textarea:focus { outline:none; }
+    .send-btn { background:var(--gold); color:var(--navy); border:none; padding:0.6rem 1.5rem; border-radius:6px; font-weight:600; font-size:0.85rem; cursor:pointer; margin-top:0.8rem; }
+    .send-btn:hover { background:var(--gold-lt); }
+
+    .timeline { position:relative; padding-left:2rem; }
+    .timeline::before { content:''; position:absolute; left:6px; top:0; bottom:0; width:2px; background:rgba(201,168,76,0.2); }
+    .timeline-item { position:relative; padding-bottom:1.5rem; }
+    .timeline-item::before { content:''; position:absolute; left:-2rem; top:4px; width:14px; height:14px; border-radius:50%; background:var(--gold); border:3px solid var(--navy); }
+    .timeline-date { font-size:0.7rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.3rem; }
+    .timeline-text { font-size:0.85rem; color:var(--cream); }
+
+    .not-authorized { text-align:center; padding:4rem; }
+    .not-authorized h2 { font-family:var(--font-display); color:var(--white); margin-bottom:1rem; }
+    .not-authorized a { color:var(--gold); }
+
+    @media(max-width:900px) { .dashboard-grid{grid-template-columns:1fr;} .header-right{gap:1rem;} .client-info{display:none;} }
+  </style>
+</head>
+<body>
+  <script>
+    const clientEmail = sessionStorage.getItem('clientEmail');
+    const clientName = sessionStorage.getItem('clientName');
+    const clientProject = sessionStorage.getItem('clientProject');
+    
+    if (!clientEmail) {
+      document.body.innerHTML = '<div class="not-authorized"><h2>Access Denied</h2><p>Please <a href="login.html">login</a> to view your dashboard.</p></div>';
+    }
+  </script>
+
+  <header class="dashboard-header">
+    <div class="logo">Hephzibah <span>Media</span></div>
+    <div class="header-right">
+      <div class="client-info">
+        <div class="client-name" id="clientNameDisplay"></div>
+        <div class="client-project" id="clientProjectDisplay"></div>
+      </div>
+      <button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <div class="welcome-banner">
+      <h1>Welcome back, <span id="welcomeName"></span></h1>
+      <p>Here's your project overview and latest updates.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">75%</div>
+        <div class="stat-label">Project Complete</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Deliverables Done</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">2</div>
+        <div class="stat-label">Pending Tasks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Revision Left</div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div>
+        <div class="card" style="margin-bottom:2rem;">
+          <h3>📋 Project Tasks</h3>
+          <div class="task-item">
+            <div class="task-status completed"></div>
+            <div class="task-info">
+              <div class="task-title">Website Design Approved</div>
+              <div class="task-date">Completed on May 10, 2026</div>
+            </div>
+            <span class="task-badge done">Done</span>
+          </div>
+          <div class="task-item">
+            <div class="task-status completed"></div>
+            <div class="task-info">
+              <div class="task-title">Homepage Development</div>
+              <div class="task-date">Completed on May 15, 2026</div>
+            </div>
+            <span class="task-badge done">Done</span>
+          </div>
+          <div class="task-item">
+            <div class="task-status completed"></div>
+            <div class="task-info">
+              <div class="task-title">Content Migration</div>
+              <div class="task-date">Completed on May 17, 2026</div>
+            </div>
+            <span class="task-badge done">Done</span>
+          </div>
+          <div class="task-item">
+            <div class="task-status in-progress"></div>
+            <div class="task-info">
+              <div class="task-title">Mobile Optimization</div>
+              <div class="task-date">Due May 22, 2026</div>
+            </div>
+            <span class="task-badge active">In Progress</span>
+          </div>
+          <div class="task-item">
+            <div class="task-status pending"></div>
+            <div class="task-info">
+              <div class="task-title">SEO Setup & Analytics</div>
+              <div class="task-date">Due May 28, 2026</div>
+            </div>
+            <span class="task-badge wait">Pending</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📁 Recent Deliverables</h3>
+          <div class="file-item">
+            <div class="file-icon">📄</div>
+            <div class="file-info">
+              <div class="file-name">Homepage_v2.fig</div>
+              <div class="file-meta">Figma • 2.4 MB • May 15</div>
+            </div>
+            <a href="#" class="file-download">↓</a>
+          </div>
+          <div class="file-item">
+            <div class="file-icon">🖼</div>
+            <div class="file-info">
+              <div class="file-name">Brand_Assets.zip</div>
+              <div class="file-meta">ZIP • 15.8 MB • May 12</div>
+            </div>
+            <a href="#" class="file-download">↓</a>
+          </div>
+          <div class="file-item">
+            <div class="file-icon">📄</div>
+            <div class="file-info">
+              <div class="file-name">Project_Proposal.pdf</div>
+              <div class="file-meta">PDF • 1.2 MB • May 5</div>
+            </div>
+            <a href="#" class="file-download">↓</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom:2rem;">
+          <h3>💬 Send Message</h3>
+          <div class="message-box">
+            <textarea placeholder="Type your message to the project team..."></textarea>
+            <button class="send-btn" onclick="alert('Message sent! We\'ll respond within 24 hours.')">Send Message</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📅 Project Timeline</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">May 28, 2026</div>
+              <div class="timeline-text">Final delivery & launch</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">May 22, 2026</div>
+              <div class="timeline-text">Mobile optimization complete</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">May 15, 2026</div>
+              <div class="timeline-text">Development phase complete</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">May 1, 2026</div>
+              <div class="timeline-text">Design approval received</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('clientNameDisplay').textContent = clientName;
+    document.getElementById('clientProjectDisplay').textContent = clientProject;
+    document.getElementById('welcomeName').textContent = clientName;
+  </script>
+</body>
+</html>

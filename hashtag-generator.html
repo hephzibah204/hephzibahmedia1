@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Hashtag Generator – Social Media | Hephzibah Media</title>
+  <meta name="description" content="Generate relevant hashtags for your Nigerian business. Boost your social media reach with targeted tags.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0A0F2C; --navy-mid:#111A45; --gold:#C9A84C; --gold-lt:#E2C07A; --cream:#FAF6ED; --white:#FFFFFF; --grey:#8A8FA8; --success:#22C55E; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'DM Sans',sans-serif; }
+    body { background:var(--navy); color:var(--cream); font-family:var(--font-body); font-size:16px; overflow:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; opacity:0.6; }
+    .container { max-width:800px; margin:0 auto; padding:8rem 5% 4rem; position:relative; z-index:1; }
+    .logo { font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--white); text-align:center; margin-bottom:2rem; }
+    .logo span { color:var(--gold); }
+    h1 { font-family:var(--font-display); font-size:2.5rem; color:var(--white); text-align:center; margin-bottom:0.5rem; }
+    h1 em { color:var(--gold-lt); font-style:italic; }
+    .subtitle { text-align:center; color:var(--grey); margin-bottom:2rem; }
+    .tool-box { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.2); border-radius:16px; padding:2rem; }
+    .input-group { margin-bottom:1.5rem; }
+    .input-group label { display:block; font-size:0.75rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem; }
+    .input-group input, .input-group select { width:100%; padding:1rem; background:var(--navy); border:1px solid rgba(201,168,76,0.2); border-radius:8px; color:var(--cream); font-size:1rem; }
+    .generate-btn { width:100%; padding:1rem; background:var(--gold); color:var(--navy); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; border:none; border-radius:8px; cursor:pointer; }
+    .generate-btn:hover { background:var(--gold-lt); }
+    .results { margin-top:2rem; display:none; }
+    .results.show { display:block; }
+    .results h3 { color:var(--white); font-size:1rem; margin-bottom:1rem; }
+    .hashtag-box { background:var(--navy); border-radius:12px; padding:1.5rem; margin-bottom:1rem; }
+    .hashtags { font-size:0.95rem; color:var(--cream); line-height:2; word-wrap:break-word; }
+    .copy-btn { background:rgba(201,168,76,0.15); border:1px solid var(--gold); color:var(--gold); padding:0.8rem 2rem; border-radius:6px; cursor:pointer; font-size:0.9rem; }
+    .copy-btn:hover { background:var(--gold); color:var(--navy); }
+    .tip { background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.2); padding:1rem; border-radius:8px; margin-top:1.5rem; font-size:0.85rem; color:var(--success); }
+    footer { text-align:center; padding:2rem; font-size:0.8rem; color:var(--grey); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Hephzibah <span>Media</span></div>
+    <h1>Hashtag <em>Generator</em></h1>
+    <p class="subtitle">Generate perfect hashtags for your Nigerian audience</p>
+
+    <div class="tool-box">
+      <form id="hashtagForm">
+        <div class="input-group">
+          <label>What is your post about?</label>
+          <input type="text" id="topic" placeholder="e.g., fitness, restaurant, fashion, tech" required>
+        </div>
+        <div class="input-group">
+          <label>Platform</label>
+          <select id="platform">
+            <option value="instagram">Instagram</option>
+            <option value="twitter">Twitter/X</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="tiktok">TikTok</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Post Type</label>
+          <select id="postType">
+            <option value="general">General Post</option>
+            <option value="promo">Promotion/Sale</option>
+            <option value="education">Educational</option>
+            <option value="event">Event/Announcement</option>
+            <option value="behind">Behind the Scenes</option>
+          </select>
+        </div>
+        <button type="submit" class="generate-btn">Generate Hashtags</button>
+      </form>
+
+      <div class="results" id="results">
+        <h3>📋 Your Hashtags (Click to copy)</h3>
+        <div class="hashtag-box">
+          <p class="hashtags" id="hashtagOutput"></p>
+        </div>
+        <button class="copy-btn" onclick="copyHashtags()">Copy All Hashtags</button>
+        <div class="tip">💡 Tip: Use 5-15 hashtags for best results on Instagram</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Hephzibah Media. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const hashtagDatabase = {
+      fitness: ['#FitnessNigeria', '#GymLagos', '#FitFamNigeria', '#WorkoutTips', '#HealthAndWellnessNG', '#FitnessMotivation', '#NigeriaFit', '#FitLifeNigeria', '#ExerciseNG', '#WellnessNigeria', '#FitGirlNigeria', '#GymMotivation'],
+      restaurant: ['#NigerianFood', '#FoodBlogNigeria', '#RestaurantLagos', '#NigerianCuisine', '#FoodieNigeria', '#LagosEats', '#NigerianRestaurant', '#FoodLoversNG', '#AbujaFood', '#YammyFood', '#FoodNigeria', '#RestaurantReview'],
+      fashion: ['#NigerianFashion', '#FashionNigeria', '#AnkaraStyles', '#NigerianStyle', '#FashionLagos', '#AnkaraLover', '#NigeriaFashion', '#StyleNigeria', '#AfricanFashion', '#WearsNigerian', '#FashionBloggerNG', '#TrendAlert'],
+      tech: ['#TechNigeria', '#StartupsNigeria', '#NigerianTech', '#InnovationNG', '#TechHubLagos', '#DigitalNigeria', '#TechNewsNG', '#NigeriaStartups', '#TechCommunity', '#CodingNigeria', '#ITNigeria', '#TechTrends'],
+      business: ['#NigerianBusiness', '#BusinessNigeria', '#SMENigeria', '#EntrepreneurNigeria', '#BusinessGrowth', '#LagosBusiness', '#NigerianEntrepreneur', '#BusinessTipsNG', '#SMEGrowth', '#NigeriaBusiness', '#BusinessOwner', '#HustleHardNG'],
+      education: ['#NigeriaEducation', '#LearningNigeria', '#StudyTips', '#NigerianStudents', '#EducationMatters', '#LagosStudents', '#OnlineLearningNG', '#ExamTips', '#NigeriaUniversities', '#ScholarshipNigeria', '#StudyAbroadNG', '#EducationNews'],
+      beauty: ['#NigerianBeauty', '#BeautyNigeria', '#MakeupNigeria', '#SkincareNG', '#BeautyTips', '#LagosBeauty', '#NigerianBlogger', '#NaturalHairNG', '#BeautyProducts', '#GlowUpNigeria', '#HairCareNG', '#BeautyRoutine'],
+      travel: ['#NigeriaTravel', '#TravelNigeria', '#ExploreNigeria', '#TourismNigeria', '#LagosTravel', '#NigeriaTourism', '#TravelBlogNG', '#WanderlustNigeria', '#AdventureNG', '#PlacesToVisitNG', '#NigeriaTravelDiaries', '#TravelNigeria']
+    };
+
+    const platformPrefixes = {
+      instagram: { prefix: '', min: 15, max: 30 },
+      twitter: { prefix: '', min: 3, max: 5 },
+      linkedin: { prefix: '', min: 3, max: 5 },
+      tiktok: { prefix: '', min: 5, max: 10 }
+    };
+
+    const typeModifiers = {
+      general: [],
+      promo: ['#SaleAlert', '#LimitedOffer', '#DiscountAlert', '#PromoNG', '#BlackFridayNG', '#FlashSale'],
+      education: ['#LearnOnTikTok', '#EducationTips', '#KnowledgeIsPower', '#LearnFromHome', '#SkillDevelopment'],
+      event: ['#EventAlert', '#SaveTheDate', '#ComingSoon', '#EventNigeria', '#Announcement'],
+      behind: ['#BehindTheScenes', '#BTS', '#DayInMyLife', '#WorkInProgress', '#RealLifeNG']
+    };
+
+    document.getElementById('hashtagForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const topic = document.getElementById('topic').value.toLowerCase();
+      const platform = document.getElementById('platform').value;
+      const postType = document.getElementById('postType').value;
+      
+      let hashtags = [];
+      const topicData = hashtagDatabase[topic] || hashtagDatabase.business;
+      
+      const platformData = platformPrefixes[platform];
+      const count = Math.floor(Math.random() * (platformData.max - platformData.min) + platformData.min);
+      
+      const shuffled = topicData.sort(() => 0.5 - Math.random());
+      hashtags = shuffled.slice(0, Math.min(count, shuffled.length));
+      
+      const modifiers = typeModifiers[postType];
+      if (modifiers && modifiers.length > 0) {
+        const addModifiers = Math.min(2, modifiers.length);
+        hashtags = hashtags.concat(modifiers.slice(0, addModifiers));
+      }
+      
+      if (platform === 'linkedin' || platform === 'twitter') {
+        hashtags = hashtags.slice(0, platformData.max);
+      }
+      
+      document.getElementById('hashtagOutput').textContent = hashtags.join(' ');
+      document.getElementById('results').classList.add('show');
+    });
+
+    function copyHashtags() {
+      const text = document.getElementById('hashtagOutput').textContent;
+      navigator.clipboard.writeText(text);
+      const btn = document.querySelector('.copy-btn');
+      btn.textContent = 'Copied! ✅';
+      setTimeout(function() {
+        btn.textContent = 'Copy All Hashtags';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

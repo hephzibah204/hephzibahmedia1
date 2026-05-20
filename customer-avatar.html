@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Customer Avatar Builder – Target Your Ideal Customer</title>
+  <meta name="description" content="Create detailed customer avatars for your Nigerian business. Define demographics, pain points, and buying behavior.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0A0F2C; --navy-mid:#111A45; --gold:#C9A84C; --gold-lt:#E2C07A; --cream:#FAF6ED; --white:#FFFFFF; --grey:#8A8FA8; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'DM Sans',sans-serif; }
+    body { background:var(--navy); color:var(--cream); font-family:var(--font-body); font-size:16px; line-height:1.7; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; opacity:0.6; }
+    .container { max-width:1000px; margin:0 auto; padding:8rem 5% 4rem; position:relative; z-index:1; }
+    h1 { font-family:var(--font-display); font-size:2.5rem; color:var(--white); text-align:center; margin-bottom:0.5rem; }
+    h1 em { color:var(--gold-lt); font-style:italic; }
+    .subtitle { text-align:center; color:var(--grey); margin-bottom:2rem; }
+    .builder-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+    .form-section, .preview-section { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.2); border-radius:16px; padding:2rem; }
+    .section-title { font-family:var(--font-display); font-size:1.3rem; color:var(--white); margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; }
+    .input-group { margin-bottom:1rem; }
+    .input-group label { display:block; font-size:0.75rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.4rem; }
+    .input-group input, .input-group select, .input-group textarea { width:100%; padding:0.8rem; background:var(--navy); border:1px solid rgba(201,168,76,0.2); border-radius:6px; color:var(--cream); font-size:0.9rem; }
+    .input-group textarea { min-height:80px; resize:vertical; }
+    .input-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .generate-btn { width:100%; padding:1rem; background:var(--gold); color:var(--navy); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; border:none; border-radius:8px; cursor:pointer; margin-top:1rem; }
+    .avatar-card { background:var(--navy); border-radius:12px; overflow:hidden; }
+    .avatar-header { background:linear-gradient(135deg,var(--gold) 0%,var(--gold-lt) 100%); padding:1.5rem; text-align:center; }
+    .avatar-avatar { width:80px; height:80px; background:var(--navy); border-radius:50%; margin:0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size:2.5rem; }
+    .avatar-name { font-family:var(--font-display); font-size:1.5rem; color:var(--navy); margin-bottom:0.3rem; }
+    .avatar-role { color:rgba(10,15,44,0.7); font-size:0.9rem; }
+    .avatar-body { padding:1.5rem; }
+    .avatar-section { margin-bottom:1.5rem; }
+    .avatar-section:last-child { margin-bottom:0; }
+    .avatar-section h4 { color:var(--gold); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem; }
+    .avatar-section p { font-size:0.85rem; color:var(--cream); line-height:1.6; }
+    .tag-list { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .tag { background:rgba(201,168,76,0.15); color:var(--gold-pale); padding:0.3rem 0.6rem; border-radius:4px; font-size:0.75rem; }
+    .download-btn { display:block; text-align:center; background:var(--gold); color:var(--navy); padding:0.8rem; border-radius:8px; margin-top:1rem; text-decoration:none; font-weight:600; cursor:pointer; }
+    @media(max-width:768px) { .builder-grid{grid-template-columns:1fr;} .input-row{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Customer <em>Avatar</em> Builder</h1>
+    <p class="subtitle">Create detailed profiles of your ideal customers</p>
+
+    <div class="builder-grid">
+      <div class="form-section">
+        <h3 class="section-title">👤 Customer Details</h3>
+        <form id="avatarForm">
+          <div class="input-group">
+            <label>Avatar Name (e.g., "Busy Lagos Mom")</label>
+            <input type="text" id="avatarName" placeholder="Enter a name for this customer" required>
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label>Age Range</label>
+              <select id="ageRange">
+                <option value="18-24">18-24 years</option>
+                <option value="25-34" selected>25-34 years</option>
+                <option value="35-44">35-44 years</option>
+                <option value="45-54">45-54 years</option>
+                <option value="55+">55+ years</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Location</label>
+              <select id="location">
+                <option value="Lagos">Lagos</option>
+                <option value="Abuja">Abuja</option>
+                <option value="Port Harcourt">Port Harcourt</option>
+                <option value="Ibadan">Ibadan</option>
+                <option value="Other">Other Nigerian City</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label>Income Level</label>
+              <select id="income">
+                <option value="Low">Low (₦50k-₦150k)</option>
+                <option value="Middle" selected>Middle (₦150k-₦500k)</option>
+                <option value="High">High (₦500k+)</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Occupation</label>
+              <select id="occupation">
+                <option value="Corporate">Corporate Employee</option>
+                <option value="Entrepreneur" selected>Entrepreneur/Business Owner</option>
+                <option value="Freelancer">Freelancer</option>
+                <option value="Student">Student</option>
+                <option value="Professional">Professional (Doctor, Lawyer, etc.)</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Biggest Pain Point</label>
+            <textarea id="painPoint" placeholder="What problem does your customer need solved?"></textarea>
+          </div>
+          <div class="input-group">
+            <label>What Do They Want?</label>
+            <textarea id="wants" placeholder="What outcome are they seeking?"></textarea>
+          </div>
+          <div class="input-group">
+            <label>Where Do They Hang Out Online?</label>
+            <select id="channels">
+              <option value="Instagram">Instagram</option>
+              <option value="Facebook">Facebook</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="LinkedIn">LinkedIn</option>
+              <option value="Twitter">Twitter/X</option>
+            </select>
+          </div>
+          <button type="submit" class="generate-btn">Generate Avatar</button>
+        </form>
+      </div>
+
+      <div class="preview-section">
+        <h3 class="section-title">📋 Your Avatar</h3>
+        <div class="avatar-card" id="avatarCard">
+          <div class="avatar-header">
+            <div class="avatar-avatar">👤</div>
+            <div class="avatar-name" id="displayName">Your Ideal Customer</div>
+            <div class="avatar-role" id="displayRole">Enter details to generate</div>
+          </div>
+          <div class="avatar-body">
+            <div class="avatar-section">
+              <h4>📍 Demographics</h4>
+              <p id="displayDemo">Fill in the form to see customer details</p>
+            </div>
+            <div class="avatar-section">
+              <h4>😰 Pain Points</h4>
+              <p id="displayPain">-</p>
+            </div>
+            <div class="avatar-section">
+              <h4>🎯 Goals & Wants</h4>
+              <p id="displayWants">-</p>
+            </div>
+            <div class="avatar-section">
+              <h4>📱 Preferred Channels</h4>
+              <div class="tag-list" id="displayChannels">
+                <span class="tag">-</span>
+              </div>
+            </div>
+            <div class="avatar-section">
+              <h4>💬 Marketing Message</h4>
+              <p id="displayMessage" style="color:var(--gold);font-style:italic;">-</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const painPoints = {
+      Entrepreneur: 'Struggling to get customers online, wasting money on ads that don\'t convert, no time for marketing',
+      Corporate: 'Wants side income, limited time, needs flexible work options, looking for career growth',
+      Freelancer: 'Inconsistent income, needs more clients, struggles with pricing, wants to scale',
+      Student: 'Limited budget, needs practical skills, wants earning potential, time constraints',
+      Professional: 'Wants work-life balance, interested in investments, values quality over price'
+    };
+
+    const goals = {
+      Entrepreneur: 'Build a profitable online business, automate sales, create recurring revenue',
+      Corporate: 'Generate extra income without quitting job, gain financial freedom, learn new skills',
+      Freelancer: 'Get steady clients, increase rates, build personal brand, work from anywhere',
+      Student: 'Learn valuable skills, earn while studying, boost CV, prepare for career',
+      Professional: 'Build wealth, diversify income, achieve financial independence'
+    };
+
+    const messages = {
+      Entrepreneur: '"Stop guessing. Let us build a system that brings you customers while you focus on running your business."',
+      Corporate: '"You don\'t need another job. Build a skill that earns you money on your terms."',
+      Freelancer: '"Stop chasing clients. Let\'s create a system that attracts them to you."',
+      Student: '"Gain skills that employers pay for. Start building your future today."',
+      Professional: '"Your expertise is valuable. Let\'s turn it into an asset that works for you."'
+    };
+
+    document.getElementById('avatarForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('avatarName').value;
+      const age = document.getElementById('ageRange').value;
+      const location = document.getElementById('location').value;
+      const income = document.getElementById('income').value;
+      const occupation = document.getElementById('occupation').value;
+      const pain = document.getElementById('painPoint').value || painPoints[occupation];
+      const want = document.getElementById('wants').value || goals[occupation];
+      const channels = document.getElementById('channels').value;
+
+      document.getElementById('displayName').textContent = name;
+      document.getElementById('displayRole').textContent = occupation + ' | ' + income + ' Income';
+      
+      document.getElementById('displayDemo').textContent = 
+        age + ' years old, ' + location + ', ' + 
+        (income === 'High' ? 'affluent' : income === 'Middle' ? 'middle-class' : 'budget-conscious') + ' spender';
+      
+      document.getElementById('displayPain').textContent = pain;
+      document.getElementById('displayWants').textContent = want;
+      document.getElementById('displayMessage').textContent = messages[occupation];
+      
+      document.getElementById('displayChannels').innerHTML = 
+        '<span class="tag">' + channels + '</span>' +
+        '<span class="tag">WhatsApp</span>' +
+        '<span class="tag">Email</span>';
+    });
+  </script>
+</body>
+</html>

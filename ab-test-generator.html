@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>A/B Test Ideas Generator – Improve Your Conversions</title>
+  <meta name="description" content="Generate A/B test ideas for your Nigerian business. Improve landing pages, emails, and ads.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0A0F2C; --navy-mid:#111A45; --gold:#C9A84C; --gold-lt:#E2C07A; --cream:#FAF6ED; --white:#FFFFFF; --grey:#8A8FA8; --success:#22C55E; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'DM Sans',sans-serif; }
+    body { background:var(--navy); color:var(--cream); font-family:var(--font-body); font-size:16px; line-height:1.7; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; opacity:0.6; }
+    .container { max-width:900px; margin:0 auto; padding:8rem 5% 4rem; position:relative; z-index:1; }
+    h1 { font-family:var(--font-display); font-size:2.5rem; color:var(--white); text-align:center; margin-bottom:0.5rem; }
+    h1 em { color:var(--gold-lt); font-style:italic; }
+    .subtitle { text-align:center; color:var(--grey); margin-bottom:2rem; }
+    .tool-box { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.2); border-radius:16px; padding:2rem; }
+    .input-group { margin-bottom:1.5rem; }
+    .input-group label { display:block; font-size:0.75rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem; }
+    .input-group select { width:100%; padding:1rem; background:var(--navy); border:1px solid rgba(201,168,76,0.2); border-radius:8px; color:var(--cream); }
+    .generate-btn { width:100%; padding:1rem; background:var(--gold); color:var(--navy); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; border:none; border-radius:8px; cursor:pointer; }
+    .results { margin-top:2rem; display:none; }
+    .results.show { display:block; }
+    .results-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+    .test-card { background:var(--navy); border:1px solid rgba(201,168,76,0.15); border-radius:12px; padding:1.5rem; }
+    .test-card h4 { color:var(--white); font-size:1rem; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem; }
+    .test-item { display:flex; align-items:flex-start; gap:0.8rem; padding:0.8rem 0; border-bottom:1px solid rgba(201,168,76,0.08); }
+    .test-item:last-child { border-bottom:none; }
+    .test-label { min-width:70px; font-size:0.7rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.05em; }
+    .test-desc { font-size:0.85rem; color:var(--cream); }
+    .impact-badge { display:inline-block; font-size:0.65rem; padding:0.2rem 0.5rem; border-radius:4px; margin-top:0.5rem; }
+    .impact-high { background:rgba(34,197,94,0.2); color:var(--success); }
+    .impact-med { background:rgba(245,158,11,0.2); color:var(--warning); }
+    footer { text-align:center; padding:2rem; font-size:0.8rem; color:var(--grey); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>A/B Test <em>Ideas</em></h1>
+    <p class="subtitle">Generate testable ideas to improve conversions</p>
+
+    <div class="tool-box">
+      <form id="testForm">
+        <div class="input-group">
+          <label>What do you want to test?</label>
+          <select id="testType">
+            <option value="landing">Landing Page</option>
+            <option value="email">Email Campaign</option>
+            <option value="ad">Ad Creative</option>
+            <option value="cta">Call-to-Action</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Your Industry</label>
+          <select id="industry">
+            <option value="ecommerce">E-commerce</option>
+            <option value="service">Service Business</option>
+            <option value="b2b">B2B / Professional</option>
+            <option value="education">Education</option>
+            <option value="health">Health & Wellness</option>
+          </select>
+        </div>
+        <button type="submit" class="generate-btn">Generate Test Ideas</button>
+      </form>
+
+      <div class="results" id="results">
+        <h3 style="color:var(--white);margin-bottom:1.5rem;">🎯 Recommended Tests</h3>
+        <div class="results-grid" id="resultsGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Hephzibah Media. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const testIdeas = {
+      landing: [
+        { title: ' Überschrift (Headline)', tests: [
+          { label: 'A', desc: 'Clear benefit-driven headline', impact: 'high' },
+          { label: 'B', desc: 'Question format that addresses pain point', impact: 'high' }
+        ]},
+        { title: '🖼 Hero Image', tests: [
+          { label: 'A', desc: 'Product-focused image', impact: 'med' },
+          { label: 'B', desc: 'Customer testimonial with photo', impact: 'high' }
+        ]},
+        { title: '📝 CTA Button', tests: [
+          { label: 'A', desc: '"Get Started Now"', impact: 'med' },
+          { label: 'B', desc: '"Get My Free Quote"', impact: 'high' }
+        ]},
+        { title: '📋 Form Length', tests: [
+          { label: 'A', desc: '3 fields (name, email, phone)', impact: 'high' },
+          { label: 'B', desc: '1 field (email only)', impact: 'high' }
+        ]}
+      ],
+      email: [
+        { title: '📧 Subject Line', tests: [
+          { label: 'A', desc: 'Personal "Hi [Name],..."', impact: 'high' },
+          { label: 'B', desc: 'Urgency "Only 24 hours left..."', impact: 'med' }
+        ]},
+        { title: '📱 Preview Text', tests: [
+          { label: 'A', desc: 'Value proposition', impact: 'med' },
+          { label: 'B', desc: 'Question to spark curiosity', impact: 'high' }
+        ]},
+        { title: '🔗 Button Color', tests: [
+          { label: 'A', desc: 'Brand color (gold)', impact: 'med' },
+          { label: 'B', desc: 'Contrasting color (green)', impact: 'high' }
+        ]},
+        { title: '✉️ Email Length', tests: [
+          { label: 'A', desc: 'Short & scannable (200 words)', impact: 'high' },
+          { label: 'B', desc: 'Detailed with visuals', impact: 'med' }
+        ]}
+      ],
+      ad: [
+        { title: '🎨 Ad Image', tests: [
+          { label: 'A', desc: 'Product photo on white background', impact: 'med' },
+          { label: 'B', desc: 'Lifestyle image showing product in use', impact: 'high' }
+        ]},
+        { title: '📝 Ad Copy', tests: [
+          { label: 'A', desc: 'Feature-focused ("50+ features")', impact: 'med' },
+          { label: 'B', desc: 'Benefit-focused ("Save 10 hours/week")', impact: 'high' }
+        ]},
+        { title: '🎯 Targeting', tests: [
+          { label: 'A', desc: 'Broad audience (50k+)', impact: 'med' },
+          { label: 'B', desc: 'Narrow lookalike audience (5k)', impact: 'high' }
+        ]},
+        { title: '💰 Offer', tests: [
+          { label: 'A', desc: '20% discount', impact: 'med' },
+          { label: 'B', desc: 'Free trial + bonus', impact: 'high' }
+        ]}
+      ],
+      cta: [
+        { title: '🔘 Button Text', tests: [
+          { label: 'A', desc: '"Buy Now"', impact: 'med' },
+          { label: 'B', desc: '"Get Access Today"', impact: 'high' }
+        ]},
+        { title: '🔴 Button Color', tests: [
+          { label: 'A', desc: 'Red (urgency)', impact: 'med' },
+          { label: 'B', desc: 'Green (positive action)', impact: 'high' }
+        ]},
+        { title: '📍 Button Position', tests: [
+          { label: 'A', desc: 'Above the fold', impact: 'high' },
+          { label: 'B', desc: 'After testimonial section', impact: 'med' }
+        ]},
+        { title: '⏰ Urgency', tests: [
+          { label: 'A', desc: 'No urgency', impact: 'med' },
+          { label: 'B', desc: '"Offer ends in 24h"', impact: 'high' }
+        ]}
+      ]
+    };
+
+    document.getElementById('testForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const type = document.getElementById('testType').value;
+      const ideas = testIdeas[type];
+      
+      const grid = document.getElementById('resultsGrid');
+      grid.innerHTML = ideas.map(function(card) {
+        return '<div class="test-card"><h4>' + card.title + '</h4>' + 
+          card.tests.map(function(test) {
+            return '<div class="test-item"><span class="test-label">' + test.label + '</span><div><p class="test-desc">' + test.desc + '</p><span class="impact-badge impact-' + test.impact + '">' + test.impact.toUpperCase() + ' Impact</span></div></div>';
+          }).join('') + '</div>';
+      }).join('');
+      
+      document.getElementById('results').classList.add('show');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Email Subject Line Tester – Improve Open Rates</title>
+  <meta name="description" content="Test your email subject lines for Nigerian audiences. Get scores and tips to improve your open rates.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0A0F2C; --navy-mid:#111A45; --gold:#C9A84C; --gold-lt:#E2C07A; --cream:#FAF6ED; --white:#FFFFFF; --grey:#8A8FA8; --success:#22C55E; --warning:#F59E0B; --danger:#EF4444; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'DM Sans',sans-serif; }
+    body { background:var(--navy); color:var(--cream); font-family:var(--font-body); font-size:16px; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; opacity:0.6; }
+    .container { max-width:700px; margin:0 auto; padding:8rem 5% 4rem; position:relative; z-index:1; }
+    h1 { font-family:var(--font-display); font-size:2.5rem; color:var(--white); text-align:center; margin-bottom:0.5rem; }
+    h1 em { color:var(--gold-lt); font-style:italic; }
+    .subtitle { text-align:center; color:var(--grey); margin-bottom:2rem; }
+    .tool-box { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.2); border-radius:16px; padding:2rem; }
+    .input-group { margin-bottom:1.5rem; }
+    .input-group label { display:block; font-size:0.75rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem; }
+    .input-group input { width:100%; padding:1rem; background:var(--navy); border:1px solid rgba(201,168,76,0.2); border-radius:8px; color:var(--cream); font-size:1rem; }
+    .preview-box { background:var(--navy); border-radius:8px; padding:1.5rem; margin-bottom:1.5rem; }
+    .preview-label { font-size:0.7rem; color:var(--grey); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem; }
+    .preview-text { color:var(--cream); font-size:0.95rem; }
+    .test-btn { width:100%; padding:1rem; background:var(--gold); color:var(--navy); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; border:none; border-radius:8px; cursor:pointer; }
+    .score-display { display:none; text-align:center; padding:2rem; margin-top:2rem; border-radius:12px; }
+    .score-display.show { display:block; }
+    .score-display.good { background:rgba(34,197,94,0.15); border:1px solid rgba(34,197,94,0.3); }
+    .score-display.medium { background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); }
+    .score-display.poor { background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); }
+    .score-circle { width:120px; height:120px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; font-family:var(--font-display); font-size:3rem; font-weight:700; }
+    .score-display.good .score-circle { border:6px solid var(--success); color:var(--success); }
+    .score-display.medium .score-circle { border:6px solid var(--warning); color:var(--warning); }
+    .score-display.poor .score-circle { border:6px solid var(--danger); color:var(--danger); }
+    .score-label { font-size:1.2rem; color:var(--white); margin-bottom:1rem; }
+    .tips { text-align:left; margin-top:1.5rem; }
+    .tips h4 { color:var(--white); font-size:0.9rem; margin-bottom:1rem; }
+    .tip-item { display:flex; align-items:flex-start; gap:0.8rem; padding:0.8rem 0; border-bottom:1px solid rgba(201,168,76,0.1); font-size:0.85rem; color:var(--grey); }
+    .tip-item:last-child { border-bottom:none; }
+    .tip-icon { color:var(--success); }
+    footer { text-align:center; padding:2rem; font-size:0.8rem; color:var(--grey); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Email Subject <em>Tester</em></h1>
+    <p class="subtitle">Check how your subject line performs</p>
+
+    <div class="tool-box">
+      <form id="subjectForm">
+        <div class="input-group">
+          <label>Your Email Subject Line</label>
+          <input type="text" id="subjectLine" placeholder="e.g., Get 50% off your first order!" required>
+        </div>
+        <div class="input-group">
+          <label>Preheader Text (Optional)</label>
+          <input type="text" id="preheader" placeholder="Brief preview text that appears after subject">
+        </div>
+
+        <div class="preview-box">
+          <div class="preview-label">📱 Mobile Preview</div>
+          <p class="preview-text" id="mobilePreview">Your email will appear like this on mobile...</p>
+        </div>
+
+        <button type="submit" class="test-btn">Test Subject Line</button>
+      </form>
+
+      <div class="score-display" id="scoreDisplay">
+        <div class="score-circle" id="scoreCircle">0</div>
+        <div class="score-label" id="scoreLabel">Your Score</div>
+        <div class="tips">
+          <h4>💡 Tips to Improve</h4>
+          <div id="tipsList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Hephzibah Media. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('subjectForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const subject = document.getElementById('subjectLine').value;
+      const preheader = document.getElementById('preheader').value;
+      
+      const fullText = subject + (preheader ? ' - ' + preheader : '');
+      document.getElementById('mobilePreview').textContent = fullText || 'Your preview text...';
+      
+      let score = 50;
+      const tips = [];
+
+      if (subject.length >= 10 && subject.length <= 50) {
+        score += 15;
+        tips.push({ icon: '✅', text: 'Perfect length! (10-50 characters)' });
+      } else if (subject.length > 50) {
+        score -= 10;
+        tips.push({ icon: '⚠️', text: 'Too long - may get cut off on mobile' });
+      } else {
+        score -= 5;
+        tips.push({ icon: '⚠️', text: 'Too short - add more context' });
+      }
+
+      if (subject.includes('!') || subject.includes('?')) {
+        score += 10;
+        tips.push({ icon: '✅', text: 'Good use of punctuation' });
+      }
+
+      const urgentWords = ['now', 'limited', 'today', 'free', 'urgent', 'only'];
+      const hasUrgent = urgentWords.some(word => subject.toLowerCase().includes(word));
+      if (hasUrgent) {
+        score += 10;
+        tips.push({ icon: '✅', text: 'Contains urgency-triggering word' });
+      }
+
+      const personalWords = ['you', 'your', 'we', 'our'];
+      const hasPersonal = personalWords.some(word => subject.toLowerCase().includes(word));
+      if (hasPersonal) {
+        score += 10;
+        tips.push({ icon: '✅', text: 'Personal and engaging' });
+      } else {
+        tips.push({ icon: '💡', text: 'Try adding "you" or "your" for personalization' });
+      }
+
+      if (/^[A-Z]/.test(subject)) {
+        score -= 15;
+        tips.push({ icon: '⚠️', text: 'Avoid ALL CAPS - looks like spam' });
+      }
+
+      const spamWords = ['$$$', '100% free', 'act now!', 'click here'];
+      const hasSpam = spamWords.some(word => subject.toLowerCase().includes(word));
+      if (hasSpam) {
+        score -= 20;
+        tips.push({ icon: '⚠️', text: 'Contains spam-trigger words' });
+      }
+
+      if (subject.includes('|') || subject.includes('[') || subject.includes(']')) {
+        score += 5;
+        tips.push({ icon: '✅', text: 'Good use of separators' });
+      }
+
+      if (preheader.length > 0) {
+        score += 5;
+        tips.push({ icon: '✅', text: 'Preheader adds context' });
+      }
+
+      score = Math.max(0, Math.min(100, score));
+
+      const display = document.getElementById('scoreDisplay');
+      display.className = 'score-display show';
+      if (score >= 75) display.classList.add('good');
+      else if (score >= 50) display.classList.add('medium');
+      else display.classList.add('poor');
+
+      document.getElementById('scoreCircle').textContent = score;
+      document.getElementById('scoreLabel').textContent = score >= 75 ? 'Excellent!' : score >= 50 ? 'Good - Can Improve' : 'Needs Work';
+
+      const tipsList = document.getElementById('tipsList');
+      tipsList.innerHTML = tips.map(t => '<div class="tip-item"><span class="tip-icon">' + t.icon + '</span><span>' + t.text + '</span></div>').join('');
+    });
+
+    document.getElementById('subjectLine').addEventListener('input', function() {
+      const preheader = document.getElementById('preheader').value;
+      document.getElementById('mobilePreview').textContent = this.value + (preheader ? ' - ' + preheader : '');
+    });
+    document.getElementById('preheader').addEventListener('input', function() {
+      const subject = document.getElementById('subjectLine').value;
+      document.getElementById('mobilePreview').textContent = subject + (this.value ? ' - ' + this.value : '');
+    });
+  </script>
+</body>
+</html>
