@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>WordPress Website Design Nigeria � Hephzibah Media</title>
+  <title>WordPress Website Design Nigeria � Hephzibah Media</title>
   <meta name="description" content="Expert WordPress website design and development in Nigeria. Fast, secure, and SEO-optimised for Nigerian businesses.">
-  <meta property="og:title" content="WordPress Website Design Nigeria � Hephzibah Media">
+  <meta property="og:title" content="WordPress Website Design Nigeria � Hephzibah Media">
   <meta property="og:description" content="Expert WordPress website design and development in Nigeria. Fast, secure, and SEO-optimised for Nigerian businesses.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hephzibahmedia.com/wordpress.html">
@@ -90,6 +90,40 @@
     .wa-pulse { position:absolute; inset:-4px; border-radius:50%; border:2px solid rgba(37,211,102,0.4); animation:pulse 2s infinite; }
     .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s,transform 0.7s; }
     .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-fade { opacity: 0; }
+    .reveal-fade.visible { animation: floatUp 0.8s ease-out forwards; }
+    .reveal-scale { opacity: 0; }
+    .reveal-scale.visible { animation: scaleIn 0.8s ease-out forwards; }
+    .reveal-left { opacity: 0; }
+    .reveal-left.visible { animation: slideInLeft 0.8s ease-out forwards; }
+    .reveal-right { opacity: 0; }
+    .reveal-right.visible { animation: slideInRight 0.8s ease-out forwards; }
+    @keyframes floatUp { from{opacity:0;transform:translateY(40px) scale(0.97);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes scaleIn { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
+    @keyframes slideInLeft { from{opacity:0;transform:translateX(-50px);} to{opacity:1;transform:translateX(0);} }
+    @keyframes slideInRight { from{opacity:0;transform:translateX(50px);} to{opacity:1;transform:translateX(0);} }
+    .problems-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .problem-item { background:var(--navy-lt); padding:2rem; border-left:3px solid var(--gold); transition:all 0.3s; }
+    .problem-item:hover { background:var(--navy-mid); transform:translateX(8px); }
+    .problem-item h3 { color:var(--gold-lt); margin-bottom:0.8rem; font-size:1.1rem; }
+    .problem-item p { color:var(--grey); font-size:0.95rem; }
+    .problem-impact { background:rgba(201,168,76,0.05); padding:2rem; border:1px solid rgba(201,168,76,0.15); margin-top:2.5rem; }
+    .problem-impact ul { list-style:none; margin-top:1rem; }
+    .problem-impact li { padding:0.6rem 0; padding-left:1.5rem; position:relative; color:var(--grey); }
+    .problem-impact li::before { content:'→'; position:absolute; left:0; color:var(--gold); font-weight:bold; }
+    .trust-points { display:grid; gap:1.5rem; margin-top:1.5rem; }
+    .trust-item { background:rgba(201,168,76,0.08); padding:1.5rem; border:1px solid rgba(201,168,76,0.12); }
+    .trust-item h4 { color:var(--gold-lt); margin-bottom:0.5rem; font-size:1rem; }
+    .trust-item p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .benefits-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .benefit-card { background:var(--navy); padding:2rem; border-bottom:3px solid var(--gold); text-align:center; transition:all 0.3s; }
+    .benefit-card:hover { background:var(--navy-lt); transform:translateY(-6px); }
+    .benefit-icon { font-size:3rem; margin-bottom:1rem; }
+    .benefit-card h3 { color:var(--white); margin-bottom:0.5rem; font-size:1.1rem; }
+    .benefit-card .metric { color:var(--gold-lt); font-weight:600; font-size:0.9rem; margin-bottom:0.8rem; }
+    .benefit-card p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .two-col-alt { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    @media(max-width:900px) { .two-col-alt{grid-template-columns:1fr;gap:2.5rem;} }
     @keyframes pulse { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.5);opacity:0;} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
     .page-hero h1,.page-hero .eyebrow,.page-hero .hero-desc,.page-hero .hero-actions { opacity:0; animation:fadeUp 0.8s forwards; }
@@ -120,15 +154,183 @@
 <section class="page-hero">
   <p class="eyebrow">Tech & Web Services</p>
   <h1>WordPress Websites <em>Done Right</em></h1>
-  <p class="hero-desc">Premium, performance-tuned WordPress sites for Nigerian businesses. We strip the bloat, add the power, and hand you a site your team can manage � without calling a developer.</p>
+  <p class="hero-desc">Premium, performance-tuned WordPress sites for Nigerian businesses. We strip the bloat, add the power, and hand you a site your team can manage � without calling a developer.</p>
   <div class="hero-actions"><a href="contact.html" class="btn-primary">Get a Free Quote</a>&nbsp;&nbsp;<a href="portfolio.html" class="btn-outline">See Our Work</a></div>
 </section><section style="background:var(--navy-mid);"><div class="section-wrap section-pad"><div class="reveal"><p class="section-label">Our WordPress Services</p><h2>Beyond the <em>Template</em></h2></div><div class="cards-grid reveal"><div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3>Custom Theme Development</h3><p>No off-the-shelf themes. We build bespoke WordPress themes coded to your brand.</p></div>
-<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><h3>Plugin Development</h3><p>Custom plugins for unique functionality � booking systems, directories, member portals.</p></div>
+<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><h3>Plugin Development</h3><p>Custom plugins for unique functionality � booking systems, directories, member portals.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07"/></svg></div><h3>WooCommerce Stores</h3><p>Full e-commerce setup with Paystack/Flutterwave, inventory, and automated order management.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Security Hardening</h3><p>Firewall, malware scanning, 2FA, and offsite backups. Your WordPress site, locked down.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3>Speed Optimisation</h3><p>Caching, image compression, database cleanup. We get your WordPress PageSpeed above 90.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h3>Training & Handover</h3><p>A recorded walkthrough so your team can publish posts, update pages, and manage the site confidently.</p></div>
-</div></div></section><section class="cta-band"><div class="section-wrap"><h2>Get a WordPress Site That <em>Loads Fast</em> on Nigerian Internet</h2><p>Let's scope your project in a free 30-minute call.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
+</div></div></section>
+
+  <!-- PAIN POINTS -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>A Slow WordPress Site Is <em>Costing You Customers</em></h2>
+        <p style="color:var(--grey);margin-top:1rem;font-size:1.05rem;">Most WordPress sites in Nigeria are bloated, slow, and vulnerable. Yours can be different.</p>
+      </div>
+      <div class="problems-list reveal">
+        <div class="problem-item">
+          <h3>Bloated With Plugins</h3>
+          <p>Your site has 40+ plugins that slow it to a crawl. Every additional plugin adds load time, security risk, and potential conflicts.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Slow on Nigerian Internet</h3>
+          <p>Your WordPress site takes 8+ seconds to load on 3G. Nigerian visitors leave after 3 seconds. You're losing 80% of mobile traffic.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Security Vulnerabilities</h3>
+          <p>Outdated themes, nulled plugins, and weak passwords make your site an easy target. Thousands of Nigerian WordPress sites get hacked every month.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Template-Locked Design</h3>
+          <p>You're stuck with a template that looks like every other business in your industry. Customising it requires developer help and breaks with updates.</p>
+        </div>
+      </div>
+      <div class="problem-impact reveal">
+        <h3 style="color:var(--gold-lt);">The Cost of Waiting:</h3>
+        <ul>
+          <li>Every second of load time = 7% fewer conversions. A 5-second load time means 35% of your visitors never come back</li>
+          <li>A hacked WordPress site costs an average of N500,000+ in recovery, lost data, and reputation damage</li>
+          <li>Your competitors with fast, custom sites are capturing the traffic you're losing to slow loading times</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section style="background:linear-gradient(170deg,var(--navy-mid) 0%,var(--navy) 100%);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Our Approach</p>
+        <h2>How We Build <em>Blazing Fast WordPress Sites</em> for Nigerian Businesses</h2>
+      </div>
+      <div class="two-col reveal">
+        <div>
+          <p style="color:var(--grey);font-size:1.05rem;">We strip away everything that makes WordPress slow — unnecessary plugins, bloated themes, unoptimised images — and build a lean, custom site engineered for Nigerian internet speeds.</p>
+          <h3 style="margin-top:2rem;">What We Deliver:</h3>
+          <ul class="features-list">
+            <li>Custom-coded theme built specifically for your brand — no templates, no bloat</li>
+            <li>Performance optimisation targeting 90+ PageSpeed score on mobile data</li>
+            <li>Security hardening with firewall, malware scanning, and 2FA authentication</li>
+            <li>WooCommerce integration with Paystack/Flutterwave for e-commerce</li>
+            <li>SEO foundation with proper schema markup, meta tags, and XML sitemaps</li>
+            <li>Recorded training walkthrough so your team can manage content independently</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why Choose Hephzibah?</h3>
+          <div class="trust-points">
+            <div class="trust-item">
+              <h4>🔷 Performance-First</h4>
+              <p>We target 90+ PageSpeed on mobile. Your site will load fast on 3G, 4G, and even EDGE connections across Nigeria.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Fortified Security</h4>
+              <p>Firewall, rate limiting, 2FA, automated backups, and malware scanning. We make your WordPress site bulletproof.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 No Bloated Plugins</h4>
+              <p>We write custom code instead of stacking plugins. Your site stays lean, fast, and maintainable.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Handover Training</h4>
+              <p>We don't just build and disappear. We record a walkthrough so your team can manage pages, posts, and products confidently.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS IMPACT -->
+  <section style="background:var(--navy-mid);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Real Results</p>
+        <h2>The Business Impact of <em>A Fast WordPress Site</em></h2>
+      </div>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3>Blazing Speed</h3>
+          <p class="metric">90+ PageSpeed on mobile</p>
+          <p>Your site loads in under 2 seconds even on 3G. Visitors stay, explore, and convert.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <h3>Higher Google Rankings</h3>
+          <p class="metric">Speed is a ranking factor</p>
+          <p>Google prioritises fast sites. Your optimised WordPress will rank higher than slow competitors in Nigerian search results.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🛡️</div>
+          <h3>Total Security</h3>
+          <p class="metric">Say goodbye to hacks</p>
+          <p>Automated backups, real-time monitoring, and proactive security patches keep your site safe from attacks.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>More Conversions</h3>
+          <p class="metric">Every second saved = more sales</p>
+          <p>A 1-second improvement in load time can increase conversions by 7%. Your fast site directly generates more revenue.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎨</div>
+          <h3>Unique Design</h3>
+          <p class="metric">No templates. Your brand, your look.</p>
+          <p>A custom-coded theme that reflects your brand identity. Stand out from the thousands of template-based WordPress sites.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📝</div>
+          <h3>Easy Management</h3>
+          <p class="metric">Your team can update the site</p>
+          <p>No developer needed for daily updates. Your team publishes blog posts, updates products, and edits pages with confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Questions?</p>
+        <h2>Frequently Asked <em>Questions</em></h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <h4>How long does a WordPress site take to build?</h4>
+          <p>A standard business website takes 2-4 weeks. E-commerce stores and complex sites typically take 4-8 weeks.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Will my site be secure from hackers?</h4>
+          <p>Yes. We implement enterprise-grade security: firewall, rate limiting, 2FA, automated offsite backups, and regular security scans.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I update the site myself?</h4>
+          <p>Absolutely. We provide a recorded training walkthrough so your team can update content without technical skills.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you provide hosting?</h4>
+          <p>We recommend and configure high-performance Nigerian-friendly hosting. We can handle migration if you already have hosting.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Will my site load fast on Nigerian mobile networks?</h4>
+          <p>Yes. We optimise every site for Nigerian internet conditions — image compression, caching, CDN, and minimal plugins ensure fast loading on 3G and 4G.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can you add e-commerce functionality later?</h4>
+          <p>Yes. We build your WordPress on a flexible foundation that can easily add WooCommerce, payment integration, and product management when you're ready.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band"><div class="section-wrap"><h2>Get a WordPress Site That <em>Loads Fast</em> on Nigerian Internet</h2><p>Let's scope your project in a free 30-minute call.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
   <footer>
     <div class="section-wrap">
       <div class="footer-grid">

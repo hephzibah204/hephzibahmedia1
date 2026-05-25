@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>T-Shirt Printing Nigeria � Hephzibah Media</title>
+  <title>T-Shirt Printing Nigeria � Hephzibah Media</title>
   <meta name="description" content="Custom t-shirt printing in Nigeria. Screen printing, DTG, and embroidery for events, schools, and corporate branding.">
-  <meta property="og:title" content="T-Shirt Printing Nigeria � Hephzibah Media">
+  <meta property="og:title" content="T-Shirt Printing Nigeria � Hephzibah Media">
   <meta property="og:description" content="Custom t-shirt printing in Nigeria. Screen printing, DTG, and embroidery for events, schools, and corporate branding.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hephzibahmedia.com/tshirt.html">
@@ -90,6 +90,40 @@
     .wa-pulse { position:absolute; inset:-4px; border-radius:50%; border:2px solid rgba(37,211,102,0.4); animation:pulse 2s infinite; }
     .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s,transform 0.7s; }
     .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-fade { opacity: 0; }
+    .reveal-fade.visible { animation: floatUp 0.8s ease-out forwards; }
+    .reveal-scale { opacity: 0; }
+    .reveal-scale.visible { animation: scaleIn 0.8s ease-out forwards; }
+    .reveal-left { opacity: 0; }
+    .reveal-left.visible { animation: slideInLeft 0.8s ease-out forwards; }
+    .reveal-right { opacity: 0; }
+    .reveal-right.visible { animation: slideInRight 0.8s ease-out forwards; }
+    @keyframes floatUp { from{opacity:0;transform:translateY(40px) scale(0.97);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes scaleIn { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
+    @keyframes slideInLeft { from{opacity:0;transform:translateX(-50px);} to{opacity:1;transform:translateX(0);} }
+    @keyframes slideInRight { from{opacity:0;transform:translateX(50px);} to{opacity:1;transform:translateX(0);} }
+    .problems-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .problem-item { background:var(--navy-lt); padding:2rem; border-left:3px solid var(--gold); transition:all 0.3s; }
+    .problem-item:hover { background:var(--navy-mid); transform:translateX(8px); }
+    .problem-item h3 { color:var(--gold-lt); margin-bottom:0.8rem; font-size:1.1rem; }
+    .problem-item p { color:var(--grey); font-size:0.95rem; }
+    .problem-impact { background:rgba(201,168,76,0.05); padding:2rem; border:1px solid rgba(201,168,76,0.15); margin-top:2.5rem; }
+    .problem-impact ul { list-style:none; margin-top:1rem; }
+    .problem-impact li { padding:0.6rem 0; padding-left:1.5rem; position:relative; color:var(--grey); }
+    .problem-impact li::before { content:'→'; position:absolute; left:0; color:var(--gold); font-weight:bold; }
+    .trust-points { display:grid; gap:1.5rem; margin-top:1.5rem; }
+    .trust-item { background:rgba(201,168,76,0.08); padding:1.5rem; border:1px solid rgba(201,168,76,0.12); }
+    .trust-item h4 { color:var(--gold-lt); margin-bottom:0.5rem; font-size:1rem; }
+    .trust-item p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .benefits-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .benefit-card { background:var(--navy); padding:2rem; border-bottom:3px solid var(--gold); text-align:center; transition:all 0.3s; }
+    .benefit-card:hover { background:var(--navy-lt); transform:translateY(-6px); }
+    .benefit-icon { font-size:3rem; margin-bottom:1rem; }
+    .benefit-card h3 { color:var(--white); margin-bottom:0.5rem; font-size:1.1rem; }
+    .benefit-card .metric { color:var(--gold-lt); font-weight:600; font-size:0.9rem; margin-bottom:0.8rem; }
+    .benefit-card p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .two-col-alt { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    @media(max-width:900px) { .two-col-alt{grid-template-columns:1fr;gap:2.5rem;} }
     @keyframes pulse { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.5);opacity:0;} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
     .page-hero h1,.page-hero .eyebrow,.page-hero .hero-desc,.page-hero .hero-actions { opacity:0; animation:fadeUp 0.8s forwards; }
@@ -120,15 +154,183 @@
 <section class="page-hero">
   <p class="eyebrow">Print & Creative</p>
   <h1>T-Shirt Printing <em>Nigeria</em></h1>
-  <p class="hero-desc">Custom branded t-shirts, hoodies, and corporate uniforms printed with precision. Minimum orders from 10 pieces � bulk discounts available for events, schools, and companies.</p>
+  <p class="hero-desc">Custom branded t-shirts, hoodies, and corporate uniforms printed with precision. Minimum orders from 10 pieces � bulk discounts available for events, schools, and companies.</p>
   <div class="hero-actions"><a href="contact.html" class="btn-primary">Get a Free Quote</a>&nbsp;&nbsp;<a href="portfolio.html" class="btn-outline">See Our Work</a></div>
 </section><section style="background:var(--navy-mid);"><div class="section-wrap section-pad"><div class="reveal"><p class="section-label">Print Methods</p><h2>Custom <em>Apparel</em></h2></div><div class="cards-grid reveal"><div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg></div><h3>Screen Printing</h3><p>Best for bulk orders of 50+. Vibrant, wash-resistant prints with up to 6 colour separations.</p></div>
-<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div><h3>Direct-to-Garment (DTG)</h3><p>Photographic quality prints on any design � perfect for small runs, full-colour artwork, and gradients.</p></div>
+<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div><h3>Direct-to-Garment (DTG)</h3><p>Photographic quality prints on any design � perfect for small runs, full-colour artwork, and gradients.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3>Embroidery</h3><p>Professional embroidered logos for corporate uniforms, polo shirts, and executive gifts. Premium finish.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Heat Transfer Vinyl (HTV)</h3><p>Individual names and numbers for sports teams, schools, and personalised gifts.</p></div>
-<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Corporate Uniforms</h3><p>Full uniform packages � shirt, trouser, lanyard, and branded items � for corporate identity rollouts.</p></div>
-<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/></svg></div><h3>Nationwide Delivery</h3><p>Express production in 5�10 working days. Delivered to all 36 Nigerian states.</p></div>
-</div></div></section><section class="cta-band"><div class="section-wrap"><h2>Get a <em>T-Shirt Printing Quote</em></h2><p>Tell us quantity, sizes, and design � quote in 1 hour.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
+<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Corporate Uniforms</h3><p>Full uniform packages � shirt, trouser, lanyard, and branded items � for corporate identity rollouts.</p></div>
+<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/></svg></div><h3>Nationwide Delivery</h3><p>Express production in 5�10 working days. Delivered to all 36 Nigerian states.</p></div>
+</div></div></section>
+
+  <!-- PAIN POINTS -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Low-Quality Branded Apparel <em>Damages Your Reputation</em></h2>
+        <p style="color:var(--grey);margin-top:1rem;font-size:1.05rem;">Cheap t-shirts with fading prints make your brand look cheap too. Quality matters when your team wears your logo.</p>
+      </div>
+      <div class="problems-list reveal">
+        <div class="problem-item">
+          <h3>Prints That Fade Fast</h3>
+          <p>After a few washes, your logo is cracked, faded, and peeling. Your team walks around in t-shirts that make your brand look worn out.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Uncomfortable Materials</h3>
+          <p>Cheap fabric that shrinks, stretches, or feels uncomfortable. Your staff won't wear them, and your brand visibility drops to zero.</p>
+        </div>
+        <div class="problem-item">
+          <h3>High Minimum Orders</h3>
+          <p>Most printers demand 50+ pieces. You only need 15 t-shirts for your team or 30 for an event, but you're forced to over-order and over-spend.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Limited Print Methods</h3>
+          <p>Your printer only does one type of print — screen print or embroidery. You can't get the right finish for different products.</p>
+        </div>
+      </div>
+      <div class="problem-impact reveal">
+        <h3 style="color:var(--gold-lt);">The Cost of Waiting:</h3>
+        <ul>
+          <li>Every faded, cracked t-shirt is a negative brand impression walking around your community</li>
+          <li>Poor-quality uniforms lower staff morale and don't project the professional image your business needs</li>
+          <li>Without custom branded apparel, you miss free daily advertising — your team is your best marketing channel</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section style="background:linear-gradient(170deg,var(--navy-mid) 0%,var(--navy) 100%);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Our Approach</p>
+        <h2>How We Print <em>Premium Custom Apparel</em> for Your Brand</h2>
+      </div>
+      <div class="two-col reveal">
+        <div>
+          <p style="color:var(--grey);font-size:1.05rem;">We match the right print method to your garment and design. Whether you need 10 branded t-shirts for your team or 500 for an event, we deliver consistent quality every time.</p>
+          <h3 style="margin-top:2rem;">Our Apparel Process:</h3>
+          <ul class="features-list">
+            <li>Consultation to understand your quantities, budget, and garment preferences</li>
+            <li>Artwork preparation optimised for your chosen print method</li>
+            <li>Sample print for approval before full production begins</li>
+            <li>Professional printing with colour-matched inks</li>
+            <li>Quality inspection of every garment before packaging</li>
+            <li>Nationwide delivery within 5-10 working days</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why Choose Hephzibah?</h3>
+          <div class="trust-points">
+            <div class="trust-item">
+              <h4>🔷 Multiple Print Methods</h4>
+              <p>Screen printing, DTG, embroidery, and HTV — we choose the right method for your design, quantity, and budget.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Low Minimum Orders</h4>
+              <p>Starting from just 10 pieces. Perfect for small teams, event giveaways, and pilot runs before large orders.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Quality Guarantee</h4>
+              <p>Wash-resistant prints backed by our quality guarantee. If it fades, cracks, or peels within 6 months, we replace it free.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Premium Garments</h4>
+              <p>We source quality shirts, hoodies, and uniforms from trusted suppliers. Your team will actually want to wear them.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS IMPACT -->
+  <section style="background:var(--navy-mid);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Real Results</p>
+        <h2>The Business Impact of <em>Premium Branded Apparel</em></h2>
+      </div>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card">
+          <div class="benefit-icon">👕</div>
+          <h3>Walking Billboards</h3>
+          <p class="metric">Your team becomes brand ambassadors</p>
+          <p>Every employee wearing your branded apparel is a mobile advertisement. Thousands of impressions daily at zero ongoing cost.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💼</div>
+          <h3>Professional Image</h3>
+          <p class="metric">Unified, polished team appearance</p>
+          <p>Corporate uniforms and branded team wear project professionalism, unity, and attention to detail that clients notice.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎉</div>
+          <h3>Event Success</h3>
+          <p class="metric">Memorable giveaways that work</p>
+          <p>Custom t-shirts and merchandise for events, product launches, and promotions. Your brand stays visible long after the event ends.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏫</div>
+          <h3>School & Team Identity</h3>
+          <p class="metric">Custom uniforms for schools and teams</p>
+          <p>Sports jerseys, school uniforms, and club merchandise that builds identity and unity among members.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🧢</div>
+          <h3>Full Range</h3>
+          <p class="metric">T-shirts, hoodies, caps, and more</p>
+          <p>Brand any garment — t-shirts, polo shirts, hoodies, caps, face caps, and corporate uniforms. One vendor for all your apparel needs.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🇳🇬</div>
+          <h3>Nationwide Delivery</h3>
+          <p class="metric">Delivered to any Nigerian state</p>
+          <p>Whether you're in Lagos, Abuja, or Port Harcourt, your custom apparel arrives on time, every time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Questions?</p>
+        <h2>Frequently Asked <em>Questions</em></h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <h4>What is the minimum order quantity?</h4>
+          <p>Our minimum order is 10 pieces per design. For larger quantities, we offer significant bulk discounts.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How long does production take?</h4>
+          <p>Standard production takes 5-10 working days. Rush orders (3-5 days) are available at an additional cost.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Which print method is best for my design?</h4>
+          <p>We'll recommend the best method based on your design complexity, colour count, and quantity. Screen printing is best for bulk, DTG for detailed full-colour designs, and embroidery for premium uniforms.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I get a sample before full production?</h4>
+          <p>Yes, we offer sample prints before full production runs. Sample costs are deducted from your final order.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you supply the t-shirts or do I?</h4>
+          <p>We supply premium blank garments as part of the service. If you have specific garments you'd like us to print on, we can work with those too.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Will the print survive washing?</h4>
+          <p>Yes. All our prints are wash-resistant and backed by a 6-month quality guarantee. Follow our care instructions for best results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class=""cta-band""><div class=""section-wrap""><h2>Get a <em>T-Shirt Printing Quote</em></h2><p>Tell us quantity, sizes, and design � quote in 1 hour.</p><a href=""contact.html"" class=""btn-dark"">Start Your Project</a>&nbsp;&nbsp;<a href=""https://wa.me/2349077780156"" style=""background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;"" target=""_blank"">Chat on WhatsApp</a></div></section>
   <footer>
     <div class="section-wrap">
       <div class="footer-grid">

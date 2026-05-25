@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Printing Services Nigeria � Hephzibah Media</title>
+  <title>Printing Services Nigeria � Hephzibah Media</title>
   <meta name="description" content="Quality printing services across Nigeria. Business cards, flyers, brochures, booklets, and stickers with nationwide delivery.">
-  <meta property="og:title" content="Printing Services Nigeria � Hephzibah Media">
+  <meta property="og:title" content="Printing Services Nigeria � Hephzibah Media">
   <meta property="og:description" content="Quality printing services across Nigeria. Business cards, flyers, brochures, booklets, and stickers with nationwide delivery.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hephzibahmedia.com/printing.html">
@@ -90,6 +90,45 @@
     .wa-pulse { position:absolute; inset:-4px; border-radius:50%; border:2px solid rgba(37,211,102,0.4); animation:pulse 2s infinite; }
     .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s,transform 0.7s; }
     .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-fade { opacity: 0; }
+    .reveal-fade.visible { animation: floatUp 0.8s ease-out forwards; }
+    .reveal-scale { opacity: 0; }
+    .reveal-scale.visible { animation: scaleIn 0.8s ease-out forwards; }
+    .reveal-left { opacity: 0; }
+    .reveal-left.visible { animation: slideInLeft 0.8s ease-out forwards; }
+    .reveal-right { opacity: 0; }
+    .reveal-right.visible { animation: slideInRight 0.8s ease-out forwards; }
+    @keyframes floatUp { from{opacity:0;transform:translateY(40px) scale(0.97);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes scaleIn { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
+    @keyframes slideInLeft { from{opacity:0;transform:translateX(-50px);} to{opacity:1;transform:translateX(0);} }
+    @keyframes slideInRight { from{opacity:0;transform:translateX(50px);} to{opacity:1;transform:translateX(0);} }
+    .problems-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .problem-item { background:var(--navy-lt); padding:2rem; border-left:3px solid var(--gold); transition:all 0.3s; }
+    .problem-item:hover { background:var(--navy-mid); transform:translateX(8px); }
+    .problem-item h3 { color:var(--gold-lt); margin-bottom:0.8rem; font-size:1.1rem; }
+    .problem-item p { color:var(--grey); font-size:0.95rem; }
+    .problem-impact { background:rgba(201,168,76,0.05); padding:2rem; border:1px solid rgba(201,168,76,0.15); margin-top:2.5rem; }
+    .problem-impact ul { list-style:none; margin-top:1rem; }
+    .problem-impact li { padding:0.6rem 0; padding-left:1.5rem; position:relative; color:var(--grey); }
+    .problem-impact li::before { content:'→'; position:absolute; left:0; color:var(--gold); font-weight:bold; }
+    .trust-points { display:grid; gap:1.5rem; margin-top:1.5rem; }
+    .trust-item { background:rgba(201,168,76,0.08); padding:1.5rem; border:1px solid rgba(201,168,76,0.12); }
+    .trust-item h4 { color:var(--gold-lt); margin-bottom:0.5rem; font-size:1rem; }
+    .trust-item p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .benefits-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .benefit-card { background:var(--navy); padding:2rem; border-bottom:3px solid var(--gold); text-align:center; transition:all 0.3s; }
+    .benefit-card:hover { background:var(--navy-lt); transform:translateY(-6px); }
+    .benefit-icon { font-size:3rem; margin-bottom:1rem; }
+    .benefit-card h3 { color:var(--white); margin-bottom:0.5rem; font-size:1.1rem; }
+    .benefit-card .metric { color:var(--gold-lt); font-weight:600; font-size:0.9rem; margin-bottom:0.8rem; }
+    .benefit-card p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .faq-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem; margin-top:2.5rem; }
+    .faq-item { background:var(--navy-mid); padding:1.8rem; border-left:3px solid var(--gold); transition:all 0.3s; }
+    .faq-item:hover { background:var(--navy-lt); }
+    .faq-item h4 { color:var(--gold-lt); margin-bottom:0.8rem; font-size:1.05rem; }
+    .faq-item p { color:var(--grey); font-size:0.95rem; line-height:1.7; }
+    .two-col-alt { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    @media(max-width:900px) { .two-col-alt{grid-template-columns:1fr;gap:2.5rem;} }
     @keyframes pulse { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.5);opacity:0;} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
     .page-hero h1,.page-hero .eyebrow,.page-hero .hero-desc,.page-hero .hero-actions { opacity:0; animation:fadeUp 0.8s forwards; }
@@ -120,15 +159,183 @@
 <section class="page-hero">
   <p class="eyebrow">Print & Creative</p>
   <h1>Printing Services <em>Nigeria</em></h1>
-  <p class="hero-desc">Premium offset and digital printing for businesses across Nigeria. Superior paper stock, accurate colour reproduction, and fast turnaround � delivered nationwide.</p>
+  <p class="hero-desc">Premium offset and digital printing for businesses across Nigeria. Superior paper stock, accurate colour reproduction, and fast turnaround � delivered nationwide.</p>
   <div class="hero-actions"><a href="contact.html" class="btn-primary">Get a Free Quote</a>&nbsp;&nbsp;<a href="portfolio.html" class="btn-outline">See Our Work</a></div>
 </section><section style="background:var(--navy-mid);"><div class="section-wrap section-pad"><div class="reveal"><p class="section-label">What We Print</p><h2>Commercial <em>Print Excellence</em></h2></div><div class="cards-grid reveal"><div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg></div><h3>Business Cards</h3><p>Premium 350gsm matt/gloss laminated cards. Spot UV, embossing, and foil finishes available.</p></div>
-<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3>Flyers & Brochures</h3><p>A4, A5, DL � full colour, double-sided, with a choice of paper weights and finishes.</p></div>
+<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3>Flyers & Brochures</h3><p>A4, A5, DL � full colour, double-sided, with a choice of paper weights and finishes.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div><h3>Compliment Slips & Letterheads</h3><p>Professionally printed stationery sets that present your brand as established and trustworthy.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div><h3>Booklets & Catalogues</h3><p>Perfect-bound and saddle-stitched booklets for product catalogues, annual reports, and event programmes.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/></svg></div><h3>Stickers & Labels</h3><p>Cut-to-shape product labels, QR code stickers, and promotional decals printed on premium vinyl.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Nationwide Delivery</h3><p>We partner with GIG Logistics for reliable delivery to all 36 states. Track your order in real time.</p></div>
-</div></div></section><section class="cta-band"><div class="section-wrap"><h2>Get an Instant <em>Print Quote</em></h2><p>Send your specifications and receive a quote within 2 hours.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
+</div></div></section>
+
+  <!-- PAIN POINTS -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Your Printing Problems Are <em>More Expensive Than You Think</em></h2>
+        <p style="color:var(--grey);margin-top:1rem;font-size:1.05rem;">Low-quality print materials damage your brand and cost you customers.</p>
+      </div>
+      <div class="problems-list reveal">
+        <div class="problem-item">
+          <h3>Amateur Print Quality</h3>
+          <p>Cheap printers and poor paper stock make your business look unprofessional. First impressions matter — bad printing signals bad business.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Inconsistent Branding</h3>
+          <p>Business cards from one shop, flyers from another, letterheads from a third. Colours don't match, finishes vary, and your brand looks fragmented.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Slow Turnaround</h3>
+          <p>Your regular printer takes days or weeks to deliver. By the time your materials arrive, the opportunity is gone.</p>
+        </div>
+        <div class="problem-item">
+          <h3>No Nationwide Delivery</h3>
+          <p>You're limited to local printers and can't serve clients or branches in other states. Your business growth is constrained by geography.</p>
+        </div>
+      </div>
+      <div class="problem-impact reveal">
+        <h3 style="color:var(--gold-lt);">The Cost of Waiting:</h3>
+        <ul>
+          <li>Every bad business card = a lost networking opportunity and a weak first impression</li>
+          <li>Inconsistent branding across print reduces brand recall by up to 80%</li>
+          <li>Slow delivery means missed deadlines, lost contracts, and delayed promotions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section style="background:linear-gradient(170deg,var(--navy-mid) 0%,var(--navy) 100%);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Our Approach</p>
+        <h2>How We Deliver <em>Print Excellence</em> Every Time</h2>
+      </div>
+      <div class="two-col reveal">
+        <div>
+          <p style="color:var(--grey);font-size:1.05rem;">We treat print as an extension of your brand identity — not a commodity. Every job goes through our quality-controlled workflow to ensure consistent, professional results.</p>
+          <h3 style="margin-top:2rem;">Our Printing Process:</h3>
+          <ul class="features-list">
+            <li>Consultation to understand your brand, audience, and print needs</li>
+            <li>High-resolution artwork preparation and colour correction</li>
+            <li>Proof approval with digital mock-up before production begins</li>
+            <li>Printing on premium-grade stock with calibrated colour accuracy</li>
+            <li>Quality check, finishing (lamination, binding, cutting), and packaging</li>
+            <li>Nationwide delivery via GIG Logistics with real-time tracking</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why Choose Hephzibah for Print?</h3>
+          <div class="trust-points">
+            <div class="trust-item">
+              <h4>🔷 Premium Materials</h4>
+              <p>We use only high-grade paper stock, professional inks, and quality finishes. Your materials feel as good as they look.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Colour Accuracy</h4>
+              <p>Calibrated print systems ensure that the colours on your screen match what comes off the press. No surprises.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Fast Turnaround</h4>
+              <p>Standard orders delivered in 3-5 business days. Express service available for urgent deadlines.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Delivery to 36 States</h4>
+              <p>We partner with GIG Logistics to deliver your print materials across all 36 Nigerian states.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS IMPACT -->
+  <section style="background:var(--navy-mid);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Real Results</p>
+        <h2>The Business Impact of <em>Professional Print</em></h2>
+      </div>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card">
+          <div class="benefit-icon">📇</div>
+          <h3>Instant Credibility</h3>
+          <p class="metric">Premium materials command respect</p>
+          <p>Professional business cards, brochures, and stationery tell clients you're established and serious about quality.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎯</div>
+          <h3>Consistent Branding</h3>
+          <p class="metric">Same colours, same quality, every time</p>
+          <p>All your print materials — from business cards to catalogues — share a consistent, on-brand look that builds recognition.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📬</div>
+          <h3>Nationwide Reach</h3>
+          <p class="metric">Delivered to any state in Nigeria</p>
+          <p>Serve clients in Lagos, Abuja, Port Harcourt, and beyond with reliable nationwide delivery and tracking.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">⏱️</div>
+          <h3>Fast Delivery</h3>
+          <p class="metric">3-5 day standard turnaround</p>
+          <p>Express service available for urgent campaigns. We understand that in business, timing is everything.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Cost-Effective</h3>
+          <p class="metric">Competitive pricing for bulk orders</p>
+          <p>Volume discounts available for large print runs. Get premium quality at prices that work for your budget.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">✅</div>
+          <h3>Hassle-Free Process</h3>
+          <p class="metric">We handle everything from design to delivery</p>
+          <p>Send us your artwork or let our designers create it. We manage printing, finishing, and shipping so you don't have to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Questions?</p>
+        <h2>Frequently Asked <em>Questions</em></h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <h4>How long does printing take?</h4>
+          <p>Standard orders are delivered in 3-5 business days from approval of artwork. Express service (1-2 days) is available at an additional cost.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can you print in full colour?</h4>
+          <p>Yes, all our print jobs are full-colour CMYK. We also offer spot colours and Pantone matching for brand consistency.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do I need to provide artwork?</h4>
+          <p>You can send your print-ready artwork or our graphics team can create it for you at no additional charge for orders above ₦50,000.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you deliver outside Ogun State?</h4>
+          <p>Yes! We deliver to all 36 states in Nigeria through our partnership with GIG Logistics. Shipping costs depend on your location.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What paper types do you offer?</h4>
+          <p>We offer a wide range: 250gsm to 400gsm for cards, 120gsm to 200gsm for flyers, and various coated/uncoated options. Our team will recommend the best stock for your project.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you offer discounts for bulk orders?</h4>
+          <p>Yes! The more you print, the lower the unit cost. Contact us for a custom quote based on your quantities and specifications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band"><div class="section-wrap"><h2>Get an Instant <em>Print Quote</em></h2><p>Send your specifications and receive a quote within 2 hours.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
   <footer>
     <div class="section-wrap">
       <div class="footer-grid">

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Growth Hacking Agency Nigeria � Hephzibah Media</title>
+  <title>Growth Hacking Agency Nigeria � Hephzibah Media</title>
   <meta name="description" content="Growth marketing and growth hacking for Nigerian startups and SMEs. Data-driven strategies that scale revenue fast.">
-  <meta property="og:title" content="Growth Hacking Agency Nigeria � Hephzibah Media">
+  <meta property="og:title" content="Growth Hacking Agency Nigeria � Hephzibah Media">
   <meta property="og:description" content="Growth marketing and growth hacking for Nigerian startups and SMEs. Data-driven strategies that scale revenue fast.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hephzibahmedia.com/growth-marketing.html">
@@ -90,6 +90,40 @@
     .wa-pulse { position:absolute; inset:-4px; border-radius:50%; border:2px solid rgba(37,211,102,0.4); animation:pulse 2s infinite; }
     .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s,transform 0.7s; }
     .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-fade { opacity: 0; }
+    .reveal-fade.visible { animation: floatUp 0.8s ease-out forwards; }
+    .reveal-scale { opacity: 0; }
+    .reveal-scale.visible { animation: scaleIn 0.8s ease-out forwards; }
+    .reveal-left { opacity: 0; }
+    .reveal-left.visible { animation: slideInLeft 0.8s ease-out forwards; }
+    .reveal-right { opacity: 0; }
+    .reveal-right.visible { animation: slideInRight 0.8s ease-out forwards; }
+    @keyframes floatUp { from{opacity:0;transform:translateY(40px) scale(0.97);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes scaleIn { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
+    @keyframes slideInLeft { from{opacity:0;transform:translateX(-50px);} to{opacity:1;transform:translateX(0);} }
+    @keyframes slideInRight { from{opacity:0;transform:translateX(50px);} to{opacity:1;transform:translateX(0);} }
+    .problems-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .problem-item { background:var(--navy-lt); padding:2rem; border-left:3px solid var(--gold); transition:all 0.3s; }
+    .problem-item:hover { background:var(--navy-mid); transform:translateX(8px); }
+    .problem-item h3 { color:var(--gold-lt); margin-bottom:0.8rem; font-size:1.1rem; }
+    .problem-item p { color:var(--grey); font-size:0.95rem; }
+    .problem-impact { background:rgba(201,168,76,0.05); padding:2rem; border:1px solid rgba(201,168,76,0.15); margin-top:2.5rem; }
+    .problem-impact ul { list-style:none; margin-top:1rem; }
+    .problem-impact li { padding:0.6rem 0; padding-left:1.5rem; position:relative; color:var(--grey); }
+    .problem-impact li::before { content:'→'; position:absolute; left:0; color:var(--gold); font-weight:bold; }
+    .trust-points { display:grid; gap:1.5rem; margin-top:1.5rem; }
+    .trust-item { background:rgba(201,168,76,0.08); padding:1.5rem; border:1px solid rgba(201,168,76,0.12); }
+    .trust-item h4 { color:var(--gold-lt); margin-bottom:0.5rem; font-size:1rem; }
+    .trust-item p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .benefits-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .benefit-card { background:var(--navy); padding:2rem; border-bottom:3px solid var(--gold); text-align:center; transition:all 0.3s; }
+    .benefit-card:hover { background:var(--navy-lt); transform:translateY(-6px); }
+    .benefit-icon { font-size:3rem; margin-bottom:1rem; }
+    .benefit-card h3 { color:var(--white); margin-bottom:0.5rem; font-size:1.1rem; }
+    .benefit-card .metric { color:var(--gold-lt); font-weight:600; font-size:0.9rem; margin-bottom:0.8rem; }
+    .benefit-card p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .two-col-alt { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    @media(max-width:900px) { .two-col-alt{grid-template-columns:1fr;gap:2.5rem;} }
     @keyframes pulse { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.5);opacity:0;} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
     .page-hero h1,.page-hero .eyebrow,.page-hero .hero-desc,.page-hero .hero-actions { opacity:0; animation:fadeUp 0.8s forwards; }
@@ -120,15 +154,183 @@
 <section class="page-hero">
   <p class="eyebrow">Marketing Services</p>
   <h1>Growth Hacking <em>for Nigerian Businesses</em></h1>
-  <p class="hero-desc">Rapid-iteration, data-driven growth strategies for startups and SMEs. We find the exact channels, messages, and funnels that unlock your next growth curve � fast.</p>
+  <p class="hero-desc">Rapid-iteration, data-driven growth strategies for startups and SMEs. We find the exact channels, messages, and funnels that unlock your next growth curve � fast.</p>
   <div class="hero-actions"><a href="contact.html" class="btn-primary">Get a Free Quote</a>&nbsp;&nbsp;<a href="portfolio.html" class="btn-outline">See Our Work</a></div>
 </section><section style="background:var(--navy-mid);"><div class="section-wrap section-pad"><div class="reveal"><p class="section-label">Growth Services</p><h2>Scientific <em>Scaling</em></h2></div><div class="cards-grid reveal"><div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3>Funnel Mapping & Optimisation</h3><p>Full-funnel audit from acquisition to retention. We eliminate the leaks and amplify what works.</p></div>
-<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>A/B Testing & CRO</h3><p>Landing page tests, CTA variants, pricing experiments � structured to generate statistical significance fast.</p></div>
+<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>A/B Testing & CRO</h3><p>Landing page tests, CTA variants, pricing experiments � structured to generate statistical significance fast.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Referral & Viral Loops</h3><p>WhatsApp referral systems, loyalty programmes, and viral mechanics that turn customers into a distribution channel.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><h3>Paid Acquisition Sprints</h3><p>90-day paid media experiments across Google, Meta, and TikTok to identify your most efficient CAC channel.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Product-Led Growth</h3><p>Onboarding flows, in-app nudges, and activation milestones that turn free users into paying customers.</p></div>
-<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>OKR & KPI Frameworks</h3><p>We install the measurement infrastructure so your team knows what to optimise � every single week.</p></div>
-</div></div></section><section class="cta-band"><div class="section-wrap"><h2>Find Your <em>Growth Lever</em></h2><p>Free 60-minute growth audit for qualified Nigerian businesses.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
+<div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>OKR & KPI Frameworks</h3><p>We install the measurement infrastructure so your team knows what to optimise � every single week.</p></div>
+</div></div></section>
+
+  <!-- PAIN POINTS -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Your Business Growth Has <em>Plateaued</em></h2>
+        <p style="color:var(--grey);margin-top:1rem;font-size:1.05rem;">You've tried advertising, content, and social media — but the needle isn't moving. You need a different approach.</p>
+      </div>
+      <div class="problems-list reveal">
+        <div class="problem-item">
+          <h3>Unpredictable Growth</h3>
+          <p>Some months are great, others are terrible. You can't figure out what's working and you can't replicate your wins consistently.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Marketing Without Data</h3>
+          <p>You're spending on ads, content, and promotions without knowing what actually drives revenue. You're guessing, not growing.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Wasting Budget on Experiments</h3>
+          <p>You try new channels and tactics without a structured testing framework. Failed experiments burn cash without producing insights.</p>
+        </div>
+        <div class="problem-item">
+          <h3>No System for Scale</h3>
+          <p>You found something that works but you can't scale it. Manual processes, no automation, and no repeatable growth playbook.</p>
+        </div>
+      </div>
+      <div class="problem-impact reveal">
+        <h3 style="color:var(--gold-lt);">The Cost of Waiting:</h3>
+        <ul>
+          <li>Every month of plateaued growth = your competitors capture market share while you stand still</li>
+          <li>Unstructured experiments waste 30-50% of your marketing budget on tactics that can't succeed</li>
+          <li>Without a systematic growth process, you'll never build a predictable, scalable customer acquisition engine</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section style="background:linear-gradient(170deg,var(--navy-mid) 0%,var(--navy) 100%);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Our Approach</p>
+        <h2>How We Build <em>Systematic Growth Engines</em> for Nigerian Businesses</h2>
+      </div>
+      <div class="two-col reveal">
+        <div>
+          <p style="color:var(--grey);font-size:1.05rem;">Growth hacking is not magic — it's a structured process of experimentation, measurement, and iteration. We install the systems, frameworks, and culture that make growth predictable and repeatable.</p>
+          <h3 style="margin-top:2rem;">Our Growth Process:</h3>
+          <ul class="features-list">
+            <li>Full-funnel audit to identify your biggest growth opportunities and leaks</li>
+            <li>Hypothesis-driven experiment design with clear success metrics</li>
+            <li>Rapid 2-week experimentation sprints across channels and tactics</li>
+            <li>Data analysis to separate winning experiments from failures</li>
+            <li>Scale winning experiments into repeatable growth systems</li>
+            <li>OKR and KPI framework installation for ongoing growth management</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why Choose Hephzibah?</h3>
+          <div class="trust-points">
+            <div class="trust-item">
+              <h4>🔷 Scientific Methodology</h4>
+              <p>We use hypothesis-driven experimentation with statistical significance. No guesswork, no gut feelings — just data-driven decisions.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Nigerian Market Expertise</h4>
+              <p>We understand Nigerian consumer behaviour, mobile-first usage patterns, and the channels that actually work locally.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Full-Funnel Thinking</h4>
+              <p>We optimise the entire customer journey — from acquisition to activation, retention, and referral — not just top-of-funnel traffic.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Build In-House Capability</h4>
+              <p>We don't just run experiments — we install the frameworks and train your team so you can run growth experiments independently.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS IMPACT -->
+  <section style="background:var(--navy-mid);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Real Results</p>
+        <h2>The Business Impact of <em>Systematic Growth</em></h2>
+      </div>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <h3>Predictable Growth</h3>
+          <p class="metric">Know your next move will work</p>
+          <p>A structured experimentation process means every naira you spend generates data that informs your next, better move.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎯</div>
+          <h3>Lower CAC</h3>
+          <p class="metric">Stop wasting budget on what doesn't work</p>
+          <p>Systematic testing identifies your most efficient acquisition channels. Eliminate wasted spend and focus on what delivers.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔄</div>
+          <h3>Viral Mechanics</h3>
+          <p class="metric">Turn customers into your distribution channel</p>
+          <p>Referral loops, share mechanics, and viral triggers built into your product and marketing — acquire customers for free.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📊</div>
+          <h3>Data-Driven Culture</h3>
+          <p class="metric">Your team makes decisions with data</p>
+          <p>Dashboards, OKRs, and weekly growth meetings become part of how your company operates. No more opinions driving strategy.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3>Rapid Iteration</h3>
+          <p class="metric">Test more, learn faster</p>
+          <p>2-week experimentation cycles mean you test 24+ growth hypotheses per year. Speed of learning becomes your competitive advantage.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏆</div>
+          <h3>Market Dominance</h3>
+          <p class="metric">Outpace competitors systematically</p>
+          <p>While competitors run the same campaigns, you're systematically testing, learning, and optimising your way to market leadership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Questions?</p>
+        <h2>Frequently Asked <em>Questions</em></h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <h4>What's the difference between growth hacking and digital marketing?</h4>
+          <p>Digital marketing focuses on executing campaigns across channels. Growth hacking is a systematic process of experimentation to find the most efficient ways to grow. We often combine both approaches.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How long before I see results?</h4>
+          <p>Some experiments generate immediate insights within weeks. Building a full growth system typically takes 3-6 months to show significant, measurable impact.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you work with early-stage startups?</h4>
+          <p>Yes. We have specific growth packages for startups with limited budgets, focusing on high-impact, low-cost experiments.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do you measure success?</h4>
+          <p>We measure success by your chosen North Star metric — monthly active users, revenue growth, customer acquisition cost, or whatever matters most to your business.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Will you train my team?</h4>
+          <p>Yes. We build growth capability in your team through workshops, frameworks, and hands-on collaboration. Our goal is to make you self-sufficient.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What's included in the free growth audit?</h4>
+          <p>A 60-minute deep dive into your funnel, current metrics, channels, and growth opportunities. You'll leave with 3 high-impact experiments to run immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band"><div class="section-wrap"><h2>Find Your <em>Growth Lever</em></h2><p>Free 60-minute growth audit for qualified Nigerian businesses.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
   <footer>
     <div class="section-wrap">
       <div class="footer-grid">

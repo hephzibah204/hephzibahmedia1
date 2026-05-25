@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Large Format Printing Nigeria � Hephzibah Media</title>
+  <title>Large Format Printing Nigeria � Hephzibah Media</title>
   <meta name="description" content="Large format printing services in Nigeria. Banners, billboards, vehicle wraps, and event displays with vivid colour output.">
-  <meta property="og:title" content="Large Format Printing Nigeria � Hephzibah Media">
+  <meta property="og:title" content="Large Format Printing Nigeria � Hephzibah Media">
   <meta property="og:description" content="Large format printing services in Nigeria. Banners, billboards, vehicle wraps, and event displays with vivid colour output.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hephzibahmedia.com/large-format.html">
@@ -90,6 +90,40 @@
     .wa-pulse { position:absolute; inset:-4px; border-radius:50%; border:2px solid rgba(37,211,102,0.4); animation:pulse 2s infinite; }
     .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s,transform 0.7s; }
     .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-fade { opacity: 0; }
+    .reveal-fade.visible { animation: floatUp 0.8s ease-out forwards; }
+    .reveal-scale { opacity: 0; }
+    .reveal-scale.visible { animation: scaleIn 0.8s ease-out forwards; }
+    .reveal-left { opacity: 0; }
+    .reveal-left.visible { animation: slideInLeft 0.8s ease-out forwards; }
+    .reveal-right { opacity: 0; }
+    .reveal-right.visible { animation: slideInRight 0.8s ease-out forwards; }
+    @keyframes floatUp { from{opacity:0;transform:translateY(40px) scale(0.97);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes scaleIn { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
+    @keyframes slideInLeft { from{opacity:0;transform:translateX(-50px);} to{opacity:1;transform:translateX(0);} }
+    @keyframes slideInRight { from{opacity:0;transform:translateX(50px);} to{opacity:1;transform:translateX(0);} }
+    .problems-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .problem-item { background:var(--navy-lt); padding:2rem; border-left:3px solid var(--gold); transition:all 0.3s; }
+    .problem-item:hover { background:var(--navy-mid); transform:translateX(8px); }
+    .problem-item h3 { color:var(--gold-lt); margin-bottom:0.8rem; font-size:1.1rem; }
+    .problem-item p { color:var(--grey); font-size:0.95rem; }
+    .problem-impact { background:rgba(201,168,76,0.05); padding:2rem; border:1px solid rgba(201,168,76,0.15); margin-top:2.5rem; }
+    .problem-impact ul { list-style:none; margin-top:1rem; }
+    .problem-impact li { padding:0.6rem 0; padding-left:1.5rem; position:relative; color:var(--grey); }
+    .problem-impact li::before { content:'→'; position:absolute; left:0; color:var(--gold); font-weight:bold; }
+    .trust-points { display:grid; gap:1.5rem; margin-top:1.5rem; }
+    .trust-item { background:rgba(201,168,76,0.08); padding:1.5rem; border:1px solid rgba(201,168,76,0.12); }
+    .trust-item h4 { color:var(--gold-lt); margin-bottom:0.5rem; font-size:1rem; }
+    .trust-item p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .benefits-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .benefit-card { background:var(--navy); padding:2rem; border-bottom:3px solid var(--gold); text-align:center; transition:all 0.3s; }
+    .benefit-card:hover { background:var(--navy-lt); transform:translateY(-6px); }
+    .benefit-icon { font-size:3rem; margin-bottom:1rem; }
+    .benefit-card h3 { color:var(--white); margin-bottom:0.5rem; font-size:1.1rem; }
+    .benefit-card .metric { color:var(--gold-lt); font-weight:600; font-size:0.9rem; margin-bottom:0.8rem; }
+    .benefit-card p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .two-col-alt { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    @media(max-width:900px) { .two-col-alt{grid-template-columns:1fr;gap:2.5rem;} }
     @keyframes pulse { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.5);opacity:0;} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
     .page-hero h1,.page-hero .eyebrow,.page-hero .hero-desc,.page-hero .hero-actions { opacity:0; animation:fadeUp 0.8s forwards; }
@@ -122,13 +156,181 @@
   <h1>Large Format Printing <em>Nigeria</em></h1>
   <p class="hero-desc">Billboards, flex banners, roll-up stands, and building wraps that command attention. Vivid colour output engineered for outdoor visibility across Nigerian weather conditions.</p>
   <div class="hero-actions"><a href="contact.html" class="btn-primary">Get a Free Quote</a>&nbsp;&nbsp;<a href="portfolio.html" class="btn-outline">See Our Work</a></div>
-</section><section style="background:var(--navy-mid);"><div class="section-wrap section-pad"><div class="reveal"><p class="section-label">Large Format Products</p><h2>Go <em>Big</em></h2></div><div class="cards-grid reveal"><div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div><h3>Flex Banners</h3><p>PVC flex banners from 3�6ft to full building wraps. Reinforced with eyelets for outdoor durability.</p></div>
+</section><section style="background:var(--navy-mid);"><div class="section-wrap section-pad"><div class="reveal"><p class="section-label">Large Format Products</p><h2>Go <em>Big</em></h2></div><div class="cards-grid reveal"><div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div><h3>Flex Banners</h3><p>PVC flex banners from 3�6ft to full building wraps. Reinforced with eyelets for outdoor durability.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3v7h18V3zM21 14H3v7h18v-7zM8 3v7M8 14v7M12 3v7M12 14v7M16 3v7M16 14v7"/></svg></div><h3>Rollup Standees</h3><p>Premium aluminium pull-up banner stands for exhibitions, events, and office receptions.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><h3>Hoarding & Billboard Graphics</h3><p>Vinyl substrates for billboard hoarding, site hoardings, and construction barricades.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg></div><h3>Vehicle Wraps & Branding</h3><p>Full and partial vehicle wraps, fleet branding, and window perforated vinyl for mobile advertising.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/></svg></div><h3>Event Backdrops</h3><p>Step-and-repeat banners, photobooth backdrops, and branded stage panels for corporate events.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/></svg></div><h3>Window & Wall Graphics</h3><p>Frosted vinyl, wall murals, and window decals for retail, office, and restaurant branding.</p></div>
-</div></div></section><section class="cta-band"><div class="section-wrap"><h2>Make Your Brand <em>Unmissable</em></h2><p>Send artwork or brief and receive a production quote within 2 hours.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
+</div></div></section>
+
+  <!-- PAIN POINTS -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Your Brand Is <em>Invisible</em> When It Should Be Unmissable</h2>
+        <p style="color:var(--grey);margin-top:1rem;font-size:1.05rem;">In a crowded Nigerian market, if your brand isn't seen, it doesn't exist.</p>
+      </div>
+      <div class="problems-list reveal">
+        <div class="problem-item">
+          <h3>No Outdoor Presence</h3>
+          <p>Your competitors have billboards, banners, and building wraps across town. Your brand is invisible to the thousands of people who pass by daily.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Poor Quality Signage</h3>
+          <p>Faded colours, peeling vinyl, and flimsy banners make your business look cheap. Outdoor materials that don't survive Nigerian weather waste your money.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Limited Event Impact</h3>
+          <p>Your exhibition booth has no backdrop, no pull-up banners, and no branded materials. Visitors walk past your stand without noticing.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Missed Advertising Opportunity</h3>
+          <p>Your company vehicles are plain white. Your office windows are bare. Every surface could be advertising space but you're not using it.</p>
+        </div>
+      </div>
+      <div class="problem-impact reveal">
+        <h3 style="color:var(--gold-lt);">The Cost of Waiting:</h3>
+        <ul>
+          <li>Outdoor advertising reaches 70% of Nigerian consumers daily — if you're not visible outdoors, you're invisible to most of your market</li>
+          <li>Cheap banners that fade in 2 months cost you more in replacements than investing in quality materials from the start</li>
+          <li>Your fleet and office are untapped advertising assets generating zero brand impressions every single day</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section style="background:linear-gradient(170deg,var(--navy-mid) 0%,var(--navy) 100%);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Our Approach</p>
+        <h2>How We Make Your Brand <em>Impossible to Miss</em></h2>
+      </div>
+      <div class="two-col reveal">
+        <div>
+          <p style="color:var(--grey);font-size:1.05rem;">We use premium materials engineered for Nigerian outdoor conditions — UV-resistant inks, weatherproof substrates, and professional-grade finishing. Your branding stays vibrant for months, not weeks.</p>
+          <h3 style="margin-top:2rem;">Our Large Format Process:</h3>
+          <ul class="features-list">
+            <li>Site survey and measurement for accurate fitting</li>
+            <li>High-resolution artwork preparation for large-scale output</li>
+            <li>Material selection based on location, weather exposure, and duration</li>
+            <li>Professional printing on industrial large-format printers</li>
+            <li>Quality check with colour calibration under daylight conditions</li>
+            <li>Professional installation team for on-site fitting</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why Choose Hephzibah?</h3>
+          <div class="trust-points">
+            <div class="trust-item">
+              <h4>🔷 Premium Materials</h4>
+              <p>UV-resistant inks, heavy-duty PVC, and reinforced finishing. Your outdoor branding survives sun, rain, and harmattan.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Professional Installation</h4>
+              <p>Our installation team handles on-site fitting for billboards, building wraps, and event setups across Nigeria.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Fast Production</h4>
+              <p>Standard large-format orders within 3-5 business days. Rush orders available for urgent events and campaigns.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 End-to-End Service</h4>
+              <p>From design consultation to installation — we manage the entire process so you don't have to coordinate multiple vendors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS IMPACT -->
+  <section style="background:var(--navy-mid);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Real Results</p>
+        <h2>The Business Impact of <em>Large Format Branding</em></h2>
+      </div>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card">
+          <div class="benefit-icon">👁️</div>
+          <h3>Massive Visibility</h3>
+          <p class="metric">Thousands of daily impressions</p>
+          <p>Your brand seen by thousands of people every day — commuters, pedestrians, and potential customers passing your location.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏢</div>
+          <h3>Professional Image</h3>
+          <p class="metric">Look established and successful</p>
+          <p>High-quality outdoor branding signals that your business is professional, successful, and here to stay.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎪</div>
+          <h3>Event Impact</h3>
+          <p class="metric">Stand out at exhibitions</p>
+          <p>Professional backdrops, roll-up banners, and branded displays make your exhibition booth attract attention and visitors.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🚛</div>
+          <h3>Mobile Advertising</h3>
+          <p class="metric">Turns fleet into billboards</p>
+          <p>Your vehicles become mobile advertising assets generating impressions across every route they travel.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">☀️</div>
+          <h3>Weather Resistant</h3>
+          <p class="metric">Built for Nigerian climate</p>
+          <p>UV-resistant inks and weatherproof materials ensure your outdoor branding stays vibrant through sun, rain, and harmattan dust.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Cost-Effective</h3>
+          <p class="metric">Low cost per impression</p>
+          <p>Outdoor branding delivers the lowest cost-per-impression of any advertising medium. One investment, months of visibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Questions?</p>
+        <h2>Frequently Asked <em>Questions</em></h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <h4>How long does large format printing take?</h4>
+          <p>Standard production takes 3-5 business days. Large projects like building wraps may take 7-10 days including installation.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you install billboards and banners?</h4>
+          <p>Yes, we provide professional installation services for billboards, building wraps, event backdrops, and all large format materials.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What materials do you use for outdoor printing?</h4>
+          <p>We use heavy-duty PVC flex, vinyl substrates, and mesh materials with UV-resistant inks for outdoor applications.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you provide design services for large format?</h4>
+          <p>Yes, our design team can create artwork optimised for large-scale printing. We ensure proper resolution, colour profiles, and bleed settings.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How long will outdoor banners last?</h4>
+          <p>With UV-resistant materials, our outdoor banners typically last 6-12 months depending on sun exposure and weather conditions.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you deliver outside Ogun State?</h4>
+          <p>Yes, we deliver and install across all 36 Nigerian states. Travel and installation costs vary by location.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band"><div class="section-wrap"><h2>Make Your Brand <em>Unmissable</em></h2><p>Send artwork or brief and receive a production quote within 2 hours.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
   <footer>
     <div class="section-wrap">
       <div class="footer-grid">

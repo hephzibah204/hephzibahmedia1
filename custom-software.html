@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Custom Software Development Nigeria � Hephzibah Media</title>
+  <title>Custom Software Development Nigeria � Hephzibah Media</title>
   <meta name="description" content="Bespoke software development in Nigeria. SaaS, ERP, fintech, and EdTech platforms built for Nigerian businesses.">
-  <meta property="og:title" content="Custom Software Development Nigeria � Hephzibah Media">
+  <meta property="og:title" content="Custom Software Development Nigeria � Hephzibah Media">
   <meta property="og:description" content="Bespoke software development in Nigeria. SaaS, ERP, fintech, and EdTech platforms built for Nigerian businesses.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hephzibahmedia.com/custom-software.html">
@@ -90,6 +90,40 @@
     .wa-pulse { position:absolute; inset:-4px; border-radius:50%; border:2px solid rgba(37,211,102,0.4); animation:pulse 2s infinite; }
     .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s,transform 0.7s; }
     .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-fade { opacity: 0; }
+    .reveal-fade.visible { animation: floatUp 0.8s ease-out forwards; }
+    .reveal-scale { opacity: 0; }
+    .reveal-scale.visible { animation: scaleIn 0.8s ease-out forwards; }
+    .reveal-left { opacity: 0; }
+    .reveal-left.visible { animation: slideInLeft 0.8s ease-out forwards; }
+    .reveal-right { opacity: 0; }
+    .reveal-right.visible { animation: slideInRight 0.8s ease-out forwards; }
+    @keyframes floatUp { from{opacity:0;transform:translateY(40px) scale(0.97);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes scaleIn { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
+    @keyframes slideInLeft { from{opacity:0;transform:translateX(-50px);} to{opacity:1;transform:translateX(0);} }
+    @keyframes slideInRight { from{opacity:0;transform:translateX(50px);} to{opacity:1;transform:translateX(0);} }
+    .problems-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .problem-item { background:var(--navy-lt); padding:2rem; border-left:3px solid var(--gold); transition:all 0.3s; }
+    .problem-item:hover { background:var(--navy-mid); transform:translateX(8px); }
+    .problem-item h3 { color:var(--gold-lt); margin-bottom:0.8rem; font-size:1.1rem; }
+    .problem-item p { color:var(--grey); font-size:0.95rem; }
+    .problem-impact { background:rgba(201,168,76,0.05); padding:2rem; border:1px solid rgba(201,168,76,0.15); margin-top:2.5rem; }
+    .problem-impact ul { list-style:none; margin-top:1rem; }
+    .problem-impact li { padding:0.6rem 0; padding-left:1.5rem; position:relative; color:var(--grey); }
+    .problem-impact li::before { content:'→'; position:absolute; left:0; color:var(--gold); font-weight:bold; }
+    .trust-points { display:grid; gap:1.5rem; margin-top:1.5rem; }
+    .trust-item { background:rgba(201,168,76,0.08); padding:1.5rem; border:1px solid rgba(201,168,76,0.12); }
+    .trust-item h4 { color:var(--gold-lt); margin-bottom:0.5rem; font-size:1rem; }
+    .trust-item p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .benefits-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .benefit-card { background:var(--navy); padding:2rem; border-bottom:3px solid var(--gold); text-align:center; transition:all 0.3s; }
+    .benefit-card:hover { background:var(--navy-lt); transform:translateY(-6px); }
+    .benefit-icon { font-size:3rem; margin-bottom:1rem; }
+    .benefit-card h3 { color:var(--white); margin-bottom:0.5rem; font-size:1.1rem; }
+    .benefit-card .metric { color:var(--gold-lt); font-weight:600; font-size:0.9rem; margin-bottom:0.8rem; }
+    .benefit-card p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .two-col-alt { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    @media(max-width:900px) { .two-col-alt{grid-template-columns:1fr;gap:2.5rem;} }
     @keyframes pulse { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.5);opacity:0;} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
     .page-hero h1,.page-hero .eyebrow,.page-hero .hero-desc,.page-hero .hero-actions { opacity:0; animation:fadeUp 0.8s forwards; }
@@ -120,7 +154,7 @@
 <section class="page-hero">
   <p class="eyebrow">Tech & Web Services</p>
   <h1>Custom Software <em>Development</em></h1>
-  <p class="hero-desc">Off-the-shelf software wasn't built for your business. We build bespoke platforms � ERPs, SaaS products, internal tools � designed exactly for your Nigerian workflow.</p>
+  <p class="hero-desc">Off-the-shelf software wasn't built for your business. We build bespoke platforms � ERPs, SaaS products, internal tools � designed exactly for your Nigerian workflow.</p>
   <div class="hero-actions"><a href="contact.html" class="btn-primary">Get a Free Quote</a>&nbsp;&nbsp;<a href="portfolio.html" class="btn-outline">See Our Work</a></div>
 </section><section style="background:var(--navy-mid);"><div class="section-wrap section-pad"><div class="reveal"><p class="section-label">What We Build</p><h2>Bespoke <em>Platforms</em></h2></div><div class="cards-grid reveal"><div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>SaaS Product Development</h3><p>From idea to subscription product. Multi-tenant architecture, billing integration, and admin dashboards.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Internal Business Tools</h3><p>HR portals, inventory systems, procurement platforms, and approval workflows built for your exact process.</p></div>
@@ -128,7 +162,174 @@
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Fintech & KYC Platforms</h3><p>NIN validation, BVN verification, identity infrastructure, and compliance-ready financial platforms.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div><h3>API Development & Integration</h3><p>RESTful APIs, webhook systems, and third-party integrations that make your software ecosystem talk.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Source Code & IP Ownership</h3><p>You own everything. Full source code handover with documentation on every engagement.</p></div>
-</div></div></section><section class="cta-band"><div class="section-wrap"><h2>Let's Scope Your <em>Custom Software</em></h2><p>Free technical discovery call with our lead developer.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
+</div></div></section>
+
+  <!-- PAIN POINTS -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Off-the-Shelf Software Is <em>Holding Your Business Back</em></h2>
+        <p style="color:var(--grey);margin-top:1rem;font-size:1.05rem;">Generic software forces your team to adapt to the tool instead of the tool adapting to your workflow.</p>
+      </div>
+      <div class="problems-list reveal">
+        <div class="problem-item">
+          <h3>Spreadsheet Chaos</h3>
+          <p>You're running critical business operations on spreadsheets. Data entry errors multiply, nothing syncs, and you can't scale.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Bespoke Doesn't Fit</h3>
+          <p>You bought a "business management" platform but it doesn't handle your unique Nigerian workflow, tax calculations, or reporting needs.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Disconnected Systems</h3>
+          <p>Sales, inventory, accounting, and HR all live in separate tools. No integration means manual data transfer and constant reconciliation.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Zero Customisation</h3>
+          <p>You need a feature but the vendor says "it's not on the roadmap." You're stuck waiting for someone else to decide what your business needs.</p>
+        </div>
+      </div>
+      <div class="problem-impact reveal">
+        <h3 style="color:var(--gold-lt);">The Cost of Waiting:</h3>
+        <ul>
+          <li>Every month on spreadsheets = hundreds of hours of wasted manual labour that software could automate</li>
+          <li>Off-the-shelf software costs pile up — per-seat licensing, upgrade fees, and integration surcharges</li>
+          <li>Your competitors with custom systems operate at 3x your efficiency and make decisions with real-time data</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section style="background:linear-gradient(170deg,var(--navy-mid) 0%,var(--navy) 100%);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Our Approach</p>
+        <h2>How We Build <em>Software That Fits Your Business</em> Perfectly</h2>
+      </div>
+      <div class="two-col reveal">
+        <div>
+          <p style="color:var(--grey);font-size:1.05rem;">We don't write code and hope it works. We start by understanding your exact workflow, your team's pain points, and your growth plan. The software is built around your process — not the other way around.</p>
+          <h3 style="margin-top:2rem;">Our Development Process:</h3>
+          <ul class="features-list">
+            <li>Deep discovery sessions to map your current workflows and identify automation opportunities</li>
+            <li>Technical architecture design with scalability and security built in from day one</li>
+            <li>Agile development with bi-weekly demo cycles so you see progress continuously</li>
+            <li>Rigorous testing including load testing, security audit, and user acceptance testing</li>
+            <li>Deployment with full documentation, source code handover, and team training</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why Choose Hephzibah?</h3>
+          <div class="trust-points">
+            <div class="trust-item">
+              <h4>🔷 Full Ownership</h4>
+              <p>You own 100% of the source code, intellectual property, and documentation. No licensing fees, no vendor lock-in.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Nigerian Reality Ready</h4>
+              <p>We build systems that handle Naira calculations, Nigerian tax laws, NIN/BVN verification, and low-bandwidth conditions.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Scalable Architecture</h4>
+              <p>From 10 users to 10,000 — we build with cloud-native architecture that scales without rewrites.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Post-Launch Support</h4>
+              <p>3 months of bug fixes, performance monitoring, and priority support included with every engagement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS IMPACT -->
+  <section style="background:var(--navy-mid);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Real Results</p>
+        <h2>The Business Impact of <em>Custom Software</em></h2>
+      </div>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3>10x Efficiency</h3>
+          <p class="metric">Automate repetitive tasks</p>
+          <p>Eliminate manual data entry, duplicate work, and human error. Your team focuses on high-value work instead of spreadsheet management.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📊</div>
+          <h3>Real-Time Data</h3>
+          <p class="metric">Make decisions with confidence</p>
+          <p>Dashboards that show your business performance in real-time. No more waiting for weekly reports compiled from five different sources.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Lower Long-Term Cost</h3>
+          <p class="metric">No per-seat licensing fees</p>
+          <p>One development cost. No monthly SaaS fees, no per-user charges, no surprise price increases. Your software, your terms.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔒</div>
+          <h3>Complete Security</h3>
+          <p class="metric">Your data stays yours</p>
+          <p>No third-party servers holding your customer data. Full control over security, backups, and compliance requirements.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <h3>Competitive Advantage</h3>
+          <p class="metric">Built for your unique process</p>
+          <p>Your software encodes your business expertise and workflow. Competitors can't copy your operational efficiency.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔄</div>
+          <h3>Easy to Evolve</h3>
+          <p class="metric">Add features as you grow</p>
+          <p>New requirements? We add them. Your business changes? The software changes with you. No limitations from a vendor's roadmap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Questions?</p>
+        <h2>Frequently Asked <em>Questions</em></h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <h4>How much does custom software cost?</h4>
+          <p>Pricing depends on complexity, features, and timeline. We provide a detailed scope and fixed-price quote after a free discovery call.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How long does development take?</h4>
+          <p>An MVP can be delivered in 6-12 weeks. Full enterprise platforms typically take 3-8 months depending on scope.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Will I own the source code?</h4>
+          <p>Yes, 100%. You receive full source code, database schemas, and documentation. No licensing, no ongoing fees, no lock-in.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What technology stack do you use?</h4>
+          <p>We primarily use Laravel/PHP, React/Next.js, and Supabase/PostgreSQL. We choose the best stack for your specific project requirements.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you provide ongoing maintenance?</h4>
+          <p>Yes, we offer monthly maintenance packages covering bug fixes, security updates, and performance monitoring.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can you integrate with existing tools?</h4>
+          <p>Absolutely. We build APIs and integrations to connect your new software with your existing accounting, CRM, and operations tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band"><div class="section-wrap"><h2>Let's Scope Your <em>Custom Software</em></h2><p>Free technical discovery call with our lead developer.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
   <footer>
     <div class="section-wrap">
       <div class="footer-grid">

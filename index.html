@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hephzibah Media � Digital Marketing, Tech & Print Agency Nigeria</title>
+  <title>Hephzibah Media — Digital Marketing, Tech & Print Agency Nigeria</title>
   <meta name="description" content="Nigeria's premium digital marketing, web tech, and print agency. We grow brands, build platforms, and print excellence. based in Ogere, Ogun State." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Hephzibah Media � Nigeria's Premium Agency" />
+  <meta property="og:title" content="Hephzibah Media — Nigeria's Premium Agency" />
   <meta property="og:description" content="Digital Marketing, Tech & Print Agency. Based in Ogun State, serving all of Nigeria." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.hephzibahmedia.com" />
@@ -311,7 +311,7 @@
     h2 em { font-style: italic; color: var(--gold-lt); }
     .section-intro {
       font-size: 1rem;
-      color: var(--grey);
+      color: var(--cream);
       max-width: 500px;
       line-height: 1.8;
     }
@@ -329,18 +329,20 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5px;
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.1);
+      gap: 2px;
+      background: rgba(201,168,76,0.25);
+      border: 1px solid rgba(201,168,76,0.25);
     }
     .service-card {
-      background: var(--navy-mid);
+      background: var(--navy);
+      border: 1px solid rgba(201,168,76,0.2);
       padding: 2.5rem 2rem;
-      transition: background 0.3s;
+      transition: all 0.3s;
       cursor: default;
       position: relative;
       overflow: hidden;
     }
+    .service-card:hover { background: var(--navy-mid); border-color: rgba(201,168,76,0.4); }
     .service-card::after {
       content: '';
       position: absolute;
@@ -349,7 +351,6 @@
       background: var(--gold);
       transition: width 0.4s ease;
     }
-    .service-card:hover { background: var(--navy-lt); }
     .service-card:hover::after { width: 100%; }
     .service-icon {
       width: 48px; height: 48px;
@@ -368,9 +369,10 @@
     }
     .service-card p {
       font-size: 0.88rem;
-      color: var(--grey);
+      color: var(--cream);
       line-height: 1.7;
       margin-bottom: 1.5rem;
+      opacity: 0.8;
     }
     .service-link {
       font-size: 0.78rem;
@@ -457,8 +459,9 @@
     }
     .why-points .point-desc {
       font-size: 0.85rem;
-      color: var(--grey);
+      color: var(--cream);
       margin-top: 0.2rem;
+      opacity: 0.75;
     }
 
     /* -- PROCESS -- */
@@ -1083,6 +1086,7 @@
       h1 { font-size: clamp(2.2rem, 10vw, 4rem); }
       .hero-stats { flex-direction: column; gap: 1.5rem; }
       .services-header { flex-direction: column; align-items: flex-start; }
+      .counter-section > .section-wrap > div { grid-template-columns: repeat(2,1fr) !important; }
     }
 
     /* mobile nav open */
@@ -1124,7 +1128,7 @@
     <div>
       <p class="hero-eyebrow">Nigeria's Premium Agency</p>
       <h1>We Build Brands<br>That <em>Dominate.</em></h1>
-      <p class="hero-sub">Digital Marketing, Web Technology, and Print Services engineered for growth. Based in Ogun State � serving businesses across Nigeria.</p>
+      <p class="hero-sub">Digital Marketing, Web Technology, and Print Services engineered for growth. Based in Ogun State — serving businesses across Nigeria.</p>
       <div class="hero-actions">
         <a href="#services" class="btn-primary">Explore Services</a>
         <a href="#contact" class="btn-outline">Book a Free Consult</a>
@@ -1143,7 +1147,7 @@
           <div class="stat-label">Client Satisfaction</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">3�</div>
+          <div class="stat-num">3×</div>
           <div class="stat-label">Avg. ROI Delivered</div>
         </div>
       </div>
@@ -1190,7 +1194,7 @@
             </svg>
           </div>
           <h3>Digital Marketing & SEO</h3>
-          <p>Full-funnel growth marketing strategies � SEO, paid media, social, email � designed to dominate Nigerian SERPs and fill your pipeline.</p>
+          <p>Full-funnel growth marketing strategies — SEO, paid media, social, email — designed to dominate Nigerian SERPs and fill your pipeline.</p>
           <a href="digital-marketing.html" class="service-link">View Services ?</a>
         </div>
         <div class="service-card reveal-scale">
@@ -1210,7 +1214,7 @@
             </svg>
           </div>
           <h3>Printing Services</h3>
-          <p>Offset, digital, large format, and branded merchandise printing. From business cards to building wraps � all with superior Nigerian-grade quality.</p>
+          <p>Offset, digital, large format, and branded merchandise printing. From business cards to building wraps — all with superior Nigerian-grade quality.</p>
           <a href="printing.html" class="service-link">View Services ?</a>
         </div>
         <div class="service-card reveal-scale">
@@ -1222,6 +1226,33 @@
           <h3>Growth Hacking</h3>
           <p>Data-driven, rapid-iteration growth strategies for startups and SMEs. We find the exact levers that multiply your revenue fastest.</p>
           <a href="growth-marketing.html" class="service-link">View Services ?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS COUNTER -->
+  <section class="counter-section" style="background:var(--navy);padding:0;position:relative;">
+    <div class="section-wrap">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,168,76,0.15);">
+        <div style="background:var(--navy);padding:3rem 1.5rem;text-align:center;">
+          <div class="counter stat-num" style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--gold-lt);line-height:1;" data-target="200">0</div>
+          <div class="stat-label" style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);margin-top:0.5rem;opacity:0.7;">Projects Delivered</div>
+        </div>
+        <div style="background:var(--navy);padding:3rem 1.5rem;text-align:center;">
+          <div class="counter stat-num" style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--gold-lt);line-height:1;" data-target="12">0</div>
+          <span style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--gold-lt);">+</span>
+          <div class="stat-label" style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);margin-top:0.5rem;opacity:0.7;">Years Experience</div>
+        </div>
+        <div style="background:var(--navy);padding:3rem 1.5rem;text-align:center;">
+          <div class="counter stat-num" style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--gold-lt);line-height:1;" data-target="98">0</div>
+          <span style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--gold-lt);">%</span>
+          <div class="stat-label" style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);margin-top:0.5rem;opacity:0.7;">Client Satisfaction</div>
+        </div>
+        <div style="background:var(--navy);padding:3rem 1.5rem;text-align:center;">
+          <div class="counter stat-num" style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--gold-lt);line-height:1;" data-target="150">0</div>
+          <span style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--gold-lt);">+</span>
+          <div class="stat-label" style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);margin-top:0.5rem;opacity:0.7;">Businesses Served</div>
         </div>
       </div>
     </div>
@@ -1254,7 +1285,7 @@
               </div>
               <div>
                 <div class="point-title">End-to-End Agency</div>
-                <div class="point-desc">Strategy, design, development, print, and marketing � all under one roof. Zero vendor hand-offs. Maximum consistency.</div>
+                <div class="point-desc">Strategy, design, development, print, and marketing — all under one roof. Zero vendor hand-offs. Maximum consistency.</div>
               </div>
             </li>
             <li>
@@ -1284,8 +1315,8 @@
         <div class="reveal why-visual">
           <div class="why-box">
             <div class="why-box-accent"></div>
-            <p class="why-quote">"They didn't just build our website � they built our entire digital presence from the ground up."</p>
-            <p class="why-cite">� Tunde Adeyemi, CEO � Adeyemi Logistics Ltd</p>
+            <p class="why-quote">"They didn't just build our website — they built our entire digital presence from the ground up."</p>
+            <p class="why-cite">— Tunde Adeyemi, CEO — Adeyemi Logistics Ltd</p>
           </div>
           <div style="margin-top:1.5rem; background:var(--navy-lt); border:1px solid rgba(201,168,76,0.15); padding:1.5rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem; text-align:center;">
             <div>
@@ -1366,35 +1397,35 @@
       </div>
       <div class="testi-grid reveal">
         <div class="testi-card">
-          <div class="testi-stars">?????</div>
+          <div class="testi-stars">★★★★★</div>
           <p class="testi-text">"Our Google rankings jumped from page 4 to page 1 within three months. The ROI has been nothing short of extraordinary."</p>
           <div class="testi-author">
             <div class="testi-avatar">AO</div>
             <div>
               <div class="testi-name">Adaeze Okonkwo</div>
-              <div class="testi-role">MD � Okonkwo Printing & Branding</div>
+              <div class="testi-role">MD — Okonkwo Printing & Branding</div>
             </div>
           </div>
         </div>
         <div class="testi-card">
-          <div class="testi-stars">?????</div>
+          <div class="testi-stars">★★★★★</div>
           <p class="testi-text">"The website they built loads in under 2 seconds even on mobile data. Our bounce rate dropped by 60%. They clearly know Nigerian internet."</p>
           <div class="testi-author">
             <div class="testi-avatar">BF</div>
             <div>
               <div class="testi-name">Biodun Fatokun</div>
-              <div class="testi-role">Founder � FatoTech Solutions</div>
+              <div class="testi-role">Founder × FatoTech Solutions</div>
             </div>
           </div>
         </div>
         <div class="testi-card">
-          <div class="testi-stars">?????</div>
-          <p class="testi-text">"From our brand identity to our billboards � one agency handled everything seamlessly. The consistency across print and digital is remarkable."</p>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"From our brand identity to our billboards — one agency handled everything seamlessly. The consistency across print and digital is remarkable."</p>
           <div class="testi-author">
             <div class="testi-avatar">NK</div>
             <div>
               <div class="testi-name">Ngozi Kalu</div>
-              <div class="testi-role">CMO � Kalu Agricultural Exports</div>
+              <div class="testi-role">CMO — Kalu Agricultural Exports</div>
             </div>
           </div>
         </div>
@@ -1493,7 +1524,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>� 2025 Hephzibah Media. All rights reserved.</span>
+        <span>© 2026 Hephzibah Media. All rights reserved.</span>
         <span>Built for speed. Engineered to rank.</span>
       </div>
     </div>
@@ -1521,7 +1552,7 @@
     });
 
     // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
+    const reveals = document.querySelectorAll('.reveal, .reveal-scale, .reveal-fade, .reveal-left, .reveal-right, .reveal-rotate');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
@@ -1549,6 +1580,24 @@
       requestAnimationFrame(step);
     }
 
+    function animateCounters(container) {
+      const counters = container.querySelectorAll('.counter');
+      counters.forEach(function(counter) {
+        const target = parseInt(counter.getAttribute('data-target'));
+        if (!target) return;
+        let start = 0;
+        const duration = 1800;
+        const step = (ts) => {
+          if (!start) start = ts;
+          const progress = Math.min((ts - start) / duration, 1);
+          counter.textContent = Math.floor(progress * target);
+          if (progress < 1) requestAnimationFrame(step);
+          else counter.textContent = target;
+        };
+        requestAnimationFrame(step);
+      });
+    }
+
     const statsObs = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         animateCounter(document.querySelectorAll('.stat-num')[0], 200, '+');
@@ -1559,6 +1608,17 @@
     }, { threshold: 0.5 });
     const statsEl = document.querySelector('.hero-stats');
     if (statsEl) statsObs.observe(statsEl);
+
+    const counterSection = document.querySelector('.counter-section');
+    if (counterSection) {
+      const sectionObs = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animateCounters(counterSection);
+          sectionObs.disconnect();
+        }
+      }, { threshold: 0.3 });
+      sectionObs.observe(counterSection);
+    }
   </script>
 </body>
 </html>

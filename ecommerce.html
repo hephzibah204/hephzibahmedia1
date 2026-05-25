@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>E-commerce Website Nigeria � Hephzibah Media</title>
+  <title>E-commerce Website Nigeria � Hephzibah Media</title>
   <meta name="description" content="Build your Nigerian online store with Paystack, Flutterwave, and WooCommerce. E-commerce solutions for Nigerian businesses.">
-  <meta property="og:title" content="E-commerce Website Nigeria � Hephzibah Media">
+  <meta property="og:title" content="E-commerce Website Nigeria � Hephzibah Media">
   <meta property="og:description" content="Build your Nigerian online store with Paystack, Flutterwave, and WooCommerce. E-commerce solutions for Nigerian businesses.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hephzibahmedia.com/ecommerce.html">
@@ -90,6 +90,40 @@
     .wa-pulse { position:absolute; inset:-4px; border-radius:50%; border:2px solid rgba(37,211,102,0.4); animation:pulse 2s infinite; }
     .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s,transform 0.7s; }
     .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-fade { opacity: 0; }
+    .reveal-fade.visible { animation: floatUp 0.8s ease-out forwards; }
+    .reveal-scale { opacity: 0; }
+    .reveal-scale.visible { animation: scaleIn 0.8s ease-out forwards; }
+    .reveal-left { opacity: 0; }
+    .reveal-left.visible { animation: slideInLeft 0.8s ease-out forwards; }
+    .reveal-right { opacity: 0; }
+    .reveal-right.visible { animation: slideInRight 0.8s ease-out forwards; }
+    @keyframes floatUp { from{opacity:0;transform:translateY(40px) scale(0.97);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes scaleIn { from{opacity:0;transform:scale(0.92);} to{opacity:1;transform:scale(1);} }
+    @keyframes slideInLeft { from{opacity:0;transform:translateX(-50px);} to{opacity:1;transform:translateX(0);} }
+    @keyframes slideInRight { from{opacity:0;transform:translateX(50px);} to{opacity:1;transform:translateX(0);} }
+    .problems-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .problem-item { background:var(--navy-lt); padding:2rem; border-left:3px solid var(--gold); transition:all 0.3s; }
+    .problem-item:hover { background:var(--navy-mid); transform:translateX(8px); }
+    .problem-item h3 { color:var(--gold-lt); margin-bottom:0.8rem; font-size:1.1rem; }
+    .problem-item p { color:var(--grey); font-size:0.95rem; }
+    .problem-impact { background:rgba(201,168,76,0.05); padding:2rem; border:1px solid rgba(201,168,76,0.15); margin-top:2.5rem; }
+    .problem-impact ul { list-style:none; margin-top:1rem; }
+    .problem-impact li { padding:0.6rem 0; padding-left:1.5rem; position:relative; color:var(--grey); }
+    .problem-impact li::before { content:'→'; position:absolute; left:0; color:var(--gold); font-weight:bold; }
+    .trust-points { display:grid; gap:1.5rem; margin-top:1.5rem; }
+    .trust-item { background:rgba(201,168,76,0.08); padding:1.5rem; border:1px solid rgba(201,168,76,0.12); }
+    .trust-item h4 { color:var(--gold-lt); margin-bottom:0.5rem; font-size:1rem; }
+    .trust-item p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .benefits-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem; }
+    .benefit-card { background:var(--navy); padding:2rem; border-bottom:3px solid var(--gold); text-align:center; transition:all 0.3s; }
+    .benefit-card:hover { background:var(--navy-lt); transform:translateY(-6px); }
+    .benefit-icon { font-size:3rem; margin-bottom:1rem; }
+    .benefit-card h3 { color:var(--white); margin-bottom:0.5rem; font-size:1.1rem; }
+    .benefit-card .metric { color:var(--gold-lt); font-weight:600; font-size:0.9rem; margin-bottom:0.8rem; }
+    .benefit-card p { font-size:0.9rem; color:var(--grey); line-height:1.6; }
+    .two-col-alt { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    @media(max-width:900px) { .two-col-alt{grid-template-columns:1fr;gap:2.5rem;} }
     @keyframes pulse { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.5);opacity:0;} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
     .page-hero h1,.page-hero .eyebrow,.page-hero .hero-desc,.page-hero .hero-actions { opacity:0; animation:fadeUp 0.8s forwards; }
@@ -120,15 +154,183 @@
 <section class="page-hero">
   <p class="eyebrow">Tech & Web Services</p>
   <h1>E-commerce Solutions <em>For Nigeria</em></h1>
-  <p class="hero-desc">Sell to all 36 states with a store built for Nigerian payment realities. Paystack, Flutterwave, bank transfer, and cash-on-delivery � all configured and tested.</p>
+  <p class="hero-desc">Sell to all 36 states with a store built for Nigerian payment realities. Paystack, Flutterwave, bank transfer, and cash-on-delivery � all configured and tested.</p>
   <div class="hero-actions"><a href="contact.html" class="btn-primary">Get a Free Quote</a>&nbsp;&nbsp;<a href="portfolio.html" class="btn-outline">See Our Work</a></div>
-</section><section style="background:var(--navy-mid);"><div class="section-wrap section-pad"><div class="reveal"><p class="section-label">What's Included</p><h2>Your Complete <em>Online Store</em></h2></div><div class="cards-grid reveal"><div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><h3>WooCommerce & Custom Shops</h3><p>Built on WooCommerce or fully custom � depending on your product complexity and growth plans.</p></div>
+</section><section style="background:var(--navy-mid);"><div class="section-wrap section-pad"><div class="reveal"><p class="section-label">What's Included</p><h2>Your Complete <em>Online Store</em></h2></div><div class="cards-grid reveal"><div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><h3>WooCommerce & Custom Shops</h3><p>Built on WooCommerce or fully custom � depending on your product complexity and growth plans.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><h3>Paystack / Flutterwave Setup</h3><p>Fully tested payment gateway integration with webhook confirmation and automated receipts.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><h3>Product Management System</h3><p>Bulk product upload, variant management (size, colour), inventory tracking, and low-stock alerts.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Order & Delivery Management</h3><p>Order dashboard, delivery partner integration (GIG, Sendbox), and automated customer SMS/email updates.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Customer Accounts & Reviews</h3><p>Wishlists, purchase history, loyalty points, and verified product reviews to drive social proof.</p></div>
 <div class="card reveal-fade"><div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></div><h3>Cart Abandonment Recovery</h3><p>Automated WhatsApp and email follow-ups for abandoned carts. Recover up to 30% of lost sales.</p></div>
-</div></div></section><section class="cta-band"><div class="section-wrap"><h2>Launch Your <em>Nigerian Online Store</em> in 30 Days</h2><p>Fixed-price packages available. No hidden hosting fees.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
+</div></div></section>
+
+  <!-- PAIN POINTS -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Your Business Is Losing Sales <em>Every Day You're Not Online</em></h2>
+        <p style="color:var(--grey);margin-top:1rem;font-size:1.05rem;">Nigerian consumers are buying online. If you don't have a store, they're buying from your competitors.</p>
+      </div>
+      <div class="problems-list reveal">
+        <div class="problem-item">
+          <h3>No Online Store</h3>
+          <p>You're still taking orders via DM, phone calls, and manual bank transfers. It's inefficient and you're leaving money on the table.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Clunky Payment Process</h3>
+          <p>Customers have to call you, get bank details, transfer, send proof of payment, then wait for confirmation. Most abandon the process halfway.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Manual Order Management</h3>
+          <p>You're tracking orders in notebooks, WhatsApp chats, and spreadsheets. Mistakes are frequent and customer service suffers.</p>
+        </div>
+        <div class="problem-item">
+          <h3>No Cart Recovery</h3>
+          <p>Customers add items to their cart but never complete checkout. You have no system to follow up and recover those lost sales.</p>
+        </div>
+      </div>
+      <div class="problem-impact reveal">
+        <h3 style="color:var(--gold-lt);">The Cost of Waiting:</h3>
+        <ul>
+          <li>Nigerian e-commerce is projected to grow to $75 billion by 2025 — your competitors are capturing that growth right now</li>
+          <li>Every manual order process loses 60% of potential customers at the payment stage</li>
+          <li>Without an online store, your business is invisible to the 80% of Nigerians who research products online before buying</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section style="background:linear-gradient(170deg,var(--navy-mid) 0%,var(--navy) 100%);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Our Approach</p>
+        <h2>How We Build <em>High-Converting Online Stores</em> for Nigerian Businesses</h2>
+      </div>
+      <div class="two-col reveal">
+        <div>
+          <p style="color:var(--grey);font-size:1.05rem;">We build e-commerce stores designed specifically for the Nigerian market. From Paystack integration to delivery partner APIs, every aspect is configured for local realities.</p>
+          <h3 style="margin-top:2rem;">What's Included:</h3>
+          <ul class="features-list">
+            <li>Custom store design optimised for mobile shoppers on slow connections</li>
+            <li>Paystack/Flutterwave setup with automated receipt generation</li>
+            <li>Bank transfer payment option with auto-confirmation</li>
+            <li>Delivery partner integration (GIG, Sendbox) with real-time tracking</li>
+            <li>Product catalogue with bulk upload, variants, and inventory management</li>
+            <li>Abandoned cart recovery via WhatsApp and email automation</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why Choose Hephzibah?</h3>
+          <div class="trust-points">
+            <div class="trust-item">
+              <h4>🔷 Nigerian Payment Ready</h4>
+              <p>Paystack, Flutterwave, bank transfer, and cash-on-delivery — all pre-configured and tested before launch.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Mobile-First Design</h4>
+              <p>Over 70% of Nigerian shoppers buy via phone. Your store will load fast and work perfectly on mobile data.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Delivery Integration</h4>
+              <p>Connected to GIG and Sendbox APIs for automated shipping calculations, tracking, and status updates.</p>
+            </div>
+            <div class="trust-item">
+              <h4>🔷 Full Training Included</h4>
+              <p>We train your team to manage products, process orders, and update the store without developer support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS IMPACT -->
+  <section style="background:var(--navy-mid);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Real Results</p>
+        <h2>The Business Impact of <em>Your Online Store</em></h2>
+      </div>
+      <div class="benefits-grid reveal">
+        <div class="benefit-card">
+          <div class="benefit-icon">🛒</div>
+          <h3>24/7 Sales</h3>
+          <p class="metric">Your store never closes</p>
+          <p>Customers can browse, order, and pay at any time — even when you're asleep. Automated order processing works around the clock.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📱</div>
+          <h3>Mobile Optimised</h3>
+          <p class="metric">Built for Nigerian smartphone users</p>
+          <p>Fast-loading pages, thumb-friendly navigation, and streamlined checkout designed for mobile data connections.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>More Revenue</h3>
+          <p class="metric">Recover 30% of abandoned carts</p>
+          <p>Automated WhatsApp and email reminders bring customers back to complete their purchases.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📊</div>
+          <h3>Data & Insights</h3>
+          <p class="metric">Know exactly what sells</p>
+          <p>Real-time analytics showing best-selling products, customer behaviour, and revenue trends.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📦</div>
+          <h3>Automated Operations</h3>
+          <p class="metric">Orders processed automatically</p>
+          <p>From payment confirmation to delivery assignment — your operations run without manual intervention.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🇳🇬</div>
+          <h3>Nationwide Reach</h3>
+          <p class="metric">Sell to all 36 states</p>
+          <p>Delivery integrations make it easy to serve customers in Lagos, Abuja, Port Harcourt, and every Nigerian state.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--navy);">
+    <div class="section-wrap section-pad">
+      <div class="reveal">
+        <p class="section-label">Questions?</p>
+        <h2>Frequently Asked <em>Questions</em></h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <h4>How long does it take to launch an e-commerce store?</h4>
+          <p>We can launch a fully functional store in 30 days. Complex stores with hundreds of products may take 6-8 weeks.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Which payment gateways do you integrate?</h4>
+          <p>Paystack and Flutterwave are our primary integrations. We also set up bank transfer with auto-confirmation and cash-on-delivery options.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I manage the store myself after launch?</h4>
+          <p>Yes! We provide full training for your team to add products, manage orders, and update content without technical knowledge.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you help with product uploads?</h4>
+          <p>Yes, we upload your first 100 products as part of the setup. Additional products can be uploaded via bulk CSV import or our easy product management interface.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What about delivery and shipping?</h4>
+          <p>We integrate with GIG Logistics and Sendbook for automated shipping calculations, label generation, and real-time tracking.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I sell digital products too?</h4>
+          <p>Absolutely. Your store can sell both physical and digital products — courses, downloads, tickets, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band"><div class="section-wrap"><h2>Launch Your <em>Nigerian Online Store</em> in 30 Days</h2><p>Fixed-price packages available. No hidden hosting fees.</p><a href="contact.html" class="btn-dark">Start Your Project</a>&nbsp;&nbsp;<a href="https://wa.me/2349077780156" style="background:transparent;border:2px solid var(--navy);color:var(--navy);padding:0.85rem 2rem;font-family:var(--font-body);font-weight:500;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;" target="_blank">Chat on WhatsApp</a></div></section>
   <footer>
     <div class="section-wrap">
       <div class="footer-grid">
