@@ -1,0 +1,30 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0F2C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111A45;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C9A84C;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#E2C07A;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGrad1)"/>
+  
+  <rect x="100" y="150" width="600" height="350" rx="8" fill="#1C2A5E" stroke="#C9A84C" stroke-width="2" stroke-opacity="0.3"/>
+  <rect x="100" y="150" width="600" height="40" rx="8" fill="rgba(201,168,76,0.1)"/>
+  <circle cx="130" cy="170" r="6" fill="#C9A84C" opacity="0.5"/>
+  <circle cx="150" cy="170" r="6" fill="#C9A84C" opacity="0.5"/>
+  <circle cx="170" cy="170" r="6" fill="#C9A84C" opacity="0.5"/>
+  
+  <rect x="150" y="230" width="200" height="20" rx="4" fill="#C9A84C" opacity="0.7"/>
+  <rect x="150" y="270" width="300" height="12" rx="4" fill="#8A8FA8" opacity="0.4"/>
+  <rect x="150" y="295" width="250" height="12" rx="4" fill="#8A8FA8" opacity="0.4"/>
+  <rect x="150" y="340" width="120" height="35" rx="4" fill="#C9A84C" opacity="0.9"/>
+  
+  <rect x="480" y="230" width="180" height="150" rx="4" fill="url(#accentGrad)"/>
+  
+  <!-- Overlay graph -->
+  <path d="M150 480 Q 250 480 300 440 T 450 420 T 650 350" fill="none" stroke="#C9A84C" stroke-width="4" opacity="0.8"/>
+  <circle cx="650" cy="350" r="8" fill="#C9A84C"/>
+</svg>
