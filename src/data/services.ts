@@ -1,0 +1,717 @@
+import { 
+  Code2, 
+  Search, 
+  TrendingUp, 
+  Smartphone, 
+  ShoppingBag, 
+  ShieldCheck,
+  Palette,
+  Target,
+  Printer,
+  Maximize,
+  Shirt
+} from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
+
+export interface ServiceData {
+  slug: string;
+  title: string;
+  eyebrow: string;
+  heroDesc: string;
+  icon: LucideIcon;
+  stats: { label: string; value: string }[];
+  problems: { title: string; desc: string }[];
+  approach: string[];
+  deliverables: { icon: string; title: string; list: string[] }[];
+  benefits: { title: string; metric: string; desc: string }[];
+  pricing: { 
+    name: string; 
+    price: string; 
+    desc: string; 
+    features: string[]; 
+    popular?: boolean;
+    cta: string;
+  }[];
+  faqs: { q: string; a: string }[];
+  meta: {
+    title: string;
+    description: string;
+  };
+}
+
+export const servicesData: Record<string, ServiceData> = {
+  "web-design": {
+    slug: "web-design",
+    title: "Web Design That Converts Visitors Into Customers",
+    eyebrow: "Web Design Services Nigeria",
+    heroDesc: "Beautiful, lightning-fast websites engineered for Nigerian users. We combine strategic UX with pixel-perfect design to create digital experiences that rank on Google and turn visitors into paying customers.",
+    icon: Code2,
+    stats: [
+      { label: "Projects Completed", value: "200+" },
+      { label: "Client Satisfaction", value: "98%" },
+      { label: "Years Experience", value: "5+" }
+    ],
+    problems: [
+      { title: "Outdated Website Design", desc: "Your website looks like it was built in 2015. Visitors immediately question your credibility." },
+      { title: "Slow Loading on Mobile", desc: "85% of Nigerians browse on mobile. If your site takes more than 3 seconds, you lose half your visitors." },
+      { title: "Confusing Navigation", desc: "Visitors can't find what they need. No clear path to purchase, no reason to stay." },
+      { title: "Zero Conversions", desc: "You're getting traffic but no inquiries. Your website is a digital brochure, not a sales tool." }
+    ],
+    approach: [
+      "Deep research into your target audience and Nigerian user behavior",
+      "Mobile-first design strategy (because 85% of Nigeria is mobile-only)",
+      "Psychological trigger placement for higher conversions",
+      "Speed optimization for Nigerian 3G/4G networks",
+      "SEO foundation built in from day one"
+    ],
+    deliverables: [
+      { icon: "🎨", title: "Custom Design & Strategy", list: ["Unique UI/UX tailored to your brand", "Mobile-first responsive layouts", "Brand alignment across all pages"] },
+      { icon: "💻", title: "Development & Setup", list: ["Clean HTML5/CSS3/JavaScript code", "Hosting and domain configuration", "SSL security certificate"] },
+      { icon: "🛠", title: "Support & Maintenance", list: ["3 months of free revisions", "Monthly maintenance updates", "WhatsApp support access"] }
+    ],
+    benefits: [
+      { title: "Increased Conversions", metric: "28-45% average increase", desc: "Premium design gives visitors confidence to take action." },
+      { title: "Better Brand Perception", metric: "Premium design = Premium perception", desc: "Clients perceive higher value, allowing you to charge more." },
+      { title: "Improved Google Rankings", metric: "Technical excellence = Search visibility", desc: "Optimized sites rank higher, bringing consistent organic traffic." }
+    ],
+    pricing: [
+      { name: "Starter", price: "₦150,000", desc: "Small businesses just starting online", features: ["Up to 5 pages", "Mobile-responsive", "Contact form", "Basic SEO"], cta: "Get Quote" },
+      { name: "Professional", price: "₦350,000", desc: "Growing businesses targeting serious growth", features: ["Up to 10 pages", "Custom UI/UX", "WhatsApp integration", "Advanced SEO"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Premium", price: "Custom", desc: "Enterprise brands with custom needs", features: ["Unlimited pages", "Custom functionality", "E-commerce integration", "Dedicated manager"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "How much does web design cost in Nigeria?", a: "Pricing varies based on scope. Our Starter package begins at ₦150,000." },
+      { q: "How long does a typical project take?", a: "Most projects take 4-7 weeks depending on complexity." }
+    ],
+    meta: {
+      title: "Web Design Agency in Nigeria | Premium Websites | Hephzibah Media",
+      description: "Top Web Design Agency in Nigeria. We build premium, high-converting, mobile-first websites for businesses in Lagos and across Nigeria."
+    }
+  },
+  "seo": {
+    slug: "seo",
+    title: "SEO Services That Dominate Google in Nigeria",
+    eyebrow: "SEO Services Nigeria",
+    heroDesc: "Rank on page one of Google Nigeria for the search terms your customers are using. Our SEO strategy combines technical excellence, local optimization, and content authority to deliver consistent, measurable organic growth.",
+    icon: Search,
+    stats: [
+      { label: "Keywords Ranked", value: "500+" },
+      { label: "Avg Traffic Growth", value: "3x" },
+      { label: "Years SEO Experience", value: "5+" }
+    ],
+    problems: [
+      { title: "Invisible on Google", desc: "Your competitors rank on page one while your website is buried on page 5 or beyond." },
+      { title: "Zero Organic Traffic", desc: "You're paying for ads but getting no free, organic traffic. Every click costs money." },
+      { title: "Technical SEO Issues", desc: "Slow speed, broken links, and missing meta tags are killing your rankings silently." },
+      { title: "No Local Visibility", desc: "Customers searching 'near me' can't find you. Your Google Business Profile is missing." }
+    ],
+    approach: [
+      "Comprehensive website audit and competitor analysis",
+      "Nigerian keyword research targeting high-intent search terms",
+      "Technical SEO fixes (speed, mobile, crawlability, schema)",
+      "On-page optimization (titles, meta, headings, internal links)",
+      "Content strategy and authority building through backlinks"
+    ],
+    deliverables: [
+      { icon: "🔍", title: "Strategy & Audit", list: ["Full technical audit", "Competitor research", "Keyword mapping"] },
+      { icon: "📈", title: "On-Page & Technical", list: ["Speed optimization", "Meta tag optimization", "Internal linking strategy"] },
+      { icon: "🔗", title: "Authority Building", list: ["Local directory listing", "Premium backlinks", "Monthly reporting"] }
+    ],
+    benefits: [
+      { title: "Organic Traffic Growth", metric: "200-400% increase", desc: "Consistent, free traffic from Google that compounds monthly." },
+      { title: "Qualified Leads", metric: "3x better conversion than ads", desc: "People searching for your services are already interested." },
+      { title: "Lower Acquisition Cost", metric: "Reduce ad spend by 40-60%", desc: "Organic traffic is free. Invest once, reap rewards for years." }
+    ],
+    pricing: [
+      { name: "Starter", price: "₦100,000", desc: "Small businesses starting SEO", features: ["Up to 10 keywords", "Technical audit", "On-page optimization", "Monthly report"], cta: "Get Quote" },
+      { name: "Professional", price: "₦250,000", desc: "Growing businesses targeting serious growth", features: ["Up to 30 keywords", "Content creation (4 articles)", "Link building", "Bi-weekly report"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Premium", price: "₦500,000", desc: "Enterprise brands dominating their market", features: ["Unlimited keywords", "Advanced link building", "Technical maintenance", "Dedicated manager"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "How long before I see results?", a: "Most clients see improvements in 3-6 months, with significant results at 6-12 months." },
+      { q: "Do you guarantee #1 rankings?", a: "No ethical SEO company can guarantee specific rankings, but our track record shows consistent page 1 results." }
+    ],
+    meta: {
+      title: "SEO Company in Nigeria | Rank #1 on Google | Hephzibah Media",
+      description: "Partner with the best SEO Company in Nigeria. We provide local SEO, technical SEO, and link building services to rank your business #1 on Google."
+    }
+  },
+  "digital-marketing": {
+    slug: "digital-marketing",
+    title: "Digital Marketing That Fills Your Pipeline With Leads",
+    eyebrow: "Digital Marketing Services Nigeria",
+    heroDesc: "Full-funnel digital marketing strategy and execution for Nigerian businesses. We drive qualified traffic, generate leads, and build brands that Nigerians trust.",
+    icon: TrendingUp,
+    stats: [
+      { label: "Ad Spend Managed", value: "₦50M+" },
+      { label: "Average ROAS", value: "5x" },
+      { label: "Brands Scaled", value: "100+" }
+    ],
+    problems: [
+      { title: "Wasted Ad Budget", desc: "You're running ads but getting clicks with no conversions. Budget burning with zero ROI." },
+      { title: "No Clear Strategy", desc: "Posting randomly, hoping something sticks. No funnel, no tracking, no consistent results." },
+      { title: "Invisible Audience", desc: "Your ideal customers are online but they don't know you exist." },
+      { title: "No Lead Nurturing", desc: "People visit but leave without taking action. No follow-ups, no conversion system." }
+    ],
+    approach: [
+      "Deep audience research and competitor analysis",
+      "Custom marketing strategy aligned with business goals",
+      "Multi-channel execution (Google, Meta, WhatsApp)",
+      "Conversion-optimized landing pages and funnels",
+      "Continuous optimization based on real performance data"
+    ],
+    deliverables: [
+      { icon: "📣", title: "Campaign Management", list: ["Google & Meta Ads management", "Social media strategy", "Content calendar creation"] },
+      { icon: "⚙️", title: "Conversion Systems", list: ["Landing page optimization", "Email/WhatsApp automation", "Funnel building"] },
+      { icon: "📊", title: "Analytics & Growth", list: ["GA4/Pixel setup", "Weekly optimization", "Monthly ROI reports"] }
+    ],
+    benefits: [
+      { title: "Consistent Lead Flow", metric: "3-5x more qualified leads", desc: "Targeted campaigns that bring ready-to-buy customers." },
+      { title: "Higher ROAS", metric: "5x average return", desc: "Every naira spent is optimized for maximum return." },
+      { title: "Brand Authority", metric: "Position as a trusted expert", desc: "Social presence that builds trust and awareness." }
+    ],
+    pricing: [
+      { name: "Starter", price: "₦150,000", desc: "Small businesses starting marketing", features: ["1-2 marketing channels", "Content calendar", "Basic ad management", "Monthly report"], cta: "Get Quote" },
+      { name: "Professional", price: "₦350,000", desc: "Growing businesses targeting serious growth", features: ["3-4 marketing channels", "Google + Meta Ads", "Funnel optimization", "Bi-weekly report"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Premium", price: "₦700,000", desc: "Enterprise brands dominating their market", features: ["Full-channel marketing", "Influencer campaigns", "Advanced automation", "Dedicated manager"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "How much ad budget do I need?", a: "We recommend a minimum of ₦100,000/month for meaningful results." },
+      { q: "Do you manage our social media accounts?", a: "Yes! We handle content creation, posting, and community management." }
+    ],
+    meta: {
+      title: "Digital Marketing Agency in Nigeria | ROI-Driven Campaigns",
+      description: "The best Digital Marketing Agency in Nigeria. We specialize in paid ads, social media, and data-driven marketing campaigns that generate real revenue."
+    }
+  },
+  "ecommerce": {
+    slug: "ecommerce",
+    title: "E-commerce Stores That Sell to All 36 States",
+    eyebrow: "E-commerce Solutions Nigeria",
+    heroDesc: "Build your Nigerian online store with Paystack, Flutterwave, and automated delivery. We transform your products into a high-converting digital storefront optimized for local payment realities.",
+    icon: ShoppingBag,
+    stats: [
+      { label: "Stores Launched", value: "80+" },
+      { label: "Avg Conversion", value: "4.5%" },
+      { label: "Payment Success", value: "99.9%" }
+    ],
+    problems: [
+      { title: "No Online Store", desc: "You're still taking orders via DM, phone calls, and manual bank transfers. It's inefficient and slow." },
+      { title: "Clunky Payment Process", desc: "Customers have to call you for bank details. Most abandon the process at the payment stage." },
+      { title: "Manual Order Management", desc: "Tracking orders in notebooks or WhatsApp chats leads to frequent mistakes and poor service." },
+      { title: "No Cart Recovery", desc: "Customers add items but never checkout. You have no system to follow up and recover those lost sales." }
+    ],
+    approach: [
+      "Custom store design optimized for mobile shoppers on slow connections",
+      "Paystack/Flutterwave integration with automated receipt generation",
+      "Delivery partner API integration (GIG, Sendbox) for real-time tracking",
+      "Automated inventory management and low-stock alerts",
+      "Abandoned cart recovery via WhatsApp and email automation"
+    ],
+    deliverables: [
+      { icon: "🛍️", title: "Store Setup", list: ["WooCommerce or Custom Engine", "Product catalog setup (100 items)", "Inventory management system"] },
+      { icon: "💳", title: "Payment & Logistics", list: ["Paystack/Flutterwave config", "Bank transfer auto-confirmation", "Delivery partner integration"] },
+      { icon: "🔄", title: "Growth & Retention", list: ["WhatsApp cart recovery", "Customer reviews system", "Sales analytics dashboard"] }
+    ],
+    benefits: [
+      { title: "24/7 Automated Sales", metric: "3.5x more orders", desc: "Customers browse and pay while you sleep. No manual intervention needed." },
+      { title: "Wider Market Reach", metric: "Sell to all 36 states", desc: "Integrated delivery makes serving nationwide customers effortless." },
+      { title: "Higher Order Value", metric: "25% increase in AOV", desc: "Smart cross-sells and upsells built into the checkout flow." }
+    ],
+    pricing: [
+      { name: "Starter Shop", price: "₦250,000", desc: "Small boutiques or single-category stores", features: ["Up to 50 products", "Paystack integration", "Basic inventory", "Standard theme"], cta: "Get Quote" },
+      { name: "Growth Store", price: "₦550,000", desc: "Scaling brands with multiple categories", features: ["Up to 500 products", "GIG/Sendbox integration", "Cart recovery", "Custom UI/UX"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Enterprise", price: "Custom", desc: "High-volume retailers with complex needs", features: ["Unlimited products", "Multi-vendor support", "Custom ERP integration", "Dedicated manager"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "How long does it take to launch?", a: "A standard e-commerce store takes 4-8 weeks depending on product volume." },
+      { q: "Can I manage the store myself?", a: "Yes! We provide full training on adding products and managing orders." }
+    ],
+    meta: {
+      title: "E-commerce Website Development Nigeria | Paystack Integrated Stores",
+      description: "Build a high-converting online store in Nigeria. We specialize in Paystack/Flutterwave integrated e-commerce solutions that scale your sales nationwide."
+    }
+  },
+  "mobile-app": {
+    slug: "mobile-app",
+    title: "Mobile Apps Engineered for Nigeria's Mobile-First Market",
+    eyebrow: "Mobile App Development Nigeria",
+    heroDesc: "iOS and Android apps built for performance on local networks. From MVP validation to store launch, we handle design, development, and submission for the Nigerian market.",
+    icon: Smartphone,
+    stats: [
+      { label: "Apps Developed", value: "40+" },
+      { label: "Offline-Ready", value: "100%" },
+      { label: "Avg Rating", value: "4.8/5" }
+    ],
+    problems: [
+      { title: "Slow & Buggy Performance", desc: "Apps that crash on low-end devices or load forever on 3G drive customers away." },
+      { title: "No Offline Capability", desc: "Connectivity is variable in Nigeria. If your app requires constant internet, it fails when users need it most." },
+      { title: "Poor User Experience", desc: "Clunky navigation and flows that don't account for local behavior lead to high uninstall rates." },
+      { title: "Single Platform Only", desc: "Being only on Android or iOS limits your market reach. You need both to dominate." }
+    ],
+    approach: [
+      "Product discovery to define MVP and core user flows",
+      "UI/UX designed for Nigerian mobile behavior patterns",
+      "Cross-platform development with React Native for speed and reach",
+      "Offline-first architecture with local data sync capabilities",
+      "Performance testing on budget devices and 3G networks"
+    ],
+    deliverables: [
+      { icon: "📱", title: "App Development", list: ["React Native Cross-Platform", "Native iOS & Android builds", "PWA (Progressive Web App)"] },
+      { icon: "☁️", title: "Backend & Security", list: ["Offline-first data sync", "Secure JWT Authentication", "Push notification system"] },
+      { icon: "🚀", title: "Launch & Support", list: ["App Store Submission", "Play Store compliance", "3 months bug-fix support"] }
+    ],
+    benefits: [
+      { title: "Massive Market Reach", metric: "iOS + Android coverage", desc: "Reach all potential users from a single codebase. Double your addressable market." },
+      { title: "Works Anywhere", metric: "Full offline functionality", desc: "Users can browse and act without internet. Data syncs when connectivity returns." },
+      { title: "Revenue Ready", metric: "In-app payments integrated", desc: "Paystack and Flutterwave baked in. No redirects, higher conversion." }
+    ],
+    pricing: [
+      { name: "MVP Build", price: "₦1,200,000", desc: "Validate your concept with core features", features: ["Single platform (Android)", "Core UI/UX", "Payment integration", "API development"], cta: "Get Quote" },
+      { name: "Scale App", price: "₦2,500,000", desc: "Professional cross-platform launch", features: ["iOS & Android", "Offline-first sync", "Push notifications", "Admin dashboard"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Custom Enterprise", price: "Custom", desc: "Complex systems with heavy infrastructure", features: ["Biometric security", "Real-time tracking", "AI integrations", "Dedicated support"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "How long to build an app?", a: "MVPs take 8-12 weeks. Complex apps can take 4-6 months." },
+      { q: "Do you handle store submission?", a: "Yes, we handle the entire process for Google Play and Apple App Store." }
+    ],
+    meta: {
+      title: "Mobile App Development Company Nigeria | iOS & Android Apps",
+      description: "Top Mobile App Development Company in Nigeria. We build high-performance React Native, Flutter, and Native apps for Nigerian businesses."
+    }
+  },
+  "graphics-design": {
+    slug: "graphics-design",
+    title: "Graphics Design That Commands Attention & Authority",
+    eyebrow: "Graphics Design Services Nigeria",
+    heroDesc: "Strategic brand identity and visual assets crafted for the Nigerian market. We create premium visuals that position you as the leader before you say a word.",
+    icon: Palette,
+    stats: [
+      { label: "Brands Designed", value: "500+" },
+      { label: "Satisfaction Rate", value: "98%" },
+      { label: "Years Experience", value: "5+" }
+    ],
+    problems: [
+      { title: "Amateur Visual Identity", desc: "A cheap logo turns away premium clients. It doesn't reflect your actual quality." },
+      { title: "Inconsistent Branding", desc: "If your social media, website, and cards look different, you lose trust and recognition." },
+      { title: "Weak Marketing Assets", desc: "Flyers and ads that get ignored are a waste of budget. You need visual persuasion." },
+      { title: "Losing to Competitors", desc: "Competitors with worse products win because they look more professional and established." }
+    ],
+    approach: [
+      "Brand discovery to understand vision and audience",
+      "Competitor analysis and market positioning research",
+      "Strategic concept development with multiple directions",
+      "Refinement rounds based on data-backed feedback",
+      "Complete brand guidelines for total consistency"
+    ],
+    deliverables: [
+      { icon: "✨", title: "Brand Identity", list: ["Strategic Logo Design", "Color & Typography System", "Brand Style Guide"] },
+      { icon: "📄", title: "Marketing Collateral", list: ["Flyers & Brochures", "Pitch Decks & Proposals", "Social Media Kits"] },
+      { icon: "📦", title: "Visual Assets", list: ["Packaging Design", "Billboard & Print ads", "UI/UX Mockups"] }
+    ],
+    benefits: [
+      { title: "Instant Credibility", metric: "Premium brand perception", desc: "Professional design gives customers confidence to choose you over others." },
+      { title: "Higher Pricing Power", metric: "Justify premium rates", desc: "Premium brands can charge more because they look the part." },
+      { title: "Better Ad Conversion", metric: "30-50% higher CTR", desc: "Scroll-stopping graphics ensure your marketing budget isn't wasted." }
+    ],
+    pricing: [
+      { name: "Starter", price: "₦80,000", desc: "Small businesses needing a professional start", features: ["Logo Design (3 concepts)", "Business Cards", "Letterhead", "2 revisions"], cta: "Get Quote" },
+      { name: "Professional", price: "₦200,000", desc: "Growing brands building authority", features: ["Complete Identity System", "Brand Style Guide", "Social Media Templates", "3 revisions"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Premium", price: "₦500,000", desc: "Enterprise brands with global standards", features: ["Packaging Design", "Ad Creative Suite", "UI/UX Design", "6 months support"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "How long does branding take?", a: "Logo projects take 1-2 weeks. Full identities take 3-4 weeks." },
+      { q: "Do I get the source files?", a: "Yes, you receive all print-ready, web, and original source files (AI, PDF, PNG)." }
+    ],
+    meta: {
+      title: "Graphics Design Agency Nigeria | Brand Identity & Visual Design",
+      description: "Professional Graphics Design Agency in Nigeria. We create strategic brand identities, logos, and marketing materials for premium businesses."
+    }
+  },
+  "cybersecurity": {
+    slug: "cybersecurity",
+    title: "Cybersecurity That Protects Your Revenue",
+    eyebrow: "Digital Defense Nigeria",
+    heroDesc: "Stop digital threats before they hit your bank account. We provide enterprise-grade defense, from Cloudflare optimization to deep manual penetration testing, designed for the Nigerian threat landscape.",
+    icon: ShieldCheck,
+    stats: [
+      { label: "Systems Secured", value: "50+" },
+      { label: "Uptime Guaranteed", value: "99.9%" },
+      { label: "Threats Blocked", value: "1M+" }
+    ],
+    problems: [
+      { title: "Payment Gateway Fraud", desc: "Malicious SQL injections targeting your checkout flow can lead to drained accounts and permanent gateway blacklisting." },
+      { title: "NDPR Compliance Risk", desc: "A single data breach can trigger massive regulatory fines and destroy the customer trust you've spent years building." },
+      { title: "Bot & DDoS Attacks", desc: "Automated bots can scrape your data, hijack user accounts, or take your site offline during critical sales periods." },
+      { title: "Business Logic Flaws", desc: "Hidden weaknesses in your codebase allow attackers to bypass authorization and access sensitive company data." }
+    ],
+    approach: [
+      "Deep Cloudflare configuration including custom WAF rules and rate limiting",
+      "Manual inspection of application logic to identify authorization and injection flaws",
+      "Real-world ethical hacking simulations to find weaknesses before criminals do",
+      "Hardening databases and verifying compliance with NDPR/GDPR standards"
+    ],
+    deliverables: [
+      { icon: "🛡️", title: "Infrastructure Hardening", list: ["Cloudflare Enterprise Setup", "Custom WAF Tuning", "Secure DNS Configuration"] },
+      { icon: "💻", title: "Application Audit", list: ["OWASP Top 10 Assessment", "API Security Review", "Penetration Testing Report"] },
+      { icon: "📄", title: "Enterprise Governance", list: ["Executive Security Roadmap", "Incident Response Plan", "Cyber Risk & Compliance Report"] }
+    ],
+    benefits: [
+      { title: "Zero Downtime", metric: "100% Availability", desc: "Your business stays online and operational during DDoS attacks." },
+      { title: "Data Protection", metric: "NDPR Compliant", desc: "Customer data is encrypted and secure, avoiding massive regulatory fines." },
+      { title: "Customer Trust", metric: "Verified Security", desc: "Customers confidently enter their payment details knowing your platform is fortified." }
+    ],
+    pricing: [
+      { name: "Baseline Shield", price: "₦350,000", desc: "2-3 weeks engagement for fundamental protection", features: ["Cloudflare Setup", "Basic DDoS Protection", "SSL Hardening", "Vulnerability Scan"], cta: "Get Quote" },
+      { name: "Core Defense Engine", price: "₦1,500,000", desc: "4-6 weeks engagement for robust security", features: ["Custom WAF Tuning", "Database Security", "API Security Review", "Codebase Audit"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Compliance Suite", price: "₦3,500,000", desc: "8-10 weeks engagement for enterprise compliance", features: ["Penetration Testing", "NDPR Readiness", "Payment Workflow Audit", "Remediation Plan"], cta: "Book Strategy Call" },
+      { name: "Enterprise Defense", price: "₦6,000,000", desc: "12-16 weeks for full-scale advisory & testing", features: ["Ethical Hacking Simulation", "Incident Response Planning", "Security Architecture Review", "Executive Advisory Support"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "Why does an audit take weeks?", a: "Real security cannot be automated in 24 hours. Deep manual inspection and logic testing take time." },
+      { q: "Will my site go down during testing?", a: "We prioritize stability and coordinate testing during low-traffic windows to ensure zero disruption." }
+    ],
+    meta: {
+      title: "Cybersecurity Services Nigeria | Enterprise Digital Defense",
+      description: "Professional cybersecurity services in Nigeria. We protect your applications with Cloudflare, penetration testing, and NDPR compliance audits."
+    }
+  },
+  "wordpress": {
+    slug: "wordpress",
+    title: "WordPress Websites Done Right",
+    eyebrow: "WordPress Development Nigeria",
+    heroDesc: "Premium, performance-tuned WordPress sites for Nigerian businesses. We strip the bloat, add the power, and hand you a site your team can manage — without calling a developer.",
+    icon: Code2,
+    stats: [
+      { label: "WordPress Sites", value: "150+" },
+      { label: "Avg PageSpeed", value: "95+" },
+      { label: "Security Incidents", value: "0" }
+    ],
+    problems: [
+      { title: "Bloated With Plugins", desc: "Your site has 40+ plugins that slow it to a crawl, adding security risks and conflicts." },
+      { title: "Slow on Nigerian Internet", desc: "Taking 8+ seconds to load on 3G means losing 80% of mobile traffic before they even see your content." },
+      { title: "Security Vulnerabilities", desc: "Outdated themes and weak passwords make your site an easy target for hacks." },
+      { title: "Template-Locked Design", desc: "Stuck with a generic template that breaks every time you try to customize or update it." }
+    ],
+    approach: [
+      "Custom-coded theme built specifically for your brand — no templates, no bloat",
+      "Performance optimization targeting 90+ PageSpeed score on mobile data",
+      "Security hardening with firewall, malware scanning, and 2FA authentication",
+      "WooCommerce integration with Paystack/Flutterwave for e-commerce",
+      "Recorded training walkthrough so your team can manage content independently"
+    ],
+    deliverables: [
+      { icon: "🎨", title: "Custom Development", list: ["Bespoke WordPress Theme", "Custom Plugin Development", "Gutenberg Block Setup"] },
+      { icon: "⚡", title: "Performance & SEO", list: ["Image & DB Optimization", "Caching Configuration", "Technical SEO Foundation"] },
+      { icon: "🛡️", title: "Security & Handover", list: ["Firewall & 2FA Setup", "Automated Backups", "Video Training Library"] }
+    ],
+    benefits: [
+      { title: "Blazing Speed", metric: "90+ Mobile PageSpeed", desc: "Your site loads in under 2 seconds even on 3G, keeping visitors engaged." },
+      { title: "Total Security", metric: "Zero Hacks", desc: "Automated backups and proactive security patches keep your business safe." },
+      { title: "Easy Management", metric: "No Developer Needed", desc: "Your team confidently publishes posts and edits pages with our custom backend." }
+    ],
+    pricing: [
+      { name: "Starter WP", price: "₦150,000", desc: "Fast, secure site for small businesses", features: ["Custom Theme", "Mobile Optimized", "Basic Security", "Contact Forms"], cta: "Get Quote" },
+      { name: "Professional WP", price: "₦350,000", desc: "High-performance site with custom features", features: ["Advanced Speed Tuning", "SEO Setup", "Custom Post Types", "Video Training"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Enterprise WP", price: "Custom", desc: "Complex portals and WooCommerce stores", features: ["WooCommerce Setup", "API Integrations", "Member Portals", "Monthly Maintenance"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "Can I update the site myself?", a: "Absolutely. We provide recorded training so your team can update content without coding." },
+      { q: "Do you provide hosting?", a: "We configure high-performance, Nigerian-friendly hosting, or migrate to your existing provider." }
+    ],
+    meta: {
+      title: "WordPress Website Design Nigeria | Fast & Secure WP Development",
+      description: "Expert WordPress website design in Nigeria. We build fast, secure, and SEO-optimized custom WordPress sites that your team can easily manage."
+    }
+  },
+  "custom-software": {
+    slug: "custom-software",
+    title: "Bespoke Platforms for Nigerian Workflows",
+    eyebrow: "Custom Software Development Nigeria",
+    heroDesc: "Off-the-shelf software wasn't built for your business. We build bespoke platforms — ERPs, SaaS products, internal tools — designed exactly for your Nigerian workflow.",
+    icon: Code2,
+    stats: [
+      { label: "Platforms Built", value: "30+" },
+      { label: "Code Ownership", value: "100%" },
+      { label: "Client Retention", value: "95%" }
+    ],
+    problems: [
+      { title: "Spreadsheet Chaos", desc: "Running critical operations on spreadsheets leads to data entry errors, nothing syncing, and an inability to scale." },
+      { title: "Bespoke Doesn't Fit", desc: "Generic business platforms don't handle your unique Nigerian workflow, tax calculations, or reporting needs." },
+      { title: "Disconnected Systems", desc: "Sales, inventory, accounting, and HR live in separate tools. No integration means constant manual data transfer." },
+      { title: "Zero Customization", desc: "You're stuck waiting for someone else's roadmap to get the features your business urgently needs." }
+    ],
+    approach: [
+      "Deep discovery sessions to map workflows and identify automation opportunities",
+      "Technical architecture design with scalability and security built in",
+      "Agile development with bi-weekly demo cycles for continuous feedback",
+      "Rigorous testing including load testing and security audits",
+      "Deployment with full documentation, source code handover, and training"
+    ],
+    deliverables: [
+      { icon: "💻", title: "Custom Platforms", list: ["SaaS Product Development", "Internal HR/Inventory Tools", "School & EdTech Software"] },
+      { icon: "🔗", title: "APIs & Integrations", list: ["Fintech & KYC Platforms", "RESTful APIs & Webhooks", "Legacy System Integration"] },
+      { icon: "📦", title: "Handover", list: ["100% Source Code Ownership", "Technical Documentation", "3 Months Post-Launch Support"] }
+    ],
+    benefits: [
+      { title: "10x Efficiency", metric: "Automate Repetitive Tasks", desc: "Eliminate manual data entry so your team focuses on high-value work." },
+      { title: "Real-Time Data", metric: "Dashboards & Analytics", desc: "Make decisions with confidence without waiting for compiled weekly reports." },
+      { title: "Lower Long-Term Cost", metric: "No Per-Seat Licenses", desc: "One development cost. No surprise price increases or per-user monthly charges." }
+    ],
+    pricing: [
+      { name: "MVP Build", price: "₦1,500,000", desc: "Core features to validate your concept", features: ["Core Workflows", "Basic Dashboard", "User Authentication", "API Integration"], cta: "Get Quote" },
+      { name: "Business System", price: "₦3,500,000", desc: "Internal tools for growing companies", features: ["Advanced Roles/Permissions", "Automated Reporting", "Third-Party Integrations", "Full Documentation"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Enterprise SaaS", price: "Custom", desc: "Complex platforms with multi-tenancy", features: ["Multi-Tenant Architecture", "Billing Integration", "High-Availability Setup", "Dedicated Support"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "Will I own the source code?", a: "Yes, 100%. You receive full source code and database schemas. No vendor lock-in." },
+      { q: "What stack do you use?", a: "We primarily use Next.js, React, Node.js, and Supabase/PostgreSQL depending on requirements." }
+    ],
+    meta: {
+      title: "Custom Software Company in Nigeria | Bespoke Enterprise Solutions",
+      description: "Leading Software Company in Nigeria building custom enterprise software, SaaS products, and workflow automation solutions."
+    }
+  },
+  "growth-marketing": {
+    slug: "growth-marketing",
+    title: "Scientific Scaling for Nigerian Businesses",
+    eyebrow: "Growth Hacking Agency Nigeria",
+    heroDesc: "Rapid-iteration, data-driven growth strategies for startups and SMEs. We find the exact channels, messages, and funnels that unlock your next growth curve — fast.",
+    icon: TrendingUp,
+    stats: [
+      { label: "Experiments Run", value: "1,000+" },
+      { label: "Avg CAC Reduction", value: "40%" },
+      { label: "Startups Scaled", value: "50+" }
+    ],
+    problems: [
+      { title: "Unpredictable Growth", desc: "You can't figure out what's working and you can't replicate your wins consistently." },
+      { title: "Marketing Without Data", desc: "Spending on ads and content without knowing what drives revenue. You're guessing, not growing." },
+      { title: "Wasting Budget", desc: "Trying new channels without a structured testing framework burns cash without producing insights." },
+      { title: "No System for Scale", desc: "You found something that works but manual processes prevent you from scaling it." }
+    ],
+    approach: [
+      "Full-funnel audit to identify biggest growth opportunities and leaks",
+      "Hypothesis-driven experiment design with clear success metrics",
+      "Rapid 2-week experimentation sprints across channels and tactics",
+      "Data analysis to separate winning experiments from failures",
+      "Scale winning experiments into repeatable growth systems"
+    ],
+    deliverables: [
+      { icon: "🧪", title: "Experimentation", list: ["A/B Testing & CRO", "Paid Acquisition Sprints", "Landing Page Variants"] },
+      { icon: "⚙️", title: "Funnel Optimization", list: ["Funnel Mapping", "Referral & Viral Loops", "Onboarding Flows"] },
+      { icon: "📊", title: "Data & Tracking", list: ["OKR & KPI Frameworks", "Analytics Setup", "Weekly Growth Meetings"] }
+    ],
+    benefits: [
+      { title: "Predictable Growth", metric: "Data-Driven Decisions", desc: "A structured process means every naira spent informs your next better move." },
+      { title: "Lower CAC", metric: "Stop Wasting Budget", desc: "Systematic testing identifies your most efficient acquisition channels." },
+      { title: "Rapid Iteration", metric: "Test More, Learn Faster", desc: "2-week cycles mean you test 24+ hypotheses per year to outpace competitors." }
+    ],
+    pricing: [
+      { name: "Growth Audit", price: "₦150,000", desc: "Find the leaks in your current funnel", features: ["Full-Funnel Review", "Analytics Audit", "Competitor Analysis", "Actionable Roadmap"], cta: "Get Quote" },
+      { name: "Growth Sprint", price: "₦400,000/mo", desc: "Monthly experimentation for active scaling", features: ["2 Experiments per Sprint", "A/B Testing Setup", "Landing Page Optimization", "Bi-Weekly Meetings"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Full Growth Team", price: "₦850,000/mo", desc: "Dedicated fractional growth department", features: ["Unlimited Experiments", "Paid Media Management", "Viral Loop Engineering", "Dedicated Growth Lead"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "How long before I see results?", a: "Some experiments generate insights in weeks. A full system takes 3-6 months to show measurable impact." },
+      { q: "Do you train my team?", a: "Yes, we build growth capability in your team through frameworks so you become self-sufficient." }
+    ],
+    meta: {
+      title: "Growth Hacking Agency Nigeria | Data-Driven Growth Marketing",
+      description: "Growth marketing and growth hacking for Nigerian startups and SMEs. Data-driven strategies that scale revenue fast."
+    }
+  },
+  "landing-pages": {
+    slug: "landing-pages",
+    title: "Sales Funnels That Generate Revenue",
+    eyebrow: "Marketing Strategy",
+    heroDesc: "Stop paying for empty traffic. We build high-converting landing pages and automated funnels that turn Nigerian clicks into ready-to-buy leads.",
+    icon: Target,
+    stats: [
+      { label: "Avg Conversion", value: "8%" },
+      { label: "Funnels Built", value: "120+" },
+      { label: "Lead Increase", value: "3x" }
+    ],
+    problems: [
+      { title: "Burning Ad Spend", desc: "Sending paid traffic to a homepage with 20 different links means visitors get distracted and leave without buying." },
+      { title: "High Friction", desc: "Long contact forms deter mobile users. In Nigeria, if they can't chat with you immediately, you lose the sale." },
+      { title: "Weak Copywriting", desc: "Your page talks about 'what you do' instead of 'how you solve the customer's specific problem.'" },
+      { title: "Zero Automation", desc: "No systems to follow up with leads who don't buy immediately." }
+    ],
+    approach: [
+      "Deep audience pain-point research to inform the messaging",
+      "Direct-response sales copy that addresses specific objections",
+      "Distraction-free landing page design with a single call-to-action",
+      "Sub-2-second load optimization for Nigerian mobile networks",
+      "Smart mobile routing so leads can reach you instantly on WhatsApp"
+    ],
+    deliverables: [
+      { icon: "✍️", title: "Conversion Copywriting", list: ["Direct-Response Copy", "Compelling Headlines", "Objection-Crushing FAQs"] },
+      { icon: "🎨", title: "UI/UX Design", list: ["Distraction-Free Layout", "Trust Signals & Social Proof", "High-Contrast CTAs"] },
+      { icon: "⚙️", title: "Tech & Automation", list: ["Sub-2-Second Load Times", "WhatsApp Direct Routing", "Pixel & Analytics Setup"] }
+    ],
+    benefits: [
+      { title: "Higher Conversion", metric: "8x Better Than Homepages", desc: "A focused funnel turns 1,000 visitors into 80 leads instead of 10." },
+      { title: "Instant Contact", metric: "WhatsApp Routing", desc: "Remove form friction and let customers message you directly and instantly." },
+      { title: "Measurable ROI", metric: "Track Every Click", desc: "Know exactly which ads drove which sales with complete pixel tracking." }
+    ],
+    pricing: [
+      { name: "Lead Magnet Funnel", price: "₦150,000", desc: "Perfect for building your email list", features: ["Custom Opt-in Page", "Thank You Page", "Professional Copy", "Email Integration"], cta: "Get Quote" },
+      { name: "Direct Sales Funnel", price: "₦250,000", desc: "Selling a specific product or service", features: ["Long-form Sales Page", "Premium Copywriting", "WhatsApp Routing", "Pixel Setup"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Webinar/Event Funnel", price: "₦400,000", desc: "For high-ticket sales events", features: ["Registration Page", "Automated Reminders", "Replay Page", "Follow-up Sequence"], cta: "Book Strategy Call" }
+    ],
+    faqs: [
+      { q: "What's the difference between a website and a funnel?", a: "A website is a brochure with many options. A funnel is a guided journey with one goal." },
+      { q: "How do you handle Nigerian payments?", a: "We integrate Paystack or Flutterwave directly, or route hot leads straight to your WhatsApp." }
+    ],
+    meta: {
+      title: "Sales Funnels & Landing Pages Nigeria | High-Converting Designs",
+      description: "High-converting landing pages and sales funnels for Nigerian businesses. We combine psychological copywriting, fast design, and WhatsApp routing."
+    }
+  },
+  "printing": {
+    slug: "printing",
+    title: "Commercial Print Excellence",
+    eyebrow: "Print & Creative",
+    heroDesc: "Premium offset and digital printing for businesses across Nigeria. Superior paper stock, accurate colour reproduction, and fast turnaround — delivered nationwide.",
+    icon: Printer,
+    stats: [
+      { label: "Items Printed", value: "2M+" },
+      { label: "States Delivered", value: "36" },
+      { label: "On-Time Rate", value: "99%" }
+    ],
+    problems: [
+      { title: "Amateur Print Quality", desc: "Cheap printers and poor paper stock make your business look unprofessional. Bad printing signals bad business." },
+      { title: "Inconsistent Branding", desc: "Colours don't match across different materials because you use different vendors." },
+      { title: "Slow Turnaround", desc: "Your regular printer takes weeks to deliver, causing you to miss deadlines and opportunities." },
+      { title: "No Nationwide Delivery", desc: "You're limited to local printers and can't serve branches in other states efficiently." }
+    ],
+    approach: [
+      "Consultation to understand brand, audience, and print needs",
+      "High-resolution artwork preparation and colour correction",
+      "Proof approval with digital mock-up before production begins",
+      "Printing on premium-grade stock with calibrated colour accuracy",
+      "Quality check, finishing, and nationwide delivery via GIG Logistics"
+    ],
+    deliverables: [
+      { icon: "📄", title: "Marketing Collateral", list: ["Flyers & Brochures", "Booklets & Catalogues", "Posters"] },
+      { icon: "📇", title: "Corporate Stationery", list: ["Premium Business Cards", "Letterheads", "Compliment Slips"] },
+      { icon: "🏷️", title: "Packaging & Labels", list: ["Product Labels", "Custom Stickers", "Paper Bags"] }
+    ],
+    benefits: [
+      { title: "Instant Credibility", metric: "Premium Perception", desc: "Professional materials tell clients you're established and serious about quality." },
+      { title: "Consistent Branding", metric: "Colour Accuracy", desc: "All your print materials share a consistent, on-brand look that builds recognition." },
+      { title: "Nationwide Reach", metric: "Delivery to 36 States", desc: "Serve clients and branches anywhere in Nigeria with reliable tracking." }
+    ],
+    pricing: [
+      { name: "Business Cards", price: "From ₦15,000", desc: "Pack of 100", features: ["350gsm Matte/Gloss", "Double Sided", "Full Colour", "Standard Finish"], cta: "Get Quote" },
+      { name: "A5 Flyers", price: "From ₦45,000", desc: "Pack of 1,000", features: ["150gsm Gloss", "Double Sided", "High Resolution", "Trimming"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Corporate Booklets", price: "Custom", desc: "Annual reports and catalogues", features: ["Perfect Binding", "Premium Cover Stock", "Spot UV Options", "Digital Proofing"], cta: "Request Custom Quote" }
+    ],
+    faqs: [
+      { q: "How long does printing take?", a: "Standard orders take 3-5 business days. Express service (1-2 days) is available." },
+      { q: "Do you deliver outside Ogun State?", a: "Yes! We deliver to all 36 states via GIG Logistics." }
+    ],
+    meta: {
+      title: "Printing Services Nigeria | Premium Business Cards, Flyers & Booklets",
+      description: "Quality printing services across Nigeria. Business cards, flyers, brochures, booklets, and stickers with nationwide delivery."
+    }
+  },
+  "large-format": {
+    slug: "large-format",
+    title: "Large Format Printing Nigeria",
+    eyebrow: "Print & Creative",
+    heroDesc: "Billboards, flex banners, roll-up stands, and building wraps that command attention. Vivid colour output engineered for outdoor visibility across Nigerian weather conditions.",
+    icon: Maximize,
+    stats: [
+      { label: "Banners Printed", value: "5,000+" },
+      { label: "Durability", value: "UV-Resistant" },
+      { label: "Turnaround", value: "3-5 Days" }
+    ],
+    problems: [
+      { title: "No Outdoor Presence", desc: "Your competitors have billboards, banners, and building wraps across town. Your brand is invisible to the thousands of people who pass by daily." },
+      { title: "Poor Quality Signage", desc: "Faded colours, peeling vinyl, and flimsy banners make your business look cheap. Outdoor materials that don't survive Nigerian weather waste your money." },
+      { title: "Limited Event Impact", desc: "Your exhibition booth has no backdrop, no pull-up banners, and no branded materials. Visitors walk past your stand without noticing." },
+      { title: "Missed Advertising Opportunity", desc: "Your company vehicles are plain white. Your office windows are bare. Every surface could be advertising space but you're not using it." }
+    ],
+    approach: [
+      "Site survey and measurement for accurate fitting",
+      "High-resolution artwork preparation for large-scale output",
+      "Material selection based on location, weather exposure, and duration",
+      "Professional printing on industrial large-format printers",
+      "Quality check with colour calibration under daylight conditions",
+      "Professional installation team for on-site fitting"
+    ],
+    deliverables: [
+      { icon: "🏢", title: "Outdoor Advertising", list: ["Billboards & Hoardings", "Building Wraps", "Flex Banners"] },
+      { icon: "🎪", title: "Events & Exhibitions", list: ["Roll-up Standees", "Event Backdrops", "Pop-up Counters"] },
+      { icon: "🚛", title: "Branding", list: ["Vehicle Wraps", "Window Graphics", "Wall Murals"] }
+    ],
+    benefits: [
+      { title: "Massive Visibility", metric: "Daily Impressions", desc: "Your brand seen by thousands of people every day — commuters, pedestrians, and potential customers passing your location." },
+      { title: "Weather Resistant", metric: "UV-Resistant", desc: "UV-resistant inks and weatherproof materials ensure your outdoor branding stays vibrant through sun, rain, and harmattan dust." },
+      { title: "Cost-Effective", metric: "High ROI", desc: "Outdoor branding delivers the lowest cost-per-impression of any advertising medium. One investment, months of visibility." }
+    ],
+    pricing: [
+      { name: "Roll-up Banners", price: "From ₦35,000", desc: "Standard size for events and offices", features: ["Aluminium Base", "High Resolution Print", "Carry Bag Included"], cta: "Get Quote" },
+      { name: "Flex Banners", price: "From ₦5,000/sqm", desc: "Custom sizes for outdoor use", features: ["Heavy-duty PVC", "UV-Resistant Ink", "Eyelets included"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Vehicle Branding", price: "Custom", desc: "Turn your fleet into mobile billboards", features: ["Partial or Full Wrap", "Professional Installation", "Durable Vinyl"], cta: "Request Custom Quote" }
+    ],
+    faqs: [
+      { q: "How long does large format printing take?", a: "Standard production takes 3-5 business days. Large projects like building wraps may take 7-10 days including installation." },
+      { q: "Do you install billboards and banners?", a: "Yes, we provide professional installation services for billboards, building wraps, event backdrops, and all large format materials." }
+    ],
+    meta: {
+      title: "Large Format Printing Nigeria | Banners, Billboards & Wraps",
+      description: "Large format printing services in Nigeria. Banners, billboards, vehicle wraps, and event displays with vivid colour output."
+    }
+  },
+  "t-shirt-printing": {
+    slug: "t-shirt-printing",
+    title: "T-Shirt Printing Nigeria",
+    eyebrow: "Custom Apparel",
+    heroDesc: "Custom branded t-shirts, hoodies, and corporate uniforms printed with precision. Minimum orders from 10 pieces — bulk discounts available for events, schools, and companies.",
+    icon: Shirt,
+    stats: [
+      { label: "Apparel Printed", value: "50,000+" },
+      { label: "Min Order", value: "10 Pieces" },
+      { label: "Guarantee", value: "Wash-Resistant" }
+    ],
+    problems: [
+      { title: "Prints That Fade Fast", desc: "After a few washes, your logo is cracked, faded, and peeling. Your team walks around in t-shirts that make your brand look worn out." },
+      { title: "Uncomfortable Materials", desc: "Cheap fabric that shrinks, stretches, or feels uncomfortable. Your staff won't wear them, and your brand visibility drops to zero." },
+      { title: "High Minimum Orders", desc: "Most printers demand 50+ pieces. You only need 15 t-shirts for your team or 30 for an event, but you're forced to over-order and over-spend." },
+      { title: "Limited Print Methods", desc: "Your printer only does one type of print — screen print or embroidery. You can't get the right finish for different products." }
+    ],
+    approach: [
+      "Consultation to understand your quantities, budget, and garment preferences",
+      "Artwork preparation optimised for your chosen print method",
+      "Sample print for approval before full production begins",
+      "Professional printing with colour-matched inks",
+      "Quality inspection of every garment before packaging",
+      "Nationwide delivery within 5-10 working days"
+    ],
+    deliverables: [
+      { icon: "👕", title: "Print Methods", list: ["Screen Printing", "Direct-to-Garment (DTG)", "Heat Transfer Vinyl (HTV)"] },
+      { icon: "🧵", title: "Embroidery", list: ["Corporate Polos", "Executive Gifts", "Uniforms"] },
+      { icon: "🎒", title: "Products", list: ["T-Shirts & Hoodies", "Caps & Hats", "Tote Bags"] }
+    ],
+    benefits: [
+      { title: "Walking Billboards", metric: "Brand Ambassadors", desc: "Every employee wearing your branded apparel is a mobile advertisement. Thousands of impressions daily at zero ongoing cost." },
+      { title: "Professional Image", metric: "Unified Team", desc: "Corporate uniforms and branded team wear project professionalism, unity, and attention to detail that clients notice." },
+      { title: "Event Success", metric: "Memorable Giveaways", desc: "Custom t-shirts and merchandise for events, product launches, and promotions. Your brand stays visible long after the event ends." }
+    ],
+    pricing: [
+      { name: "Basic Tees", price: "From ₦4,500", desc: "100% Cotton, 1-color print", features: ["Screen Printing", "Min. 50 pieces", "Standard quality"], cta: "Get Quote" },
+      { name: "Premium Polos", price: "From ₦8,500", desc: "Embroidered logo on chest", features: ["High-quality fabric", "Professional Embroidery", "Min. 20 pieces"], popular: true, cta: "Recommended – Let's Talk" },
+      { name: "Corporate Uniforms", price: "Custom", desc: "Full uniform packages", features: ["Shirts & Trousers", "Lanyards included", "Custom fitting"], cta: "Request Custom Quote" }
+    ],
+    faqs: [
+      { q: "What is the minimum order quantity?", a: "Our minimum order is 10 pieces per design. For larger quantities, we offer significant bulk discounts." },
+      { q: "Will the print survive washing?", a: "Yes. All our prints are wash-resistant and backed by a 6-month quality guarantee." }
+    ],
+    meta: {
+      title: "T-Shirt Printing Nigeria | Custom Branded Apparel & Uniforms",
+      description: "Custom t-shirt printing in Nigeria. Screen printing, DTG, and embroidery for events, schools, and corporate branding."
+    }
+  }
+};
