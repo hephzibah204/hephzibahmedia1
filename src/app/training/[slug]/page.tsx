@@ -19,8 +19,9 @@ const themeMap: Record<string, 'web' | 'mobile' | 'marketing' | 'cyber' | 'desig
   'business-digitalization': 'software'
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const course = trainingData[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const course = trainingData[resolvedParams.slug];
   
   if (!course) {
     return {
@@ -40,14 +41,16 @@ export function generateStaticParams() {
   }));
 }
 
-export default function CoursePage({ params }: { params: { slug: string } }) {
-  const course = trainingData[params.slug];
+export default async function CoursePage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
+  const course = trainingData[slug];
 
   if (!course) {
     notFound();
   }
 
-  const themeType = themeMap[params.slug] || 'web';
+  const themeType = themeMap[slug] || 'web';
 
   return (
     <div className="relative pt-32 pb-32 overflow-hidden">
