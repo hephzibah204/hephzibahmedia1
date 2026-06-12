@@ -1,20 +1,17 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "hephzibah-media",
-  "main": ".next/standalone/server.js",
-  "compatibility_date": "2024-04-03",
+  // "main": ".next/standalone/server.js",
+  "compatibility_date": "2024-09-23",
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "assets": {
-    "directory": ".next/static",
-    "binding": "ASSETS"
-  },
+  "pages_build_output_dir": "deploy",
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "hephzibah_db",
-      "database_id": "REPLACE_WITH_D1_ID"
+      "database_name": "hephzibah",
+      "database_id": "b9c095e0-af42-40af-93c8-5da908033fd6"
     }
   ],
   "observability": {

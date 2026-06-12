@@ -3,6 +3,8 @@ import { servicesData } from '@/data/services';
 import fs from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hephzibahmedia.com.ng';
   

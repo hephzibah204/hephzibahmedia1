@@ -39,6 +39,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+export async function generateStaticParams() {
+  return Object.keys(servicesData).map((slug) => ({
+    slug,
+  }));
+}
+
 export default async function ServicePage({ params }: PageProps) {
   const { slug } = await params;
   const service = servicesData[slug];

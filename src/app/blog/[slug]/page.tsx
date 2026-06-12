@@ -29,6 +29,14 @@ function MarkdownRenderer({ content }: { content: string }) {
     );
 }
 
+export async function generateStaticParams() {
+    const blogDir = path.join(process.cwd(), 'src/content/blog');
+    const files = fs.readdirSync(blogDir);
+    return files.map((file) => ({
+        slug: file.replace('.md', ''),
+    }));
+}
+
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const filePath = path.join(process.cwd(), 'src/content/blog', `${slug}.md`);
