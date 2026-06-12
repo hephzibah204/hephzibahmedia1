@@ -1,153 +1,155 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Hashtag Generator – Social Media | Hephzibah Media</title>
-  <meta name="description" content="Generate relevant hashtags for your Nigerian business. Boost your social media reach with targeted tags.">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --navy:#0A0F2C; --navy-mid:#111A45; --gold:#C9A84C; --gold-lt:#E2C07A; --cream:#FAF6ED; --white:#FFFFFF; --grey:#8A8FA8; --success:#22C55E; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'DM Sans',sans-serif; }
-    body { background:var(--navy); color:var(--cream); font-family:var(--font-body); font-size:16px; overflow:hidden; }
-    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; opacity:0.6; }
-    .container { max-width:800px; margin:0 auto; padding:8rem 5% 4rem; position:relative; z-index:1; }
-    .logo { font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--white); text-align:center; margin-bottom:2rem; }
-    .logo span { color:var(--gold); }
-    h1 { font-family:var(--font-display); font-size:2.5rem; color:var(--white); text-align:center; margin-bottom:0.5rem; }
-    h1 em { color:var(--gold-lt); font-style:italic; }
-    .subtitle { text-align:center; color:var(--grey); margin-bottom:2rem; }
-    .tool-box { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.2); border-radius:16px; padding:2rem; }
-    .input-group { margin-bottom:1.5rem; }
-    .input-group label { display:block; font-size:0.75rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem; }
-    .input-group input, .input-group select { width:100%; padding:1rem; background:var(--navy); border:1px solid rgba(201,168,76,0.2); border-radius:8px; color:var(--cream); font-size:1rem; }
-    .generate-btn { width:100%; padding:1rem; background:var(--gold); color:var(--navy); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; border:none; border-radius:8px; cursor:pointer; }
-    .generate-btn:hover { background:var(--gold-lt); }
-    .results { margin-top:2rem; display:none; }
-    .results.show { display:block; }
-    .results h3 { color:var(--white); font-size:1rem; margin-bottom:1rem; }
-    .hashtag-box { background:var(--navy); border-radius:12px; padding:1.5rem; margin-bottom:1rem; }
-    .hashtags { font-size:0.95rem; color:var(--cream); line-height:2; word-wrap:break-word; }
-    .copy-btn { background:rgba(201,168,76,0.15); border:1px solid var(--gold); color:var(--gold); padding:0.8rem 2rem; border-radius:6px; cursor:pointer; font-size:0.9rem; }
-    .copy-btn:hover { background:var(--gold); color:var(--navy); }
-    .tip { background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.2); padding:1rem; border-radius:8px; margin-top:1.5rem; font-size:0.85rem; color:var(--success); }
-    footer { text-align:center; padding:2rem; font-size:0.8rem; color:var(--grey); }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="logo">Hephzibah <span>Media</span></div>
-    <h1>Hashtag <em>Generator</em></h1>
-    <p class="subtitle">Generate perfect hashtags for your Nigerian audience</p>
-
-    <div class="tool-box">
-      <form id="hashtagForm">
-        <div class="input-group">
-          <label>What is your post about?</label>
-          <input type="text" id="topic" placeholder="e.g., fitness, restaurant, fashion, tech" required>
-        </div>
-        <div class="input-group">
-          <label>Platform</label>
-          <select id="platform">
-            <option value="instagram">Instagram</option>
-            <option value="twitter">Twitter/X</option>
-            <option value="linkedin">LinkedIn</option>
-            <option value="tiktok">TikTok</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label>Post Type</label>
-          <select id="postType">
-            <option value="general">General Post</option>
-            <option value="promo">Promotion/Sale</option>
-            <option value="education">Educational</option>
-            <option value="event">Event/Announcement</option>
-            <option value="behind">Behind the Scenes</option>
-          </select>
-        </div>
-        <button type="submit" class="generate-btn">Generate Hashtags</button>
-      </form>
-
-      <div class="results" id="results">
-        <h3>📋 Your Hashtags (Click to copy)</h3>
-        <div class="hashtag-box">
-          <p class="hashtags" id="hashtagOutput"></p>
-        </div>
-        <button class="copy-btn" onclick="copyHashtags()">Copy All Hashtags</button>
-        <div class="tip">💡 Tip: Use 5-15 hashtags for best results on Instagram</div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2026 Hephzibah Media. All rights reserved.</p>
-  </footer>
-
-  <script>
-    const hashtagDatabase = {
-      fitness: ['#FitnessNigeria', '#GymLagos', '#FitFamNigeria', '#WorkoutTips', '#HealthAndWellnessNG', '#FitnessMotivation', '#NigeriaFit', '#FitLifeNigeria', '#ExerciseNG', '#WellnessNigeria', '#FitGirlNigeria', '#GymMotivation'],
-      restaurant: ['#NigerianFood', '#FoodBlogNigeria', '#RestaurantLagos', '#NigerianCuisine', '#FoodieNigeria', '#LagosEats', '#NigerianRestaurant', '#FoodLoversNG', '#AbujaFood', '#YammyFood', '#FoodNigeria', '#RestaurantReview'],
-      fashion: ['#NigerianFashion', '#FashionNigeria', '#AnkaraStyles', '#NigerianStyle', '#FashionLagos', '#AnkaraLover', '#NigeriaFashion', '#StyleNigeria', '#AfricanFashion', '#WearsNigerian', '#FashionBloggerNG', '#TrendAlert'],
-      tech: ['#TechNigeria', '#StartupsNigeria', '#NigerianTech', '#InnovationNG', '#TechHubLagos', '#DigitalNigeria', '#TechNewsNG', '#NigeriaStartups', '#TechCommunity', '#CodingNigeria', '#ITNigeria', '#TechTrends'],
-      business: ['#NigerianBusiness', '#BusinessNigeria', '#SMENigeria', '#EntrepreneurNigeria', '#BusinessGrowth', '#LagosBusiness', '#NigerianEntrepreneur', '#BusinessTipsNG', '#SMEGrowth', '#NigeriaBusiness', '#BusinessOwner', '#HustleHardNG'],
-      education: ['#NigeriaEducation', '#LearningNigeria', '#StudyTips', '#NigerianStudents', '#EducationMatters', '#LagosStudents', '#OnlineLearningNG', '#ExamTips', '#NigeriaUniversities', '#ScholarshipNigeria', '#StudyAbroadNG', '#EducationNews'],
-      beauty: ['#NigerianBeauty', '#BeautyNigeria', '#MakeupNigeria', '#SkincareNG', '#BeautyTips', '#LagosBeauty', '#NigerianBlogger', '#NaturalHairNG', '#BeautyProducts', '#GlowUpNigeria', '#HairCareNG', '#BeautyRoutine'],
-      travel: ['#NigeriaTravel', '#TravelNigeria', '#ExploreNigeria', '#TourismNigeria', '#LagosTravel', '#NigeriaTourism', '#TravelBlogNG', '#WanderlustNigeria', '#AdventureNG', '#PlacesToVisitNG', '#NigeriaTravelDiaries', '#TravelNigeria']
-    };
-
-    const platformPrefixes = {
-      instagram: { prefix: '', min: 15, max: 30 },
-      twitter: { prefix: '', min: 3, max: 5 },
-      linkedin: { prefix: '', min: 3, max: 5 },
-      tiktok: { prefix: '', min: 5, max: 10 }
-    };
-
-    const typeModifiers = {
-      general: [],
-      promo: ['#SaleAlert', '#LimitedOffer', '#DiscountAlert', '#PromoNG', '#BlackFridayNG', '#FlashSale'],
-      education: ['#LearnOnTikTok', '#EducationTips', '#KnowledgeIsPower', '#LearnFromHome', '#SkillDevelopment'],
-      event: ['#EventAlert', '#SaveTheDate', '#ComingSoon', '#EventNigeria', '#Announcement'],
-      behind: ['#BehindTheScenes', '#BTS', '#DayInMyLife', '#WorkInProgress', '#RealLifeNG']
-    };
-
-    document.getElementById('hashtagForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const topic = document.getElementById('topic').value.toLowerCase();
-      const platform = document.getElementById('platform').value;
-      const postType = document.getElementById('postType').value;
-      
-      let hashtags = [];
-      const topicData = hashtagDatabase[topic] || hashtagDatabase.business;
-      
-      const platformData = platformPrefixes[platform];
-      const count = Math.floor(Math.random() * (platformData.max - platformData.min) + platformData.min);
-      
-      const shuffled = topicData.sort(() => 0.5 - Math.random());
-      hashtags = shuffled.slice(0, Math.min(count, shuffled.length));
-      
-      const modifiers = typeModifiers[postType];
-      if (modifiers && modifiers.length > 0) {
-        const addModifiers = Math.min(2, modifiers.length);
-        hashtags = hashtags.concat(modifiers.slice(0, addModifiers));
-      }
-      
-      if (platform === 'linkedin' || platform === 'twitter') {
-        hashtags = hashtags.slice(0, platformData.max);
-      }
-      
-      document.getElementById('hashtagOutput').textContent = hashtags.join(' ');
-      document.getElementById('results').classList.add('show');
-    });
-
-    function copyHashtags() {
-      const text = document.getElementById('hashtagOutput').textContent;
-      navigator.clipboard.writeText(text);
-      const btn = document.querySelector('.copy-btn');
-      btn.textContent = 'Copied! ✅';
-      setTimeout(function() {
-        btn.textContent = 'Copy All Hashtags';
-      }, 2000);
-    }
-  </script>
-</body>
-</html>
+﻿—<—!—D—O—C—T—Y—P—E— —h—t—m—l—>—
+—<—h—t—m—l— —l—a—n—g—=—"—e—n—"—>—
+—<—h—e—a—d—>—
+— — —<—m—e—t—a— —c—h—a—r—s—e—t—=—"—U—T—F—-—8—"—>—
+— — —<—m—e—t—a— —n—a—m—e—=—"—v—i—e—w—p—o—r—t—"— —c—o—n—t—e—n—t—=—"—w—i—d—t—h—=—d—e—v—i—c—e—-—w—i—d—t—h—,—i—n—i—t—i—a—l—-—s—c—a—l—e—=—1—.—0—"—>—
+— — —<—t—i—t—l—e—>—H—a—s—h—t—a—g— —G—e—n—e—r—a—t—o—r— —–— —S—o—c—i—a—l— —M—e—d—i—a— —|— —H—e—p—h—z—i—b—a—h— —M—e—d—i—a—<—/—t—i—t—l—e—>—
+— — —<—m—e—t—a— —n—a—m—e—=—"—d—e—s—c—r—i—p—t—i—o—n—"— —c—o—n—t—e—n—t—=—"—G—e—n—e—r—a—t—e— —r—e—l—e—v—a—n—t— —h—a—s—h—t—a—g—s— —f—o—r— —y—o—u—r— —N—i—g—e—r—i—a—n— —b—u—s—i—n—e—s—s—.— —B—o—o—s—t— —y—o—u—r— —s—o—c—i—a—l— —m—e—d—i—a— —r—e—a—c—h— —w—i—t—h— —t—a—r—g—e—t—e—d— —t—a—g—s—.—"—>—
+— — —<—l—i—n—k— —r—e—l—=—"—p—r—e—c—o—n—n—e—c—t—"— —h—r—e—f—=—"—h—t—t—p—s—:—/—/—f—o—n—t—s—.—g—o—o—g—l—e—a—p—i—s—.—c—o—m—"—>—<—l—i—n—k— —r—e—l—=—"—p—r—e—c—o—n—n—e—c—t—"— —h—r—e—f—=—"—h—t—t—p—s—:—/—/—f—o—n—t—s—.—g—s—t—a—t—i—c—.—c—o—m—"— —c—r—o—s—s—o—r—i—g—i—n—>—<—l—i—n—k— —h—r—e—f—=—"—h—t—t—p—s—:—/—/—f—o—n—t—s—.—g—o—o—g—l—e—a—p—i—s—.—c—o—m—/—c—s—s—2—?—f—a—m—i—l—y—=—C—o—r—m—o—r—a—n—t—+—G—a—r—a—m—o—n—d—:—i—t—a—l—,—w—g—h—t—@—0—,—4—0—0—;—0—,—6—0—0—;—0—,—7—0—0—;—1—,—4—0—0—&—f—a—m—i—l—y—=—D—M—+—S—a—n—s—:—w—g—h—t—@—3—0—0—;—4—0—0—;—5—0—0—;—6—0—0—;—7—0—0—&—d—i—s—p—l—a—y—=—s—w—a—p—"— —r—e—l—=—"—s—t—y—l—e—s—h—e—e—t—"—>—
+— — —<—s—t—y—l—e—>—
+— — — — —*—,— —*—:—:—b—e—f—o—r—e—,— —*—:—:—a—f—t—e—r— —{— —b—o—x—-—s—i—z—i—n—g—:— —b—o—r—d—e—r—-—b—o—x—;— —m—a—r—g—i—n—:— —0—;— —p—a—d—d—i—n—g—:— —0—;— —}—
+— — — — —:—r—o—o—t— —{— —-—-—n—a—v—y—:—#—0—A—0—F—2—C—;— —-—-—n—a—v—y—-—m—i—d—:—#—1—1—1—A—4—5—;— —-—-—g—o—l—d—:—#—C—9—A—8—4—C—;— —-—-—g—o—l—d—-—l—t—:—#—E—2—C—0—7—A—;— —-—-—c—r—e—a—m—:—#—F—A—F—6—E—D—;— —-—-—w—h—i—t—e—:—#—F—F—F—F—F—F—;— —-—-—g—r—e—y—:—#—8—A—8—F—A—8—;— —-—-—s—u—c—c—e—s—s—:—#—2—2—C—5—5—E—;— —-—-—f—o—n—t—-—d—i—s—p—l—a—y—:—'—C—o—r—m—o—r—a—n—t— —G—a—r—a—m—o—n—d—'—,—G—e—o—r—g—i—a—,—s—e—r—i—f—;— —-—-—f—o—n—t—-—b—o—d—y—:—'—D—M— —S—a—n—s—'—,—s—a—n—s—-—s—e—r—i—f—;— —}—
+— — — — —b—o—d—y— —{— —b—a—c—k—g—r—o—u—n—d—:—v—a—r—(—-—-—n—a—v—y—)—;— —c—o—l—o—r—:—v—a—r—(—-—-—c—r—e—a—m—)—;— —f—o—n—t—-—f—a—m—i—l—y—:—v—a—r—(—-—-—f—o—n—t—-—b—o—d—y—)—;— —f—o—n—t—-—s—i—z—e—:—1—6—p—x—;— —o—v—e—r—f—l—o—w—:—h—i—d—d—e—n—;— —}—
+— — — — —b—o—d—y—:—:—b—e—f—o—r—e— —{— —c—o—n—t—e—n—t—:—'—'—;— —p—o—s—i—t—i—o—n—:—f—i—x—e—d—;— —i—n—s—e—t—:—0—;— —b—a—c—k—g—r—o—u—n—d—-—i—m—a—g—e—:—u—r—l—(—"—d—a—t—a—:—i—m—a—g—e—/—s—v—g—+—x—m—l—,—%—3—C—s—v—g— —v—i—e—w—B—o—x—=—'—0— —0— —2—5—6— —2—5—6—'— —x—m—l—n—s—=—'—h—t—t—p—:—/—/—w—w—w—.—w—3—.—o—r—g—/—2—0—0—0—/—s—v—g—'—%—3—E—%—3—C—f—i—l—t—e—r— —i—d—=—'—n—'—%—3—E—%—3—C—f—e—T—u—r—b—u—l—e—n—c—e— —t—y—p—e—=—'—f—r—a—c—t—a—l—N—o—i—s—e—'— —b—a—s—e—F—r—e—q—u—e—n—c—y—=—'—0—.—9—'— —n—u—m—O—c—t—a—v—e—s—=—'—4—'— —s—t—i—t—c—h—T—i—l—e—s—=—'—s—t—i—t—c—h—'—/—%—3—E—%—3—C—/—f—i—l—t—e—r—%—3—E—%—3—C—r—e—c—t— —w—i—d—t—h—=—'—1—0—0—%—2—5—'— —h—e—i—g—h—t—=—'—1—0—0—%—2—5—'— —f—i—l—t—e—r—=—'—u—r—l—(—%—2—3—n—)—'— —o—p—a—c—i—t—y—=—'—0—.—0—4—'—/—%—3—E—%—3—C—/—s—v—g—%—3—E—"—)—;— —p—o—i—n—t—e—r—-—e—v—e—n—t—s—:—n—o—n—e—;— —o—p—a—c—i—t—y—:—0—.—6—;— —}—
+— — — — —.—c—o—n—t—a—i—n—e—r— —{— —m—a—x—-—w—i—d—t—h—:—8—0—0—p—x—;— —m—a—r—g—i—n—:—0— —a—u—t—o—;— —p—a—d—d—i—n—g—:—8—r—e—m— —5—%— —4—r—e—m—;— —p—o—s—i—t—i—o—n—:—r—e—l—a—t—i—v—e—;— —z—-—i—n—d—e—x—:—1—;— —}—
+— — — — —.—l—o—g—o— —{— —f—o—n—t—-—f—a—m—i—l—y—:—v—a—r—(—-—-—f—o—n—t—-—d—i—s—p—l—a—y—)—;— —f—o—n—t—-—s—i—z—e—:—1—.—5—r—e—m—;— —f—o—n—t—-—w—e—i—g—h—t—:—7—0—0—;— —c—o—l—o—r—:—v—a—r—(—-—-—w—h—i—t—e—)—;— —t—e—x—t—-—a—l—i—g—n—:—c—e—n—t—e—r—;— —m—a—r—g—i—n—-—b—o—t—t—o—m—:—2—r—e—m—;— —}—
+— — — — —.—l—o—g—o— —s—p—a—n— —{— —c—o—l—o—r—:—v—a—r—(—-—-—g—o—l—d—)—;— —}—
+— — — — —h—1— —{— —f—o—n—t—-—f—a—m—i—l—y—:—v—a—r—(—-—-—f—o—n—t—-—d—i—s—p—l—a—y—)—;— —f—o—n—t—-—s—i—z—e—:—2—.—5—r—e—m—;— —c—o—l—o—r—:—v—a—r—(—-—-—w—h—i—t—e—)—;— —t—e—x—t—-—a—l—i—g—n—:—c—e—n—t—e—r—;— —m—a—r—g—i—n—-—b—o—t—t—o—m—:—0—.—5—r—e—m—;— —}—
+— — — — —h—1— —e—m— —{— —c—o—l—o—r—:—v—a—r—(—-—-—g—o—l—d—-—l—t—)—;— —f—o—n—t—-—s—t—y—l—e—:—i—t—a—l—i—c—;— —}—
+— — — — —.—s—u—b—t—i—t—l—e— —{— —t—e—x—t—-—a—l—i—g—n—:—c—e—n—t—e—r—;— —c—o—l—o—r—:—v—a—r—(—-—-—g—r—e—y—)—;— —m—a—r—g—i—n—-—b—o—t—t—o—m—:—2—r—e—m—;— —}—
+— — — — —.—t—o—o—l—-—b—o—x— —{— —b—a—c—k—g—r—o—u—n—d—:—v—a—r—(—-—-—n—a—v—y—-—m—i—d—)—;— —b—o—r—d—e—r—:—1—p—x— —s—o—l—i—d— —r—g—b—a—(—2—0—1—,—1—6—8—,—7—6—,—0—.—2—)—;— —b—o—r—d—e—r—-—r—a—d—i—u—s—:—1—6—p—x—;— —p—a—d—d—i—n—g—:—2—r—e—m—;— —}—
+— — — — —.—i—n—p—u—t—-—g—r—o—u—p— —{— —m—a—r—g—i—n—-—b—o—t—t—o—m—:—1—.—5—r—e—m—;— —}—
+— — — — —.—i—n—p—u—t—-—g—r—o—u—p— —l—a—b—e—l— —{— —d—i—s—p—l—a—y—:—b—l—o—c—k—;— —f—o—n—t—-—s—i—z—e—:—0—.—7—5—r—e—m—;— —c—o—l—o—r—:—v—a—r—(—-—-—g—o—l—d—)—;— —t—e—x—t—-—t—r—a—n—s—f—o—r—m—:—u—p—p—e—r—c—a—s—e—;— —l—e—t—t—e—r—-—s—p—a—c—i—n—g—:—0—.—1—e—m—;— —m—a—r—g—i—n—-—b—o—t—t—o—m—:—0—.—5—r—e—m—;— —}—
+— — — — —.—i—n—p—u—t—-—g—r—o—u—p— —i—n—p—u—t—,— —.—i—n—p—u—t—-—g—r—o—u—p— —s—e—l—e—c—t— —{— —w—i—d—t—h—:—1—0—0—%—;— —p—a—d—d—i—n—g—:—1—r—e—m—;— —b—a—c—k—g—r—o—u—n—d—:—v—a—r—(—-—-—n—a—v—y—)—;— —b—o—r—d—e—r—:—1—p—x— —s—o—l—i—d— —r—g—b—a—(—2—0—1—,—1—6—8—,—7—6—,—0—.—2—)—;— —b—o—r—d—e—r—-—r—a—d—i—u—s—:—8—p—x—;— —c—o—l—o—r—:—v—a—r—(—-—-—c—r—e—a—m—)—;— —f—o—n—t—-—s—i—z—e—:—1—r—e—m—;— —}—
+— — — — —.—g—e—n—e—r—a—t—e—-—b—t—n— —{— —w—i—d—t—h—:—1—0—0—%—;— —p—a—d—d—i—n—g—:—1—r—e—m—;— —b—a—c—k—g—r—o—u—n—d—:—v—a—r—(—-—-—g—o—l—d—)—;— —c—o—l—o—r—:—v—a—r—(—-—-—n—a—v—y—)—;— —f—o—n—t—-—w—e—i—g—h—t—:—7—0—0—;— —t—e—x—t—-—t—r—a—n—s—f—o—r—m—:—u—p—p—e—r—c—a—s—e—;— —l—e—t—t—e—r—-—s—p—a—c—i—n—g—:—0—.—0—8—e—m—;— —b—o—r—d—e—r—:—n—o—n—e—;— —b—o—r—d—e—r—-—r—a—d—i—u—s—:—8—p—x—;— —c—u—r—s—o—r—:—p—o—i—n—t—e—r—;— —}—
+— — — — —.—g—e—n—e—r—a—t—e—-—b—t—n—:—h—o—v—e—r— —{— —b—a—c—k—g—r—o—u—n—d—:—v—a—r—(—-—-—g—o—l—d—-—l—t—)—;— —}—
+— — — — —.—r—e—s—u—l—t—s— —{— —m—a—r—g—i—n—-—t—o—p—:—2—r—e—m—;— —d—i—s—p—l—a—y—:—n—o—n—e—;— —}—
+— — — — —.—r—e—s—u—l—t—s—.—s—h—o—w— —{— —d—i—s—p—l—a—y—:—b—l—o—c—k—;— —}—
+— — — — —.—r—e—s—u—l—t—s— —h—3— —{— —c—o—l—o—r—:—v—a—r—(—-—-—w—h—i—t—e—)—;— —f—o—n—t—-—s—i—z—e—:—1—r—e—m—;— —m—a—r—g—i—n—-—b—o—t—t—o—m—:—1—r—e—m—;— —}—
+— — — — —.—h—a—s—h—t—a—g—-—b—o—x— —{— —b—a—c—k—g—r—o—u—n—d—:—v—a—r—(—-—-—n—a—v—y—)—;— —b—o—r—d—e—r—-—r—a—d—i—u—s—:—1—2—p—x—;— —p—a—d—d—i—n—g—:—1—.—5—r—e—m—;— —m—a—r—g—i—n—-—b—o—t—t—o—m—:—1—r—e—m—;— —}—
+— — — — —.—h—a—s—h—t—a—g—s— —{— —f—o—n—t—-—s—i—z—e—:—0—.—9—5—r—e—m—;— —c—o—l—o—r—:—v—a—r—(—-—-—c—r—e—a—m—)—;— —l—i—n—e—-—h—e—i—g—h—t—:—2—;— —w—o—r—d—-—w—r—a—p—:—b—r—e—a—k—-—w—o—r—d—;— —}—
+— — — — —.—c—o—p—y—-—b—t—n— —{— —b—a—c—k—g—r—o—u—n—d—:—r—g—b—a—(—2—0—1—,—1—6—8—,—7—6—,—0—.—1—5—)—;— —b—o—r—d—e—r—:—1—p—x— —s—o—l—i—d— —v—a—r—(—-—-—g—o—l—d—)—;— —c—o—l—o—r—:—v—a—r—(—-—-—g—o—l—d—)—;— —p—a—d—d—i—n—g—:—0—.—8—r—e—m— —2—r—e—m—;— —b—o—r—d—e—r—-—r—a—d—i—u—s—:—6—p—x—;— —c—u—r—s—o—r—:—p—o—i—n—t—e—r—;— —f—o—n—t—-—s—i—z—e—:—0—.—9—r—e—m—;— —}—
+— — — — —.—c—o—p—y—-—b—t—n—:—h—o—v—e—r— —{— —b—a—c—k—g—r—o—u—n—d—:—v—a—r—(—-—-—g—o—l—d—)—;— —c—o—l—o—r—:—v—a—r—(—-—-—n—a—v—y—)—;— —}—
+— — — — —.—t—i—p— —{— —b—a—c—k—g—r—o—u—n—d—:—r—g—b—a—(—3—4—,—1—9—7—,—9—4—,—0—.—1—)—;— —b—o—r—d—e—r—:—1—p—x— —s—o—l—i—d— —r—g—b—a—(—3—4—,—1—9—7—,—9—4—,—0—.—2—)—;— —p—a—d—d—i—n—g—:—1—r—e—m—;— —b—o—r—d—e—r—-—r—a—d—i—u—s—:—8—p—x—;— —m—a—r—g—i—n—-—t—o—p—:—1—.—5—r—e—m—;— —f—o—n—t—-—s—i—z—e—:—0—.—8—5—r—e—m—;— —c—o—l—o—r—:—v—a—r—(—-—-—s—u—c—c—e—s—s—)—;— —}—
+— — — — —f—o—o—t—e—r— —{— —t—e—x—t—-—a—l—i—g—n—:—c—e—n—t—e—r—;— —p—a—d—d—i—n—g—:—2—r—e—m—;— —f—o—n—t—-—s—i—z—e—:—0—.—8—r—e—m—;— —c—o—l—o—r—:—v—a—r—(—-—-—g—r—e—y—)—;— —}—
+— — —<—/—s—t—y—l—e—>—
+— — —<—l—i—n—k— —r—e—l—=—"—s—t—y—l—e—s—h—e—e—t—"— —h—r—e—f—=—"—c—s—s—/—n—a—v—i—g—a—t—i—o—n—.—c—s—s—"— —/—>—
+—<—/—h—e—a—d—>—
+—<—b—o—d—y—>—
+— — —<—d—i—v— —c—l—a—s—s—=—"—c—o—n—t—a—i—n—e—r—"—>—
+— — — — —<—d—i—v— —c—l—a—s—s—=—"—l—o—g—o—"—>—H—e—p—h—z—i—b—a—h— —<—s—p—a—n—>—M—e—d—i—a—<—/—s—p—a—n—>—<—/—d—i—v—>—
+— — — — —<—h—1—>—H—a—s—h—t—a—g— —<—e—m—>—G—e—n—e—r—a—t—o—r—<—/—e—m—>—<—/—h—1—>—
+— — — — —<—p— —c—l—a—s—s—=—"—s—u—b—t—i—t—l—e—"—>—G—e—n—e—r—a—t—e— —p—e—r—f—e—c—t— —h—a—s—h—t—a—g—s— —f—o—r— —y—o—u—r— —N—i—g—e—r—i—a—n— —a—u—d—i—e—n—c—e—<—/—p—>—
+—
+— — — — —<—d—i—v— —c—l—a—s—s—=—"—t—o—o—l—-—b—o—x—"—>—
+— — — — — — —<—f—o—r—m— —i—d—=—"—h—a—s—h—t—a—g—F—o—r—m—"—>—
+— — — — — — — — —<—d—i—v— —c—l—a—s—s—=—"—i—n—p—u—t—-—g—r—o—u—p—"—>—
+— — — — — — — — — — —<—l—a—b—e—l—>—W—h—a—t— —i—s— —y—o—u—r— —p—o—s—t— —a—b—o—u—t—?—<—/—l—a—b—e—l—>—
+— — — — — — — — — — —<—i—n—p—u—t— —t—y—p—e—=—"—t—e—x—t—"— —i—d—=—"—t—o—p—i—c—"— —p—l—a—c—e—h—o—l—d—e—r—=—"—e—.—g—.—,— —f—i—t—n—e—s—s—,— —r—e—s—t—a—u—r—a—n—t—,— —f—a—s—h—i—o—n—,— —t—e—c—h—"— —r—e—q—u—i—r—e—d—>—
+— — — — — — — — —<—/—d—i—v—>—
+— — — — — — — — —<—d—i—v— —c—l—a—s—s—=—"—i—n—p—u—t—-—g—r—o—u—p—"—>—
+— — — — — — — — — — —<—l—a—b—e—l—>—P—l—a—t—f—o—r—m—<—/—l—a—b—e—l—>—
+— — — — — — — — — — —<—s—e—l—e—c—t— —i—d—=—"—p—l—a—t—f—o—r—m—"—>—
+— — — — — — — — — — — — —<—o—p—t—i—o—n— —v—a—l—u—e—=—"—i—n—s—t—a—g—r—a—m—"—>—I—n—s—t—a—g—r—a—m—<—/—o—p—t—i—o—n—>—
+— — — — — — — — — — — — —<—o—p—t—i—o—n— —v—a—l—u—e—=—"—t—w—i—t—t—e—r—"—>—T—w—i—t—t—e—r—/—X—<—/—o—p—t—i—o—n—>—
+— — — — — — — — — — — — —<—o—p—t—i—o—n— —v—a—l—u—e—=—"—l—i—n—k—e—d—i—n—"—>—L—i—n—k—e—d—I—n—<—/—o—p—t—i—o—n—>—
+— — — — — — — — — — — — —<—o—p—t—i—o—n— —v—a—l—u—e—=—"—t—i—k—t—o—k—"—>—T—i—k—T—o—k—<—/—o—p—t—i—o—n—>—
+— — — — — — — — — — —<—/—s—e—l—e—c—t—>—
+— — — — — — — — —<—/—d—i—v—>—
+— — — — — — — — —<—d—i—v— —c—l—a—s—s—=—"—i—n—p—u—t—-—g—r—o—u—p—"—>—
+— — — — — — — — — — —<—l—a—b—e—l—>—P—o—s—t— —T—y—p—e—<—/—l—a—b—e—l—>—
+— — — — — — — — — — —<—s—e—l—e—c—t— —i—d—=—"—p—o—s—t—T—y—p—e—"—>—
+— — — — — — — — — — — — —<—o—p—t—i—o—n— —v—a—l—u—e—=—"—g—e—n—e—r—a—l—"—>—G—e—n—e—r—a—l— —P—o—s—t—<—/—o—p—t—i—o—n—>—
+— — — — — — — — — — — — —<—o—p—t—i—o—n— —v—a—l—u—e—=—"—p—r—o—m—o—"—>—P—r—o—m—o—t—i—o—n—/—S—a—l—e—<—/—o—p—t—i—o—n—>—
+— — — — — — — — — — — — —<—o—p—t—i—o—n— —v—a—l—u—e—=—"—e—d—u—c—a—t—i—o—n—"—>—E—d—u—c—a—t—i—o—n—a—l—<—/—o—p—t—i—o—n—>—
+— — — — — — — — — — — — —<—o—p—t—i—o—n— —v—a—l—u—e—=—"—e—v—e—n—t—"—>—E—v—e—n—t—/—A—n—n—o—u—n—c—e—m—e—n—t—<—/—o—p—t—i—o—n—>—
+— — — — — — — — — — — — —<—o—p—t—i—o—n— —v—a—l—u—e—=—"—b—e—h—i—n—d—"—>—B—e—h—i—n—d— —t—h—e— —S—c—e—n—e—s—<—/—o—p—t—i—o—n—>—
+— — — — — — — — — — —<—/—s—e—l—e—c—t—>—
+— — — — — — — — —<—/—d—i—v—>—
+— — — — — — — — —<—b—u—t—t—o—n— —t—y—p—e—=—"—s—u—b—m—i—t—"— —c—l—a—s—s—=—"—g—e—n—e—r—a—t—e—-—b—t—n—"—>—G—e—n—e—r—a—t—e— —H—a—s—h—t—a—g—s—<—/—b—u—t—t—o—n—>—
+— — — — — — —<—/—f—o—r—m—>—
+—
+— — — — — — —<—d—i—v— —c—l—a—s—s—=—"—r—e—s—u—l—t—s—"— —i—d—=—"—r—e—s—u—l—t—s—"—>—
+— — — — — — — — —<—h—3—>—📋— —Y—o—u—r— —H—a—s—h—t—a—g—s— —(—C—l—i—c—k— —t—o— —c—o—p—y—)—<—/—h—3—>—
+— — — — — — — — —<—d—i—v— —c—l—a—s—s—=—"—h—a—s—h—t—a—g—-—b—o—x—"—>—
+— — — — — — — — — — —<—p— —c—l—a—s—s—=—"—h—a—s—h—t—a—g—s—"— —i—d—=—"—h—a—s—h—t—a—g—O—u—t—p—u—t—"—>—<—/—p—>—
+— — — — — — — — —<—/—d—i—v—>—
+— — — — — — — — —<—b—u—t—t—o—n— —c—l—a—s—s—=—"—c—o—p—y—-—b—t—n—"— —o—n—c—l—i—c—k—=—"—c—o—p—y—H—a—s—h—t—a—g—s—(—)—"—>—C—o—p—y— —A—l—l— —H—a—s—h—t—a—g—s—<—/—b—u—t—t—o—n—>—
+— — — — — — — — —<—d—i—v— —c—l—a—s—s—=—"—t—i—p—"—>—💡— —T—i—p—:— —U—s—e— —5—-—1—5— —h—a—s—h—t—a—g—s— —f—o—r— —b—e—s—t— —r—e—s—u—l—t—s— —o—n— —I—n—s—t—a—g—r—a—m—<—/—d—i—v—>—
+— — — — — — —<—/—d—i—v—>—
+— — — — —<—/—d—i—v—>—
+— — —<—/—d—i—v—>—
+—
+— — —<—f—o—o—t—e—r—>—
+— — — — —<—p—>—&—c—o—p—y—;— —2—0—2—6— —H—e—p—h—z—i—b—a—h— —M—e—d—i—a—.— —A—l—l— —r—i—g—h—t—s— —r—e—s—e—r—v—e—d—.—<—/—p—>—
+— — —<—/—f—o—o—t—e—r—>—
+—
+— — —<—s—c—r—i—p—t—>—
+— — — — —c—o—n—s—t— —h—a—s—h—t—a—g—D—a—t—a—b—a—s—e— —=— —{—
+— — — — — — —f—i—t—n—e—s—s—:— —[—'—#—F—i—t—n—e—s—s—N—i—g—e—r—i—a—'—,— —'—#—G—y—m—L—a—g—o—s—'—,— —'—#—F—i—t—F—a—m—N—i—g—e—r—i—a—'—,— —'—#—W—o—r—k—o—u—t—T—i—p—s—'—,— —'—#—H—e—a—l—t—h—A—n—d—W—e—l—l—n—e—s—s—N—G—'—,— —'—#—F—i—t—n—e—s—s—M—o—t—i—v—a—t—i—o—n—'—,— —'—#—N—i—g—e—r—i—a—F—i—t—'—,— —'—#—F—i—t—L—i—f—e—N—i—g—e—r—i—a—'—,— —'—#—E—x—e—r—c—i—s—e—N—G—'—,— —'—#—W—e—l—l—n—e—s—s—N—i—g—e—r—i—a—'—,— —'—#—F—i—t—G—i—r—l—N—i—g—e—r—i—a—'—,— —'—#—G—y—m—M—o—t—i—v—a—t—i—o—n—'—]—,—
+— — — — — — —r—e—s—t—a—u—r—a—n—t—:— —[—'—#—N—i—g—e—r—i—a—n—F—o—o—d—'—,— —'—#—F—o—o—d—B—l—o—g—N—i—g—e—r—i—a—'—,— —'—#—R—e—s—t—a—u—r—a—n—t—L—a—g—o—s—'—,— —'—#—N—i—g—e—r—i—a—n—C—u—i—s—i—n—e—'—,— —'—#—F—o—o—d—i—e—N—i—g—e—r—i—a—'—,— —'—#—L—a—g—o—s—E—a—t—s—'—,— —'—#—N—i—g—e—r—i—a—n—R—e—s—t—a—u—r—a—n—t—'—,— —'—#—F—o—o—d—L—o—v—e—r—s—N—G—'—,— —'—#—A—b—u—j—a—F—o—o—d—'—,— —'—#—Y—a—m—m—y—F—o—o—d—'—,— —'—#—F—o—o—d—N—i—g—e—r—i—a—'—,— —'—#—R—e—s—t—a—u—r—a—n—t—R—e—v—i—e—w—'—]—,—
+— — — — — — —f—a—s—h—i—o—n—:— —[—'—#—N—i—g—e—r—i—a—n—F—a—s—h—i—o—n—'—,— —'—#—F—a—s—h—i—o—n—N—i—g—e—r—i—a—'—,— —'—#—A—n—k—a—r—a—S—t—y—l—e—s—'—,— —'—#—N—i—g—e—r—i—a—n—S—t—y—l—e—'—,— —'—#—F—a—s—h—i—o—n—L—a—g—o—s—'—,— —'—#—A—n—k—a—r—a—L—o—v—e—r—'—,— —'—#—N—i—g—e—r—i—a—F—a—s—h—i—o—n—'—,— —'—#—S—t—y—l—e—N—i—g—e—r—i—a—'—,— —'—#—A—f—r—i—c—a—n—F—a—s—h—i—o—n—'—,— —'—#—W—e—a—r—s—N—i—g—e—r—i—a—n—'—,— —'—#—F—a—s—h—i—o—n—B—l—o—g—g—e—r—N—G—'—,— —'—#—T—r—e—n—d—A—l—e—r—t—'—]—,—
+— — — — — — —t—e—c—h—:— —[—'—#—T—e—c—h—N—i—g—e—r—i—a—'—,— —'—#—S—t—a—r—t—u—p—s—N—i—g—e—r—i—a—'—,— —'—#—N—i—g—e—r—i—a—n—T—e—c—h—'—,— —'—#—I—n—n—o—v—a—t—i—o—n—N—G—'—,— —'—#—T—e—c—h—H—u—b—L—a—g—o—s—'—,— —'—#—D—i—g—i—t—a—l—N—i—g—e—r—i—a—'—,— —'—#—T—e—c—h—N—e—w—s—N—G—'—,— —'—#—N—i—g—e—r—i—a—S—t—a—r—t—u—p—s—'—,— —'—#—T—e—c—h—C—o—m—m—u—n—i—t—y—'—,— —'—#—C—o—d—i—n—g—N—i—g—e—r—i—a—'—,— —'—#—I—T—N—i—g—e—r—i—a—'—,— —'—#—T—e—c—h—T—r—e—n—d—s—'—]—,—
+— — — — — — —b—u—s—i—n—e—s—s—:— —[—'—#—N—i—g—e—r—i—a—n—B—u—s—i—n—e—s—s—'—,— —'—#—B—u—s—i—n—e—s—s—N—i—g—e—r—i—a—'—,— —'—#—S—M—E—N—i—g—e—r—i—a—'—,— —'—#—E—n—t—r—e—p—r—e—n—e—u—r—N—i—g—e—r—i—a—'—,— —'—#—B—u—s—i—n—e—s—s—G—r—o—w—t—h—'—,— —'—#—L—a—g—o—s—B—u—s—i—n—e—s—s—'—,— —'—#—N—i—g—e—r—i—a—n—E—n—t—r—e—p—r—e—n—e—u—r—'—,— —'—#—B—u—s—i—n—e—s—s—T—i—p—s—N—G—'—,— —'—#—S—M—E—G—r—o—w—t—h—'—,— —'—#—N—i—g—e—r—i—a—B—u—s—i—n—e—s—s—'—,— —'—#—B—u—s—i—n—e—s—s—O—w—n—e—r—'—,— —'—#—H—u—s—t—l—e—H—a—r—d—N—G—'—]—,—
+— — — — — — —e—d—u—c—a—t—i—o—n—:— —[—'—#—N—i—g—e—r—i—a—E—d—u—c—a—t—i—o—n—'—,— —'—#—L—e—a—r—n—i—n—g—N—i—g—e—r—i—a—'—,— —'—#—S—t—u—d—y—T—i—p—s—'—,— —'—#—N—i—g—e—r—i—a—n—S—t—u—d—e—n—t—s—'—,— —'—#—E—d—u—c—a—t—i—o—n—M—a—t—t—e—r—s—'—,— —'—#—L—a—g—o—s—S—t—u—d—e—n—t—s—'—,— —'—#—O—n—l—i—n—e—L—e—a—r—n—i—n—g—N—G—'—,— —'—#—E—x—a—m—T—i—p—s—'—,— —'—#—N—i—g—e—r—i—a—U—n—i—v—e—r—s—i—t—i—e—s—'—,— —'—#—S—c—h—o—l—a—r—s—h—i—p—N—i—g—e—r—i—a—'—,— —'—#—S—t—u—d—y—A—b—r—o—a—d—N—G—'—,— —'—#—E—d—u—c—a—t—i—o—n—N—e—w—s—'—]—,—
+— — — — — — —b—e—a—u—t—y—:— —[—'—#—N—i—g—e—r—i—a—n—B—e—a—u—t—y—'—,— —'—#—B—e—a—u—t—y—N—i—g—e—r—i—a—'—,— —'—#—M—a—k—e—u—p—N—i—g—e—r—i—a—'—,— —'—#—S—k—i—n—c—a—r—e—N—G—'—,— —'—#—B—e—a—u—t—y—T—i—p—s—'—,— —'—#—L—a—g—o—s—B—e—a—u—t—y—'—,— —'—#—N—i—g—e—r—i—a—n—B—l—o—g—g—e—r—'—,— —'—#—N—a—t—u—r—a—l—H—a—i—r—N—G—'—,— —'—#—B—e—a—u—t—y—P—r—o—d—u—c—t—s—'—,— —'—#—G—l—o—w—U—p—N—i—g—e—r—i—a—'—,— —'—#—H—a—i—r—C—a—r—e—N—G—'—,— —'—#—B—e—a—u—t—y—R—o—u—t—i—n—e—'—]—,—
+— — — — — — —t—r—a—v—e—l—:— —[—'—#—N—i—g—e—r—i—a—T—r—a—v—e—l—'—,— —'—#—T—r—a—v—e—l—N—i—g—e—r—i—a—'—,— —'—#—E—x—p—l—o—r—e—N—i—g—e—r—i—a—'—,— —'—#—T—o—u—r—i—s—m—N—i—g—e—r—i—a—'—,— —'—#—L—a—g—o—s—T—r—a—v—e—l—'—,— —'—#—N—i—g—e—r—i—a—T—o—u—r—i—s—m—'—,— —'—#—T—r—a—v—e—l—B—l—o—g—N—G—'—,— —'—#—W—a—n—d—e—r—l—u—s—t—N—i—g—e—r—i—a—'—,— —'—#—A—d—v—e—n—t—u—r—e—N—G—'—,— —'—#—P—l—a—c—e—s—T—o—V—i—s—i—t—N—G—'—,— —'—#—N—i—g—e—r—i—a—T—r—a—v—e—l—D—i—a—r—i—e—s—'—,— —'—#—T—r—a—v—e—l—N—i—g—e—r—i—a—'—]—
+— — — — —}—;—
+—
+— — — — —c—o—n—s—t— —p—l—a—t—f—o—r—m—P—r—e—f—i—x—e—s— —=— —{—
+— — — — — — —i—n—s—t—a—g—r—a—m—:— —{— —p—r—e—f—i—x—:— —'—'—,— —m—i—n—:— —1—5—,— —m—a—x—:— —3—0— —}—,—
+— — — — — — —t—w—i—t—t—e—r—:— —{— —p—r—e—f—i—x—:— —'—'—,— —m—i—n—:— —3—,— —m—a—x—:— —5— —}—,—
+— — — — — — —l—i—n—k—e—d—i—n—:— —{— —p—r—e—f—i—x—:— —'—'—,— —m—i—n—:— —3—,— —m—a—x—:— —5— —}—,—
+— — — — — — —t—i—k—t—o—k—:— —{— —p—r—e—f—i—x—:— —'—'—,— —m—i—n—:— —5—,— —m—a—x—:— —1—0— —}—
+— — — — —}—;—
+—
+— — — — —c—o—n—s—t— —t—y—p—e—M—o—d—i—f—i—e—r—s— —=— —{—
+— — — — — — —g—e—n—e—r—a—l—:— —[—]—,—
+— — — — — — —p—r—o—m—o—:— —[—'—#—S—a—l—e—A—l—e—r—t—'—,— —'—#—L—i—m—i—t—e—d—O—f—f—e—r—'—,— —'—#—D—i—s—c—o—u—n—t—A—l—e—r—t—'—,— —'—#—P—r—o—m—o—N—G—'—,— —'—#—B—l—a—c—k—F—r—i—d—a—y—N—G—'—,— —'—#—F—l—a—s—h—S—a—l—e—'—]—,—
+— — — — — — —e—d—u—c—a—t—i—o—n—:— —[—'—#—L—e—a—r—n—O—n—T—i—k—T—o—k—'—,— —'—#—E—d—u—c—a—t—i—o—n—T—i—p—s—'—,— —'—#—K—n—o—w—l—e—d—g—e—I—s—P—o—w—e—r—'—,— —'—#—L—e—a—r—n—F—r—o—m—H—o—m—e—'—,— —'—#—S—k—i—l—l—D—e—v—e—l—o—p—m—e—n—t—'—]—,—
+— — — — — — —e—v—e—n—t—:— —[—'—#—E—v—e—n—t—A—l—e—r—t—'—,— —'—#—S—a—v—e—T—h—e—D—a—t—e—'—,— —'—#—C—o—m—i—n—g—S—o—o—n—'—,— —'—#—E—v—e—n—t—N—i—g—e—r—i—a—'—,— —'—#—A—n—n—o—u—n—c—e—m—e—n—t—'—]—,—
+— — — — — — —b—e—h—i—n—d—:— —[—'—#—B—e—h—i—n—d—T—h—e—S—c—e—n—e—s—'—,— —'—#—B—T—S—'—,— —'—#—D—a—y—I—n—M—y—L—i—f—e—'—,— —'—#—W—o—r—k—I—n—P—r—o—g—r—e—s—s—'—,— —'—#—R—e—a—l—L—i—f—e—N—G—'—]—
+— — — — —}—;—
+—
+— — — — —d—o—c—u—m—e—n—t—.—g—e—t—E—l—e—m—e—n—t—B—y—I—d—(—'—h—a—s—h—t—a—g—F—o—r—m—'—)—.—a—d—d—E—v—e—n—t—L—i—s—t—e—n—e—r—(—'—s—u—b—m—i—t—'—,— —f—u—n—c—t—i—o—n—(—e—)— —{—
+— — — — — — —e—.—p—r—e—v—e—n—t—D—e—f—a—u—l—t—(—)—;—
+— — — — — — —c—o—n—s—t— —t—o—p—i—c— —=— —d—o—c—u—m—e—n—t—.—g—e—t—E—l—e—m—e—n—t—B—y—I—d—(—'—t—o—p—i—c—'—)—.—v—a—l—u—e—.—t—o—L—o—w—e—r—C—a—s—e—(—)—;—
+— — — — — — —c—o—n—s—t— —p—l—a—t—f—o—r—m— —=— —d—o—c—u—m—e—n—t—.—g—e—t—E—l—e—m—e—n—t—B—y—I—d—(—'—p—l—a—t—f—o—r—m—'—)—.—v—a—l—u—e—;—
+— — — — — — —c—o—n—s—t— —p—o—s—t—T—y—p—e— —=— —d—o—c—u—m—e—n—t—.—g—e—t—E—l—e—m—e—n—t—B—y—I—d—(—'—p—o—s—t—T—y—p—e—'—)—.—v—a—l—u—e—;—
+— — — — — — —
+— — — — — — —l—e—t— —h—a—s—h—t—a—g—s— —=— —[—]—;—
+— — — — — — —c—o—n—s—t— —t—o—p—i—c—D—a—t—a— —=— —h—a—s—h—t—a—g—D—a—t—a—b—a—s—e—[—t—o—p—i—c—]— —|—|— —h—a—s—h—t—a—g—D—a—t—a—b—a—s—e—.—b—u—s—i—n—e—s—s—;—
+— — — — — — —
+— — — — — — —c—o—n—s—t— —p—l—a—t—f—o—r—m—D—a—t—a— —=— —p—l—a—t—f—o—r—m—P—r—e—f—i—x—e—s—[—p—l—a—t—f—o—r—m—]—;—
+— — — — — — —c—o—n—s—t— —c—o—u—n—t— —=— —M—a—t—h—.—f—l—o—o—r—(—M—a—t—h—.—r—a—n—d—o—m—(—)— —*— —(—p—l—a—t—f—o—r—m—D—a—t—a—.—m—a—x— —-— —p—l—a—t—f—o—r—m—D—a—t—a—.—m—i—n—)— —+— —p—l—a—t—f—o—r—m—D—a—t—a—.—m—i—n—)—;—
+— — — — — — —
+— — — — — — —c—o—n—s—t— —s—h—u—f—f—l—e—d— —=— —t—o—p—i—c—D—a—t—a—.—s—o—r—t—(—(—)— —=—>— —0—.—5— —-— —M—a—t—h—.—r—a—n—d—o—m—(—)—)—;—
+— — — — — — —h—a—s—h—t—a—g—s— —=— —s—h—u—f—f—l—e—d—.—s—l—i—c—e—(—0—,— —M—a—t—h—.—m—i—n—(—c—o—u—n—t—,— —s—h—u—f—f—l—e—d—.—l—e—n—g—t—h—)—)—;—
+— — — — — — —
+— — — — — — —c—o—n—s—t— —m—o—d—i—f—i—e—r—s— —=— —t—y—p—e—M—o—d—i—f—i—e—r—s—[—p—o—s—t—T—y—p—e—]—;—
+— — — — — — —i—f— —(—m—o—d—i—f—i—e—r—s— —&—&— —m—o—d—i—f—i—e—r—s—.—l—e—n—g—t—h— —>— —0—)— —{—
+— — — — — — — — —c—o—n—s—t— —a—d—d—M—o—d—i—f—i—e—r—s— —=— —M—a—t—h—.—m—i—n—(—2—,— —m—o—d—i—f—i—e—r—s—.—l—e—n—g—t—h—)—;—
+— — — — — — — — —h—a—s—h—t—a—g—s— —=— —h—a—s—h—t—a—g—s—.—c—o—n—c—a—t—(—m—o—d—i—f—i—e—r—s—.—s—l—i—c—e—(—0—,— —a—d—d—M—o—d—i—f—i—e—r—s—)—)—;—
+— — — — — — —}—
+— — — — — — —
+— — — — — — —i—f— —(—p—l—a—t—f—o—r—m— —=—=—=— —'—l—i—n—k—e—d—i—n—'— —|—|— —p—l—a—t—f—o—r—m— —=—=—=— —'—t—w—i—t—t—e—r—'—)— —{—
+— — — — — — — — —h—a—s—h—t—a—g—s— —=— —h—a—s—h—t—a—g—s—.—s—l—i—c—e—(—0—,— —p—l—a—t—f—o—r—m—D—a—t—a—.—m—a—x—)—;—
+— — — — — — —}—
+— — — — — — —
+— — — — — — —d—o—c—u—m—e—n—t—.—g—e—t—E—l—e—m—e—n—t—B—y—I—d—(—'—h—a—s—h—t—a—g—O—u—t—p—u—t—'—)—.—t—e—x—t—C—o—n—t—e—n—t— —=— —h—a—s—h—t—a—g—s—.—j—o—i—n—(—'— —'—)—;—
+— — — — — — —d—o—c—u—m—e—n—t—.—g—e—t—E—l—e—m—e—n—t—B—y—I—d—(—'—r—e—s—u—l—t—s—'—)—.—c—l—a—s—s—L—i—s—t—.—a—d—d—(—'—s—h—o—w—'—)—;—
+— — — — —}—)—;—
+—
+— — — — —f—u—n—c—t—i—o—n— —c—o—p—y—H—a—s—h—t—a—g—s—(—)— —{—
+— — — — — — —c—o—n—s—t— —t—e—x—t— —=— —d—o—c—u—m—e—n—t—.—g—e—t—E—l—e—m—e—n—t—B—y—I—d—(—'—h—a—s—h—t—a—g—O—u—t—p—u—t—'—)—.—t—e—x—t—C—o—n—t—e—n—t—;—
+— — — — — — —n—a—v—i—g—a—t—o—r—.—c—l—i—p—b—o—a—r—d—.—w—r—i—t—e—T—e—x—t—(—t—e—x—t—)—;—
+— — — — — — —c—o—n—s—t— —b—t—n— —=— —d—o—c—u—m—e—n—t—.—q—u—e—r—y—S—e—l—e—c—t—o—r—(—'—.—c—o—p—y—-—b—t—n—'—)—;—
+— — — — — — —b—t—n—.—t—e—x—t—C—o—n—t—e—n—t— —=— —'—C—o—p—i—e—d—!— —✅—'—;—
+— — — — — — —s—e—t—T—i—m—e—o—u—t—(—f—u—n—c—t—i—o—n—(—)— —{—
+— — — — — — — — —b—t—n—.—t—e—x—t—C—o—n—t—e—n—t— —=— —'—C—o—p—y— —A—l—l— —H—a—s—h—t—a—g—s—'—;—
+— — — — — — —}—,— —2—0—0—0—)—;—
+— — — — —}—
+— — —<—/—s—c—r—i—p—t—>—
+— — —<—s—c—r—i—p—t— —s—r—c—=—"—j—s—/—n—a—v—i—g—a—t—i—o—n—.—j—s—"—>—<—/—s—c—r—i—p—t—>—
+—<—/—b—o—d—y—>—
+—<—/—h—t—m—l—>—
