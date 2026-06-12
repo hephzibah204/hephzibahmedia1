@@ -45,7 +45,7 @@ function WebEffect() {
       <Points ref={ref} positions={points} stride={3}>
         <PointMaterial transparent color="#00f0ff" size={0.15} sizeAttenuation={true} blending={THREE.AdditiveBlending} opacity={0.6} />
       </Points>
-      <gridHelper args={[100, 50, '#00f0ff', '#002244']} position={[0, -10, -20]} rotation={[Math.PI / 2, 0, 0]} />
+
       <Float speed={2} rotationIntensity={1}>
         <mesh position={[10, 5, -10]}>
           <icosahedronGeometry args={[6, 2]} />
@@ -125,7 +125,7 @@ function SoftwareEffect() {
            </mesh>
          </group>
       </Float>
-      <gridHelper args={[100, 40, '#8b5cf6', '#4c1d95']} rotation={[Math.PI / 2, 0, 0]} position={[0, 0, -30]} />
+
     </group>
   );
 }
@@ -148,7 +148,7 @@ function MobileEffect() {
           </mesh>
         </Float>
       ))}
-      <gridHelper args={[80, 20, '#10b981', '#065f46']} position={[0, -10, -20]} />
+
       <Stars radius={50} depth={50} count={1500} factor={4} saturation={0} />
     </group>
   );
@@ -178,7 +178,7 @@ function MarketingEffect() {
         <octahedronGeometry args={[12, 1]} />
         <meshBasicMaterial color="#f59e0b" wireframe transparent opacity={0.15} blending={THREE.AdditiveBlending} />
       </mesh>
-      <gridHelper args={[100, 50, '#f59e0b', '#78350f']} position={[0, -15, -20]} />
+
     </group>
   );
 }
@@ -207,7 +207,7 @@ function CyberEffect() {
           />
         </mesh>
       </Float>
-      <gridHelper args={[120, 40, '#ff003c', '#4a0011']} position={[0, -12, 0]} rotation={[Math.PI / 2, 0, 0]} />
+
     </group>
   );
 }
